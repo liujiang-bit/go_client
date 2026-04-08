@@ -1,0 +1,176 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <net.uaznia.lukanus.hudson.plugins.gitparameter.GitParameterDefinition plugin="git-parameter@0.9.12">
+          <name>GIT_BRANCH</name>
+          <description>Git分支</description>
+          <uuid>8fdd979b-f438-490e-bebb-3bba5c66e140</uuid>
+          <type>PT_BRANCH</type>
+          <branch></branch>
+          <tagFilter>*</tagFilter>
+          <branchFilter>origin/(.*)</branchFilter>
+          <sortMode>NONE</sortMode>
+          <defaultValue>master</defaultValue>
+          <selectedValue>DEFAULT</selectedValue>
+          <quickFilterEnabled>false</quickFilterEnabled>
+          <listSize>5</listSize>
+        </net.uaznia.lukanus.hudson.plugins.gitparameter.GitParameterDefinition>
+        <com.gem.persistentparameter.PersistentStringParameterDefinition plugin="persistent-parameter@1.1">
+          <name>VersionName</name>
+          <description>大版本号.强更号.VersionCode
+VersionCode必须大于0</description>
+          <defaultValue>1.0.1</defaultValue>
+          <successfulOnly>false</successfulOnly>
+        </com.gem.persistentparameter.PersistentStringParameterDefinition>
+        <com.gem.persistentparameter.PersistentBooleanParameterDefinition plugin="persistent-parameter@1.1">
+          <name>BuildPatch</name>
+          <description>是否编译补丁</description>
+          <defaultValue>false</defaultValue>
+          <successfulOnly>false</successfulOnly>
+        </com.gem.persistentparameter.PersistentBooleanParameterDefinition>
+        <com.gem.persistentparameter.PersistentStringParameterDefinition plugin="persistent-parameter@1.1">
+          <name>PatchNumber</name>
+          <description>补丁版本号</description>
+          <defaultValue>1</defaultValue>
+          <successfulOnly>true</successfulOnly>
+        </com.gem.persistentparameter.PersistentStringParameterDefinition>
+        <alex.jenkins.plugins.FileSystemListParameterDefinition plugin="filesystem-list-parameter-plugin@0.0.6">
+          <name>BasePackage</name>
+          <description>基础包文件名</description>
+          <nodeName>master</nodeName>
+          <path>/Volumes/ssd/Packages/release/android</path>
+          <selectedType>FILE</selectedType>
+          <sortByLastModified>true</sortByLastModified>
+          <sortReverseOrder>true</sortReverseOrder>
+          <selectedEnumType>FILE</selectedEnumType>
+          <regexIncludePattern>.*full.apk</regexIncludePattern>
+          <regexExcludePattern></regexExcludePattern>
+        </alex.jenkins.plugins.FileSystemListParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@4.2.2">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://gitlab.skyunion.net/arb-common/ig-client.git</url>
+        <credentialsId>d884b124-347b-4a38-8887-0d5d69eab268</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>origin/${GIT_BRANCH}</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <customWorkspace>/Volumes/ssd/OC/android</customWorkspace>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>echo &quot;oc-&quot;$(date &quot;+%m-%d&quot;)&quot;_${VersionName}_test_${BUILDS_TODAY}&quot;
+
+SubDir=release/android
+PackageDir=/Volumes/ssd/Packages/${SubDir}
+mkdir -p ${PackageDir}
+VersionNum=(${VersionName//./ }) 
+VersionCode=${VersionNum[2]}
+changeMsg=&quot;Git分支:${GIT_BRANCH}
+Hash:${GIT_COMMIT}&quot;
+
+if [ &quot;${BuildPatch}&quot; == &quot;true&quot; ];then
+echo &quot;BuildTarget:13\nVersionName:&quot;${VersionName}&quot;\nIl2CPP:true\nObb:false\nKeyaliasName:oc\nKeyaliasPass:skyunion\nBuildBundle:true\nResetBundleGroup:true\nARMv7:true\nARM64:true\ntargetSdkVersion:30\nHotFixMode:ILRT\nLogoTime:4&quot; &gt; ${WORKSPACE}/BuildConfig
+/Applications/Unity/Unity.app/Contents/MacOS/Unity -projectPath ${WORKSPACE} -quit -batchmode -executeMethod Skyunion.BuildMenuItem.BuildPackageByConfig -logFile ${WORKSPACE}/Build.log
+PackageName=&quot;oc_&quot;$(date &quot;+%m_%d&quot;)&quot;_V${VersionName}_ilrt&quot;
+OldFile=${PackageDir}/${BasePackage}
+NewFile=&quot;${PackageDir}/${PackageName}.apk&quot;
+mkdir -p ${PackageDir}/${VersionName}
+PatchFile=&quot;${PackageDir}/${VersionName}/${PatchNumber}.zip&quot;
+mv ${WORKSPACE}&quot;/../Packages/Android/Origin of Conquerors&quot;${VersionCode}&quot;.apk&quot; &quot;${PackageDir}/${PackageName}.apk&quot;
+TempDir=&quot;${PackageDir}/temp&quot;
+mkdir -p ${TempDir}
+
+echo &quot;SubDir:assets\nTemp:${TempDir}\nOldFile:${OldFile}\nNewFile:${NewFile}\nPatchFile:${PatchFile}&quot; &gt; ${WORKSPACE}/BuildPatch
+/Applications/Unity/Unity.app/Contents/MacOS/Unity -projectPath ${WORKSPACE} -quit -batchmode -executeMethod Skyunion.BuildMenuItem.BuildPatch -logFile ${WORKSPACE}/Build.log
+
+changeMsg=&quot;${changeMsg}
+旧包:http://10.15.122.36:8088/viewfile/${BasePackage}?path=/${SubDir}/${BasePackage}&quot;
+changeMsg=&quot;${changeMsg}
+新包:http://10.15.122.36:8088/viewfile/${PackageName}.apk?path=/${SubDir}/${PackageName}.apk&quot;
+changeMsg=&quot;${changeMsg}
+补丁文件:http://10.15.122.36:8088/viewfile/${PatchNumber}.zip?path=/${SubDir}/${VersionName}/${PatchNumber}.zip&quot;
+changeMsg=&quot;${changeMsg}
+所有文件:http://10.15.122.36:8088/share#/${SubDir}&quot;
+curl -d &quot;token=d32d3affa842ec468799037636b22dac&amp;target=group&amp;room=10001307&amp;title=补丁打包完成&amp;content_type=1&amp;content=${changeMsg}&amp;at_user=zhongyanghuang&quot; http://im-api.skyunion.net/msg
+
+else
+PackageName=&quot;oc_&quot;$(date &quot;+%m_%d&quot;)&quot;_V${VersionName}_full&quot;
+QaPackageName=&quot;oc_&quot;$(date &quot;+%m_%d&quot;)&quot;_V${VersionName}_test${BUILDS_TODAY}&quot;
+
+echo &quot;BuildTarget:13\nVersionName:&quot;${VersionName}&quot;\nIl2CPP:true\nObb:false\nKeyaliasName:oc\nKeyaliasPass:skyunion\nBuildBundle:true\nResetBundleGroup:true\nARMv7:true\nARM64:true\ntargetSdkVersion:30\nHotFixMode:NativeCode\n&quot;&quot;LogoTime:4&quot; &gt; ${WORKSPACE}/BuildConfig
+/Applications/Unity/Unity.app/Contents/MacOS/Unity -projectPath ${WORKSPACE} -quit -batchmode -executeMethod Skyunion.BuildMenuItem.BuildPackageByConfig -logFile ${WORKSPACE}/Build.log
+
+mv ${WORKSPACE}&quot;/../Packages/Android/Origin of Conquerors&quot;${VersionCode}&quot;.apk&quot; &quot;${PackageDir}/${PackageName}.apk&quot;
+
+changeMsg=&quot;${changeMsg}
+整包:http://10.15.122.36:8088/viewfile/${PackageName}.apk?path=/${SubDir}/${PackageName}.apk&quot;
+changeMsg=&quot;${changeMsg}
+QA测试包:http://10.15.122.36:8088/viewfile/${QaPackageName}.apk?path=/${SubDir}/${PackageName}.apk&quot;
+
+PackageName=&quot;oc_&quot;$(date &quot;+%m_%d&quot;)&quot;_V${VersionName}_obb&quot;
+SymbolName=&quot;${PackageName}-${BUILD_NUMBER}-symbol.zip&quot;
+
+echo &quot;BuildTarget:13\nVersionName:&quot;${VersionName}&quot;\nIl2CPP:true\nObb:true\nKeyaliasName:oc\nKeyaliasPass:skyunion\nBuildBundle:false\nResetBundleGroup:false\nARMv7:true\nARM64:true\ntargetSdkVersion:30\nHotFixMode:NativeCode\nLogoTime:4\nSymbol:true&quot; &gt; ${WORKSPACE}/BuildConfig
+/Applications/Unity/Unity.app/Contents/MacOS/Unity -projectPath ${WORKSPACE} -quit -batchmode -executeMethod Skyunion.BuildMenuItem.BuildPackageByConfig -logFile ${WORKSPACE}/Build.log
+
+mv ${WORKSPACE}&quot;/../Packages/Android/Origin of Conquerors&quot;${VersionCode}&quot;.apk&quot; &quot;${PackageDir}/${PackageName}.apk&quot;
+cp -f ${WORKSPACE}&quot;/../Packages/Android/Origin of Conquerors&quot;${VersionCode}&quot;.main.obb&quot; &quot;${PackageDir}/${PackageName}.obb&quot;
+ObbName=&quot;main.${VersionCode}.com.igg.android.originofconquerors.obb&quot;
+mv ${WORKSPACE}&quot;/../Packages/Android/Origin of Conquerors&quot;${VersionCode}&quot;.main.obb&quot; ${PackageDir}/${ObbName}
+mv ${WORKSPACE}&quot;/../Packages/Android/Origin of Conquerors&quot;${VersionCode}-${VersionName}&quot;-v${VersionCode}.symbols.zip&quot; &quot;${PackageDir}/${SymbolName}&quot;
+
+changeMsg=&quot;${changeMsg}
+商店包:http://10.15.122.36:8088/viewfile/${PackageName}.apk?path=/${SubDir}/${PackageName}.apk&quot;
+changeMsg=&quot;${changeMsg}
+上传用obb:http://10.15.122.36:8088/viewfile/${PackageName}.obb?path=/${SubDir}/${PackageName}.obb&quot;
+changeMsg=&quot;${changeMsg}
+安装用obb:http://10.15.122.36:8088/viewfile/${ObbName}?path=/${SubDir}/${ObbName}&quot;
+changeMsg=&quot;${changeMsg}
+符号文件:http://10.15.122.36:8088/viewfile/${SymbolName}?path=/${SubDir}/${SymbolName}&quot;
+changeMsg=&quot;${changeMsg}
+所有文件:http://10.15.122.36:8088/share#/${SubDir}&quot;
+
+curl -d &quot;token=d32d3affa842ec468799037636b22dac&amp;target=group&amp;room=10001307&amp;title=商店包打包完成&amp;content_type=1&amp;content=${changeMsg}&amp;at_user=zhongyanghuang&quot; http://im-api.skyunion.net/msg
+fi</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <org.jvnet.hudson.tools.versionnumber.VersionNumberBuilder plugin="versionnumber@1.9">
+      <versionNumberString>${BUILDS_TODAY}</versionNumberString>
+      <projectStartDate>1969-12-31 16:00:00.0 UTC</projectStartDate>
+      <environmentVariableName>BUILDS_TODAY</environmentVariableName>
+      <environmentPrefixVariable></environmentPrefixVariable>
+      <oBuildsToday></oBuildsToday>
+      <oBuildsThisWeek></oBuildsThisWeek>
+      <oBuildsThisMonth></oBuildsThisMonth>
+      <oBuildsThisYear></oBuildsThisYear>
+      <oBuildsAllTime></oBuildsAllTime>
+      <worstResultForIncrement>SUCCESS</worstResultForIncrement>
+      <skipFailedBuilds>false</skipFailedBuilds>
+      <useAsBuildDisplayName>false</useAsBuildDisplayName>
+    </org.jvnet.hudson.tools.versionnumber.VersionNumberBuilder>
+  </buildWrappers>
+</project>

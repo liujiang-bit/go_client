@@ -1,0 +1,1 @@
+Toolset Hotfix --old_file=./1.0.5.apk --new_file=./1.0.5.5.apk --temp=./Temp --patch_file=./1.zip --assets="assets"

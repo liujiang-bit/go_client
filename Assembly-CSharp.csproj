@@ -1,0 +1,1208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LangVersion>9.0</LangVersion>
+    <_TargetFrameworkDirectories>non_empty_path_generated_by_unity.rider.package</_TargetFrameworkDirectories>
+    <_FullFrameworkReferenceAssemblyPaths>non_empty_path_generated_by_unity.rider.package</_FullFrameworkReferenceAssemblyPaths>
+    <DisableHandlePackageFileConflicts>true</DisableHandlePackageFileConflicts>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{8441f412-22a4-275f-22e6-507969043f15}</ProjectGuid>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>.</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\Bin\Debug\Assembly-CSharp\</OutputPath>
+    <DefineConstants>UNITY_2021_3_33;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_ANDROID;TEXTCORE_1_0_OR_NEWER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_ETC_COMPRESSION;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169,0649</NoWarn>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoConfig>true</NoConfig>
+    <NoStdLib>true</NoStdLib>
+    <AddAdditionalExplicitAssemblyReferences>false</AddAdditionalExplicitAssemblyReferences>
+    <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
+    <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Assets\ThirdEditor\UGUI-Editor\Common\LayoutInfo.cs" />
+    <Compile Include="Assets\ThirdEditor\UGUI-Editor\Common\CommonHelper.cs" />
+    <Compile Include="Assets\T4M\Scripts\T4MPlantObjSC.cs" />
+    <Compile Include="Assets\ThirdEditor\UGUI-Editor\Common\ReloadLayoutOnExitGame.cs" />
+    <Compile Include="Assets\ThirdEditor\UGUI-Editor\Common\UIEditorHelper.cs" />
+    <Compile Include="Assets\ThirdEditor\UGUI-Editor\Common\ContextMenu.cs" />
+    <Compile Include="Assets\T4M\Tutorial\Scripts\FlyCam.cs" />
+    <Compile Include="Assets\T4M\Scripts\T4MPartSC.cs" />
+    <Compile Include="Assets\ThirdEditor\UGUI-Editor\Common\Decorate.cs" />
+    <Compile Include="Assets\T4M\Scripts\T4MLodObjSC.cs" />
+    <Compile Include="Assets\ThirdEditor\UGUI-Editor\Common\UILayoutTool.cs" />
+    <Compile Include="Assets\T4M\Scripts\T4MObjSC.cs" />
+    <Compile Include="Assets\ThirdEditor\UGUI-Editor\Common\BetterList.cs" />
+    <Compile Include="Assets\ThirdEditor\UGUI-Editor\Common\ReopenLayoutOnExitGame.cs" />
+    <Compile Include="Assets\BundleAssets\Effect\Scripts\UVAnimation.cs" />
+    <Compile Include="Assets\T4M\Scripts\T4MBillBObjSC.cs" />
+    <Compile Include="Assets\ThirdEditor\UGUI-Editor\Common\PathSaver.cs" />
+    <Compile Include="Assets\ThirdEditor\UGUI-Editor\Configure.cs" />
+    <Compile Include="Assets\T4M\Tutorial\Scripts\WaypointCam.cs" />
+    <None Include="Assets\T4M\Shaders\ShaderModel3\Specular\T4M 2 TexturesSpec.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel1\T4M 2 Textures ManualAdd BeastLM_1DC.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\Arms1_2_SD\Materials\Arms1_2.atlas.txt" />
+    <None Include="Library\PackageCache\com.unity.modules.subsystems@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_005\emoji_1_005.atlas.txt" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\DirectionLM\T4M 2 TexturesBumped DLM mobile.shader" />
+    <None Include="Library\PackageCache\com.unity.modules.jsonserialize@1.0.0\package.json" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Diffuse\T4M 4 Textures.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel3\BumpSpec\T4M 3 TexturesBumpSpec.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\BumpSpec\T4M 2 TexturesBumpSpec Mobile.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_3004_SD\Materials\Hero_3004.atlas.txt" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\ArmsSpecial1_2_SD\Materials\ArmsSpecial1_2.atlas.txt" />
+    <None Include="Assets\BundleAssets\UI\UIAnimation\UE_btn_Warning\UE_btn_Warning.atlas.txt" />
+    <None Include="Library\PackageCache\com.unity.modules.screencapture@1.0.0\package.json" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Toon\T4M 4 Textures Toon.shader" />
+    <None Include="Assets\BundleAssetsTest\land\Shaders\customlandtree-16-nomask.shader" />
+    <None Include="Assets\BundleAssetsTest\Env\river\custommap-23_water.shader" />
+    <None Include="Library\PackageCache\com.unity.modules.cloth@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Map\Shader\UI-Add.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\Arms3_2_SD\Materials\Arms3_2.atlas.txt" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_030\emoji_1_030.atlas.txt" />
+    <None Include="Assets\T4M\Shaders\ShaderModel3\Diffuse\T4M 2 Textures.shader" />
+    <None Include="Library\PackageCache\com.unity.modules.unitywebrequesttexture@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Weather\material\custommapmap_cloud+200.shader" />
+    <None Include="Assets\BundleAssets\Monster_SD\NPC_01_SD\Materials\NPC_01.atlas.txt" />
+    <None Include="Library\PackageCache\com.unity.modules.ai@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\Arms2_3_SD\Materials\Arms2_3.atlas.txt" />
+    <None Include="Assets\BundleAssetsTest\land\Shaders\customlandplane.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_tree.shader" />
+    <None Include="Assets\BundleAssets\Map\Building\custommapcity_building.shader" />
+    <None Include="Assets\BundleAssets\UI\UIShader\ImageGrayShader.shader" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_028\emoji_1_028.atlas.txt" />
+    <None Include="Assets\BundleAssets\Map\Building\customcitycity_wall.shader" />
+    <None Include="Assets\BundleAssets\Map\Building\customtransparent_blend_z_test-7.shader" />
+    <None Include="Assets\Shader\UIMask.shader" />
+    <None Include="Assets\BundleAssets\Map\Building\map_building_with_mask_night-5.shader" />
+    <None Include="Assets\BundleAssetsTest\Env\river\customparticlealpha_blended_with_light.shader" />
+    <None Include="Library\PackageCache\com.unity.ugui@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Map\Env\Ground\mask_color_4_1_lod1-5.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\cc_city_wall.shader" />
+    <None Include="Assets\Packages\com.littlebigfun.addressable-importer\package.json" />
+    <None Include="Assets\BundleAssets\Map\Building\map_lod3_icon+35.shader" />
+    <None Include="Library\PackageCache\com.unity.ext.nunit@1.0.6\package.json" />
+    <None Include="Assets\T4M\Shaders\BrushPreview.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\Arms4_4_SD\Materials\Arms4_4.atlas.txt" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_city_building_nomask.shader" />
+    <None Include="Assets\BundleAssets\Map\Building\city_building_ani_nomask.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\Arms5_4_SD\Materials\Arms5_4.atlas.txt" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\Arms5_2_SD\Materials\Arms5_2.atlas.txt" />
+    <None Include="Assets\BundleAssets\Weather\material\customfog+112_fog_mountain.shader" />
+    <None Include="Assets\BundleAssets\land\Shaders\customlandmapspriteground_lod3-53.shader" />
+    <None Include="Library\PackageCache\com.unity.modules.assetbundle@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Map\Building\T4M_4_Textures.shader" />
+    <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.8\package.json" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_as_flag_logo-4.shader" />
+    <None Include="Library\PackageCache\com.unity.modules.imgui@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Weather\material\customfog+115_fog_border.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_water_with_cubeMap_inner.shader" />
+    <None Include="Library\PackageCache\com.unity.modules.tilemap@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_sprite_building_move.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_sprite_building_selected.shader" />
+    <None Include="Assets\BundleAssets\Monster_SD\NPC_03_SD\Materials\NPC_03.atlas.txt" />
+    <None Include="Assets\BundleAssets\Map\Building\map_building_ground_with_mask-25.shader" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_024\emoji_1_024.atlas.txt" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Specular\T4M 4 Textures Spec.shader" />
+    <None Include="Assets\StreamingAssets\log4net.xml" />
+    <None Include="Assets\BundleAssets\UI\UIShader\DefaultGray.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Diffuse\T4M 6 Textures.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_mask_color_lod.shader" />
+    <None Include="Library\PackageCache\com.unity.timeline@1.6.5\package.json" />
+    <None Include="Assets\BundleAssets\Scene\Map_building\territory\shader\custommapterritorty_line_lod-13.shader" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_017\emoji_1_017.atlas.txt" />
+    <None Include="Assets\T4M\Shaders\ShaderModel3\Specular\T4M 3 TexturesSpec.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\cc_city_move_arrow.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Specular\T4M 3 Textures Spec.shader" />
+    <None Include="Assets\link.xml" />
+    <None Include="Assets\BundleAssets\land\Shaders\customlandmaptree-16-nomask.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_lod+30_map_sprite_lod1.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_2011_SD\Materials\Hero_2011.atlas.txt" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Unlit\4TexturesUnlit.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_empty_SD\Materials\Hero_empty.atlas.txt" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_1005_SD\Materials\Hero_1005.atlas.txt" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Unlit\6TexturesUnlit.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\dissolution_blend.shader" />
+    <None Include="Assets\BundleAssetsTest\Env\river\custommap-20_water_with_cubeMap_inner.shader" />
+    <None Include="Assets\StreamingAssets\google-services-desktop.json" />
+    <None Include="Assets\BundleAssets\land\Shaders\custommap-60_map_lowland_edge 1.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_slg_plane_lod.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\Arms3_3_SD\Materials\Arms3_3.atlas.txt" />
+    <None Include="Library\PackageCache\com.unity.modules.terrainphysics@1.0.0\package.json" />
+    <None Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.15.2\package.json" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\BumpSpec\T4M 3 TexturesBumpSpec.shader" />
+    <None Include="Assets\BundleAssets\UI\UIAnimation\UE_HallBox\UE_HallBox.atlas.txt" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_2001_SD\Materials\Hero_2001.atlas.txt" />
+    <None Include="Assets\BundleAssets\Map\Env\Ground\mask_texture_4_1_lod0-5.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Unlit\6TexturesUnlitNoLM.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\cf_fog_mountain.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\Arms3_1_SD\Materials\Arms3_1.atlas.txt" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Diffuse\T4M 5 Textures.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel3\Bump\T4M 3 TexturesBump.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Toon\T4M 3 Textures Toon.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\ArmsSpecial3_3_SD\Materials\ArmsSpecial3_3.atlas.txt" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_034\emoji_1_034.atlas.txt" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\Arms4_1_SD\Materials\Arms4_1.atlas.txt" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\Arms5_1_SD\Materials\Arms5_1.atlas.txt" />
+    <None Include="Library\PackageCache\com.unity.timeline@1.6.5\ValidationExceptions.json" />
+    <None Include="Assets\BundleAssets\Troop\-46_troop_line.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\Arms4_2_SD\Materials\Arms4_2.atlas.txt" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_018\emoji_1_018.atlas.txt" />
+    <None Include="Assets\BundleAssets\Map\Shader\FXMaker_Mask Additive.shader" />
+    <None Include="Assets\BundleAssets\Map\Building\map_building_ground_with_mask-28.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\RimAddDissolution.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_city_selected_night.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_city_ground_with_mask-28.shader" />
+    <None Include="Assets\log4net.xml" />
+    <None Include="Assets\BundleAssets\Map\BuildingMesh\custommapmap_building_mesh+10.shader" />
+    <None Include="Assets\Packages\com.unity.addressables\package.json" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\DirectionLM\T4M 3 TexturesBumped DLM.shader" />
+    <None Include="Assets\BundleAssets\Map\Building\customcitycity_splat_ground.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_troop_line_end.shader" />
+    <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.8\PackageConversionData.json" />
+    <None Include="Library\PackageCache\com.unity.modules.unitywebrequestassetbundle@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_effect_color.shader" />
+    <None Include="Assets\Plugin.xml" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_1012_SD\Materials\Hero_1012.atlas.txt" />
+    <None Include="Assets\ThirdEditor\TexturePacker\Readme.txt" />
+    <None Include="Assets\BundleAssets\Map\Building\map_building_with_mask-5.shader" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_019\emoji_1_019.atlas.txt" />
+    <None Include="Assets\Shader\share_shader\custommapmap_lod_resource_minimap_+45.shader" />
+    <None Include="Assets\BundleAssetsTest\Env\river\custommapmap_lowland_support_shadow.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Bump\T4M 3 TexturesBumped.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_1008_SD\Materials\Hero_1008.atlas.txt" />
+    <None Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.8\package.json" />
+    <None Include="Assets\T4M\Shaders\PlantPreview.shader" />
+    <None Include="Assets\BundleAssets\UI\UIAnimation\UE_TroopsState\UE_TroopsState.atlas.txt" />
+    <None Include="Library\PackageCache\com.unity.modules.imageconversion@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_slg_surface.shader" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_007\emoji_1_007.atlas.txt" />
+    <None Include="Assets\BundleAssets\Map\Building\sprite_building_light_glow.shader" />
+    <None Include="Assets\BundleAssets\Map\Building\customspriteunit_fade_out-2.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_particle_additive.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_2004_SD\Materials\Hero_2004.atlas.txt" />
+    <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.8\ValidationExceptions.json" />
+    <None Include="Assets\BundleAssets\Map\Building\custommapsprite_building_selected-5.shader" />
+    <None Include="Assets\BundleAssets\Monster_SD\Monster_1000_SD\Materials\Monster_1000.atlas.txt" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_1017_SD\Materials\Hero_1017.atlas.txt" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_troop_line.shader" />
+    <None Include="Assets\BundleAssets\Map\Building\map_grove.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_troop_line_drag_move.shader" />
+    <None Include="Library\PackageCache\com.unity.modules.unityanalytics@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_020\emoji_1_020.atlas.txt" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\ArmsSpecial1_3_SD\Materials\ArmsSpecial1_3.atlas.txt" />
+    <None Include="Assets\BundleAssetsTest\land\ReadMe.txt" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_025\emoji_1_025.atlas.txt" />
+    <None Include="Assets\BundleAssets\land\Shaders\z_cm_slg_mountain_edge.shader" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_031\emoji_1_031.atlas.txt" />
+    <None Include="Library\PackageCache\com.unity.ide.rider@3.0.28\package.json" />
+    <None Include="Assets\BundleAssets\land\Shaders\customland-23_water 1.shader" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_014\emoji_1_014.atlas.txt" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_1002_SD\Materials\Hero_1002.atlas.txt" />
+    <None Include="Assets\BundleAssets\Map\Shader\Particle-Alpha-Color.shader" />
+    <None Include="Library\PackageCache\com.unity.modules.video@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_slg_plane.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_1010_SD\Materials\Hero_1010.atlas.txt" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_3003_SD\Materials\Hero_3003.atlas.txt" />
+    <None Include="Library\PackageCache\com.unity.test-framework@1.1.33\package.json" />
+    <None Include="Assets\BundleAssetsTest\land\Shaders\customland_lod+30_map_sprite_lod1-normask.shader" />
+    <None Include="Assets\BundleAssets\Weather\material\customfog+110_fog_lod1.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Unified\T4M 3 TexturesUnified.shader" />
+    <None Include="Assets\BundleAssetsTest\Env\river\custommap-60_map_lowland_edge.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\FX_Mesh.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_mask_texture_lod.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel1\T4M 2 Textures ManualAdd CustoLM 1DC.shader" />
+    <None Include="Assets\Packages\ReadMe.txt" />
+    <None Include="Assets\BundleAssetsTest\Env\river\custommap-23_water_with_cubeMap.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_2008_SD\Materials\Hero_2008.atlas.txt" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_012\emoji_1_012.atlas.txt" />
+    <None Include="Library\PackageCache\com.unity.modules.particlesystem@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\ArmsSpecial3_1_SD\Materials\ArmsSpecial3_1.atlas.txt" />
+    <None Include="Assets\BundleAssets\Map\Building\custommapunit_city+10.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\Arms4_3_SD\Materials\Arms4_3.atlas.txt" />
+    <None Include="Assets\T4M\READMEFIRST.txt" />
+    <None Include="Library\PackageCache\com.unity.modules.physics2d@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\ArmsSpecial2_3_SD\Materials\ArmsSpecial2_3.atlas.txt" />
+    <None Include="Library\PackageCache\com.unity.modules.vr@1.0.0\package.json" />
+    <None Include="Assets\BundleAssetsTest\land\Shaders\customlandplane_lod1.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\Arms3_4_SD\Materials\Arms3_4.atlas.txt" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_territorty_line_lod.shader" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_037\emoji_1_037.atlas.txt" />
+    <None Include="Assets\BundleAssets\Map\Shader\cc_city_ground.shader" />
+    <None Include="Assets\BundleAssets\Scene\Map_building\territory\shader\custommapterritorty_line-49.shader" />
+    <None Include="Assets\BundleAssets\Map\Building\customcitybuilding_move_arrow+21.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_city_soldier.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_4000_SD\Materials\Hero_4000.atlas.txt" />
+    <None Include="Assets\Shader\UIMaskGray.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Diffuse\T4M World Projection Shader.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_1003_SD\Materials\Hero_1003.atlas.txt" />
+    <None Include="Library\PackageCache\com.unity.modules.wind@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Map\Shader\custommapholy_site_guardian.shader" />
+    <None Include="Library\PackageCache\com.unity.modules.umbra@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\Arms2_4_SD\Materials\Arms2_4.atlas.txt" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Diffuse\T4M 2 Textures.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_2005_SD\Materials\Hero_2005.atlas.txt" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_as_flag_logo+81_as_flag_logo+81.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Toon\T4M 2 Textures Toon.shader" />
+    <None Include="Assets\google-services.json" />
+    <None Include="Assets\BundleAssetsTest\land\Shaders\customspritemap_ground_lod3-53.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\HeatDissolve.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\RimAdd.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\Arms1_3_SD\Materials\Arms1_3.atlas.txt" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Specular\T4M 2 Textures Spec.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Bump\T4M 2 TexturesBumped.shader" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_010\emoji_1_010.atlas.txt" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_2000_SD\Materials\Hero_2000.atlas.txt" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Bump\T4M 4 TexturesBumped.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\FXMaker_Mask Alpha Blended.shader" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_006\emoji_1_006.atlas.txt" />
+    <None Include="Library\PackageCache\com.unity.modules.audio@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Map\Building\custommapmap_building_no_mask-5.shader" />
+    <None Include="Library\PackageCache\com.unity.modules.physics@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Map\Building\city_building_selected_night.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\Unlit-Alpha-Zwrite.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel3\Specular\T4M 4 TexturesSpec.shader" />
+    <None Include="Assets\BundleAssetsTest\land\Shaders\customland-23_water.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_mask_texture_lod_alpha.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Unlit\2TexturesUnlit.shader" />
+    <None Include="Assets\BundleAssets\Map\Building\custommapunit.shader" />
+    <None Include="Library\PackageCache\com.unity.modules.vehicles@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_001\emoji_1_001.atlas.txt" />
+    <None Include="Assets\BundleAssets\land\Shaders\cm_slg_mountain_edge.shader" />
+    <None Include="Assets\BundleAssets\land\Shaders\custommapmap_lowland_support_shadow 1.shader" />
+    <None Include="Assets\BundleAssetsTest\Env\Fog\Fog_110_lod1.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_city_mask_ztestoff.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_3002_SD\Materials\Hero_3002.atlas.txt" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_009\emoji_1_009.atlas.txt" />
+    <None Include="Assets\BundleAssets\land\Shaders\customlandmap+30_map_sprite_lod1-normask.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Unlit\5TexturesUnlit.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_4001_SD\Materials\Hero_4001.atlas.txt" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_city_relocate_base_+190.shader" />
+    <None Include="Assets\BundleAssets\land\Shaders\z_cm_slg_mountain.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel3\BumpSpec\T4M 4 TexturesBumpSpec.shader" />
+    <None Include="Library\PackageCache\com.unity.modules.uielementsnative@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Monster_SD\NPC_02_SD\Materials\NPC_02.atlas.txt" />
+    <None Include="Assets\T4M\Shaders\ShaderModel3\Bump\T4M 4 TexturesBump.shader" />
+    <None Include="Library\PackageCache\com.unity.modules.unitywebrequestwww@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\Arms2_2_SD\Materials\Arms2_2.atlas.txt" />
+    <None Include="Assets\BundleAssets\Map\Building\customcitybuilding_move_bottom-4.shader" />
+    <None Include="Library\PackageCache\com.unity.modules.unitywebrequestaudio@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Map\Shader\cf_fog_lod.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Unified\T4M 4 TexturesUnified.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel3\Diffuse\T4M 5 Textures.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel3\Diffuse\T4M 6 Textures.shader" />
+    <None Include="Assets\Shader\share_shader\customparticle+115_addictive_alliance_mark.shader" />
+    <None Include="Assets\StreamingAssets\Plugin.xml" />
+    <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.8\Editor Resources\Shaders\TMP_SDF_SSD.cginc" />
+    <None Include="Assets\BundleAssets\Map\Textures\HeroShow_Evn_map\HeroShow_01\HeroShow_01_jinjing2\HeroShow_01_jinjing2.atlas.txt" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_1007_SD\Materials\Hero_1007.atlas.txt" />
+    <None Include="Assets\BundleAssetsTest\Env\map_tree\custommap_lod+30_map_sprite_lod1.shader" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_035\emoji_1_035.atlas.txt" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_2007_SD\Materials\Hero_2007.atlas.txt" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_036\emoji_1_036.atlas.txt" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Bump\T4M 2 TexturesBumped Mobile.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_1009_SD\Materials\Hero_1009.atlas.txt" />
+    <None Include="Assets\T4M\Shaders\ShaderModel3\Bump\T4M 2 TexturesBump.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\cc_city_move_bottom.shader" />
+    <None Include="Assets\BundleAssets\Monster_SD\NPC_04_SD\Materials\NPC_04.atlas.txt" />
+    <None Include="Library\PackageCache\com.unity.modules.xr@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Timeline\Open\qizi.atlas.txt" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_008\emoji_1_008.atlas.txt" />
+    <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.8\Editor Resources\Shaders\TMP_Properties.cginc" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Bump\T4M 3 TexturesBumped Mobile.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel1\T4M 2 Textures Auto BeastLM 2DrawCall.shader" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_013\emoji_1_013.atlas.txt" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_029\emoji_1_029.atlas.txt" />
+    <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.8\Editor Resources\Shaders\TMP_SDF Internal Editor.shader" />
+    <None Include="Assets\BundleAssets\UI\UIAnimation\UE_AllianceBox\UE_AllianceBox.atlas.txt" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_011\emoji_1_011.atlas.txt" />
+    <None Include="Assets\T4M\Shaders\ShaderModel3\Diffuse\T4M 3 Textures.shader" />
+    <None Include="Assets\BundleAssetsTest\Env\map_tree\custommaptree-16.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\cf_fog_border.shader" />
+    <None Include="Assets\BundleAssets\Troop\troop_unit_function\material\troop_line_end_-22.shader" />
+    <None Include="Library\PackageCache\com.unity.modules.director@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\ArmsSpecial1_1_SD\Materials\ArmsSpecial1_1.atlas.txt" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_1018_SD\Materials\Hero_1018.atlas.txt" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_027\emoji_1_027.atlas.txt" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_1001_SD\Materials\Hero_1001.atlas.txt" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\ArmsSpecial2_1_SD\Materials\ArmsSpecial2_1.atlas.txt" />
+    <None Include="Assets\BundleAssets\UI\UIAnimation\UE_TreasureBox\UE_TreasureBox.atlas.txt" />
+    <None Include="Assets\BundleAssets\Map\Building\custommapsprite_building_move.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_1006_SD\Materials\Hero_1006.atlas.txt" />
+    <None Include="Assets\Shader\share_shader\custommapparticle_additive.shader" />
+    <None Include="Assets\BundleAssets\land\Shaders\cm_slg_mountain.shader" />
+    <None Include="Library\PackageCache\com.unity.modules.terrain@1.0.0\package.json" />
+    <None Include="Library\PackageCache\com.unity.2d.sprite@1.0.0\package.json" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Unlit\T4M World Projection Shader Unlit+LM.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel3\Diffuse\T4M 4 Textures.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_2006_SD\Materials\Hero_2006.atlas.txt" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\Arms1_1_SD\Materials\Arms1_1.atlas.txt" />
+    <None Include="Library\PackageCache\com.unity.modules.androidjni@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_city_ground_with_mask-25.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Unified\T4M 2 TexturesUnified.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel3\BumpSpec\T4M 2 TexturesBumpSpec.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Diffuse\T4M 3 Textures.shader" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\DirectionLM\T4M 2 TexturesBumped DLM.shader" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_003\emoji_1_003.atlas.txt" />
+    <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.8\PackageConversionData_Assets.json" />
+    <None Include="Assets\BundleAssets\Monster_SD\NPC_07_SD\Materials\NPC_07.atlas.txt" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_city_building.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\Arms5_3_SD\Materials\Arms5_3.atlas.txt" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_building_mesh+10.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_slg_soldiers.shader" />
+    <None Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.15.2\ValidationExceptions.json" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_2010_SD\Materials\Hero_2010.atlas.txt" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\ArmsSpecial2_2_SD\Materials\ArmsSpecial2_2.atlas.txt" />
+    <None Include="Library\PackageCache\com.unity.modules.animation@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_1011_SD\Materials\Hero_1011.atlas.txt" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_city_mask.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\Arms1_4_SD\Materials\Arms1_4.atlas.txt" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_territorty_line.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_1004_SD\Materials\Hero_1004.atlas.txt" />
+    <None Include="Assets\BundleAssets\Map\Textures\HeroShow_Evn_map\HeroShow_01\HeroShow_01_jinjing1\HeroShow_01_jinjing1.atlas.txt" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\Unlit\3TexturesUnlit.shader" />
+    <None Include="Assets\BundleAssets\land\Shaders\customlandplane_lod2.shader" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_city_nomask.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_3005_SD\Materials\Hero_3005.atlas.txt" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_1014_SD\Materials\Hero_1014.atlas.txt" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_015\emoji_1_015.atlas.txt" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_023\emoji_1_023.atlas.txt" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_026\emoji_1_026.atlas.txt" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_2009_SD\Materials\Hero_2009.atlas.txt" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\Arms2_1_SD\Materials\Arms2_1.atlas.txt" />
+    <None Include="Library\PackageCache\com.unity.modules.unitywebrequest@1.0.0\package.json" />
+    <None Include="Library\PackageCache\com.unity.modules.uielements@1.0.0\package.json" />
+    <None Include="Assets\T4M\Shaders\ShaderModel2\BumpSpec\T4M 2 TexturesBumpSpec.shader" />
+    <None Include="Assets\BundleAssets\Emoji\emoji_1_004\emoji_1_004.atlas.txt" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_1000_SD\Materials\Hero_1000.atlas.txt" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_city_mask_night.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_troop\ArmsSpecial3_2_SD\Materials\ArmsSpecial3_2.atlas.txt" />
+    <None Include="Library\PackageCache\com.unity.modules.ui@1.0.0\package.json" />
+    <None Include="Assets\BundleAssets\Map\Shader\cm_water_with_cubeMap.shader" />
+    <None Include="Assets\BundleAssets\Troop\-1_troop_line_drag_move.shader" />
+    <None Include="Assets\BundleAssets\Troop\spine_hero\Hero_1015_SD\Materials\Hero_1015.atlas.txt" />
+    <None Include="Library\PackageCache\com.unity.ide.vscode@1.2.3\package.json" />
+    <Reference Include="UnityEngine">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AIModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.AIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ARModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.ARModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AccessibilityModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.AccessibilityModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AndroidJNIModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.AndroidJNIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.AssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClothModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.ClothModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CrashReportingModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.CrashReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.DSPGraphModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.DSPGraphModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.DirectorModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.DirectorModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GIModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.GIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GameCenterModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.GameCenterModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GridModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.GridModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HotReloadModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.HotReloadModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.InputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.JSONSerializeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.LocalizationModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.LocalizationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PerformanceReportingModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.PerformanceReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ProfilerModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.ProfilerModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ScreenCaptureModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.ScreenCaptureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SharedInternalsModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.SharedInternalsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteMaskModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.SpriteMaskModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteShapeModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.SpriteShapeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.StreamingModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.StreamingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SubstanceModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.SubstanceModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SubsystemsModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.SubsystemsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TLSModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.TLSModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.TerrainModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainPhysicsModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.TerrainPhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextCoreFontEngineModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.TextCoreFontEngineModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextCoreTextEngineModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.TextCoreTextEngineModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TilemapModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.TilemapModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIElementsModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.UIElementsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIElementsNativeModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.UIElementsNativeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UNETModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.UNETModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UmbraModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.UmbraModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityAnalyticsModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityAnalyticsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityAnalyticsCommonModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityAnalyticsCommonModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityConnectModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityConnectModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityCurlModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityCurlModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityTestProtocolModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityTestProtocolModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VFXModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.VFXModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VRModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.VRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VehiclesModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.VehiclesModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VideoModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.VideoModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.WindModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.WindModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.XRModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEngine.XRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.CoreModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.DeviceSimulatorModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.DeviceSimulatorModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.DiagnosticsModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.DiagnosticsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.GraphViewModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.GraphViewModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.PackageManagerUIModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.PackageManagerUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.QuickSearchModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.QuickSearchModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.SceneTemplateModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.SceneTemplateModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TextCoreFontEngineModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.TextCoreFontEngineModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TextCoreTextEngineModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.TextCoreTextEngineModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UIBuilderModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.UIBuilderModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UIElementsModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.UIElementsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UIElementsSamplesModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.UIElementsSamplesModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UIServiceModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.UIServiceModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UnityConnectModule">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>D:\BaiduNetdiskDownload\wgjx\rok万国觉醒源码\ROK2\ROK2\ROK\Client\Assets\Third\Demigiant\DOTween\DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="I18N.Rare">
+      <HintPath>D:\BaiduNetdiskDownload\wgjx\rok万国觉醒源码\ROK2\ROK2\ROK\Client\Assets\Skyunion\RunTime\DataService\Plugins\I18N.Rare.dll</HintPath>
+    </Reference>
+    <Reference Include="I18N.Other">
+      <HintPath>D:\BaiduNetdiskDownload\wgjx\rok万国觉醒源码\ROK2\ROK2\ROK\Client\Assets\Skyunion\RunTime\DataService\Plugins\I18N.Other.dll</HintPath>
+    </Reference>
+    <Reference Include="I18N.MidEast">
+      <HintPath>D:\BaiduNetdiskDownload\wgjx\rok万国觉醒源码\ROK2\ROK2\ROK\Client\Assets\Skyunion\RunTime\DataService\Plugins\I18N.MidEast.dll</HintPath>
+    </Reference>
+    <Reference Include="I18N.West">
+      <HintPath>D:\BaiduNetdiskDownload\wgjx\rok万国觉醒源码\ROK2\ROK2\ROK\Client\Assets\Skyunion\RunTime\DataService\Plugins\I18N.West.dll</HintPath>
+    </Reference>
+    <Reference Include="I18N.CJK">
+      <HintPath>D:\BaiduNetdiskDownload\wgjx\rok万国觉醒源码\ROK2\ROK2\ROK\Client\Assets\Skyunion\RunTime\DataService\Plugins\I18N.CJK.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>D:\BaiduNetdiskDownload\wgjx\rok万国觉醒源码\ROK2\ROK2\ROK\Client\Assets\Skyunion\RunTime\LogService\Plugins\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader">
+      <HintPath>D:\BaiduNetdiskDownload\wgjx\rok万国觉醒源码\ROK2\ROK2\ROK\Client\Assets\Skyunion\RunTime\DataService\Plugins\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="I18N">
+      <HintPath>D:\BaiduNetdiskDownload\wgjx\rok万国觉醒源码\ROK2\ROK2\ROK\Client\Assets\Skyunion\RunTime\DataService\Plugins\I18N.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenPro">
+      <HintPath>D:\BaiduNetdiskDownload\wgjx\rok万国觉醒源码\ROK2\ROK2\ROK\Client\Assets\Third\Demigiant\DOTweenPro\DOTweenPro.dll</HintPath>
+    </Reference>
+    <Reference Include="IFix.Core">
+      <HintPath>D:\BaiduNetdiskDownload\wgjx\rok万国觉醒源码\ROK2\ROK2\ROK\Client\Assets\Skyunion\RunTime\HotFixService\IFix\Plugins\IFix.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DemiLib">
+      <HintPath>D:\BaiduNetdiskDownload\wgjx\rok万国觉醒源码\ROK2\ROK2\ROK\Client\Assets\Third\Demigiant\DemiLib\Core\DemiLib.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>D:\BaiduNetdiskDownload\wgjx\rok万国觉醒源码\ROK2\ROK2\ROK\Client\Assets\Skyunion\RunTime\DataService\Plugins\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Tasks">
+      <HintPath>D:\BaiduNetdiskDownload\wgjx\rok万国觉醒源码\ROK2\ROK2\ROK\Client\Assets\Parse\Plugins\dotNet45\Unity.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>D:\BaiduNetdiskDownload\wgjx\rok万国觉醒源码\ROK2\ROK2\ROK\Client\Assets\Third\IGGSDK\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet">
+      <HintPath>D:\BaiduNetdiskDownload\wgjx\rok万国觉醒源码\ROK2\ROK2\ROK\Client\Assets\Skyunion\RunTime\DataService\Plugins\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Compat">
+      <HintPath>D:\BaiduNetdiskDownload\wgjx\rok万国觉醒源码\ROK2\ROK2\ROK\Client\Assets\Parse\Plugins\dotNet45\Unity.Compat.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Android.Types">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Android.Gradle">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\mscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.Runtime.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.Xml.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics.Vectors">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.IO.Compression.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Microsoft.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.Data.DataSetExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.IO.Compression.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.ComponentModel.Composition.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.Transactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Primitives">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\Microsoft.Win32.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\netstandard.dll</HintPath>
+    </Reference>
+    <Reference Include="System.AppContext">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.AppContext.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Concurrent">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Collections.Concurrent.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.NonGeneric">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Collections.NonGeneric.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Specialized">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Collections.Specialized.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.ComponentModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.EventBasedAsync">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.ComponentModel.EventBasedAsync.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Primitives">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.ComponentModel.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.TypeConverter">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.ComponentModel.TypeConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Console">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Common">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Data.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Contracts">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Diagnostics.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Debug">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Diagnostics.Debug.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.FileVersionInfo">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Diagnostics.FileVersionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Process">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Diagnostics.Process.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.StackTrace">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Diagnostics.StackTrace.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.TextWriterTraceListener">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Diagnostics.TextWriterTraceListener.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Tools">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Diagnostics.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.TraceSource">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Diagnostics.TraceSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Primitives">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Drawing.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Dynamic.Runtime">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Dynamic.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Globalization.Calendars">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Globalization.Calendars.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Globalization">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Globalization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Globalization.Extensions">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Globalization.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression.ZipFile">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.IO.Compression.ZipFile.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.IO.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.DriveInfo">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.IO.FileSystem.DriveInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Watcher">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.IO.FileSystem.Watcher.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.IsolatedStorage">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.IO.IsolatedStorage.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.MemoryMappedFiles">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.IO.MemoryMappedFiles.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipes">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.IO.Pipes.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.UnmanagedMemoryStream">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.IO.UnmanagedMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Expressions">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Linq.Expressions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Parallel">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Linq.Parallel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Queryable">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Linq.Queryable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Rtc">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Net.Http.Rtc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.NameResolution">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Net.NameResolution.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.NetworkInformation">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Net.NetworkInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Ping">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Net.Ping.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Primitives">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Net.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Requests">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Net.Requests.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Security">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Net.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Sockets">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Net.Sockets.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.WebHeaderCollection">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Net.WebHeaderCollection.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.WebSockets.Client">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Net.WebSockets.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.WebSockets">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Net.WebSockets.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ObjectModel">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.ObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.DispatchProxy">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Reflection.DispatchProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Emit">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Reflection.Emit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Emit.ILGeneration">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Reflection.Emit.ILGeneration.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Emit.Lightweight">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Reflection.Emit.Lightweight.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Extensions">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Reflection.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Primitives">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Reflection.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Resources.Reader">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Resources.Reader.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Resources.ResourceManager">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Resources.ResourceManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Resources.Writer">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Resources.Writer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.VisualC">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.CompilerServices.VisualC.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Extensions">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Handles">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.Handles.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.InteropServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.WindowsRuntime">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.InteropServices.WindowsRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Numerics">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.Serialization.Formatters.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Json">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.Serialization.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Primitives">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.Serialization.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Xml">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.Serialization.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Claims">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Security.Claims.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Csp">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Security.Cryptography.Csp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Security.Principal.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.SecureString">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Security.SecureString.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Duplex">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.ServiceModel.Duplex.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Http">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.ServiceModel.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.NetTcp">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.ServiceModel.NetTcp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Primitives">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.ServiceModel.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Security">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.ServiceModel.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Text.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.Extensions">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Text.Encoding.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Text.RegularExpressions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Overlapped">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Threading.Overlapped.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Parallel">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Threading.Tasks.Parallel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Thread">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Threading.Thread.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.ThreadPool">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Threading.ThreadPool.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Timer">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Threading.Timer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.ReaderWriter">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.ReaderWriter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XDocument">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.XDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XmlDocument">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.XmlDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XmlSerializer">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.XmlSerializer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XPath">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.XPath.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XPath.XDocument">
+      <HintPath>C:\Program Files\Unity 2021.3.33f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{8e399d07-fc4a-7ecd-7881-f923d075ebd1}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.VSCode.Editor.csproj">
+      <Project>{1249e745-55ff-a8e3-0f78-da587d5db6fe}</Project>
+      <Name>Unity.VSCode.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Hotfix.csproj">
+      <Project>{78a2b70a-47a9-bb91-ab19-b39d3585d2c9}</Project>
+      <Name>Hotfix</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.CacheServer.csproj">
+      <Project>{d159ef64-c864-702e-b931-0c19da32b005}</Project>
+      <Name>UnityEditor.CacheServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="ILRTBind.csproj">
+      <Project>{0b27b7c1-31e8-d21a-6257-2168dc3e6001}</Project>
+      <Name>ILRTBind</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Addressables.csproj">
+      <Project>{0eb2e432-fb2b-2ccc-9325-492834b2407f}</Project>
+      <Name>Unity.Addressables</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.TextMeshPro.Editor.csproj">
+      <Project>{fd665364-c963-e163-6596-4c20ad8e4434}</Project>
+      <Name>Unity.TextMeshPro.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.VisualStudio.Editor.csproj">
+      <Project>{6805584b-9530-10d5-222e-abc84e47fecf}</Project>
+      <Name>Unity.VisualStudio.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Timeline.csproj">
+      <Project>{580f465d-fdca-07d7-25ea-19248de840f7}</Project>
+      <Name>Unity.Timeline</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.TextMeshPro.csproj">
+      <Project>{8d71dd6b-40dd-42ba-a075-6f69d1193500}</Project>
+      <Name>Unity.TextMeshPro</Name>
+    </ProjectReference>
+    <ProjectReference Include="Game.csproj">
+      <Project>{4f0e08c9-cf0c-f02f-c846-1d130716d7c7}</Project>
+      <Name>Game</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Sprite.Editor.csproj">
+      <Project>{fb55fd7e-6775-88d8-5149-68fc6e544c36}</Project>
+      <Name>Unity.2D.Sprite.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.ResourceManager.csproj">
+      <Project>{e823aad4-29f6-0b64-44ac-3417e1d143ea}</Project>
+      <Name>Unity.ResourceManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="IFix.csproj">
+      <Project>{93200fe5-de87-d674-217c-409a12d46e7e}</Project>
+      <Name>IFix</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.UI.csproj">
+      <Project>{aa10a73a-0fb6-07c5-fcce-bc576a35745b}</Project>
+      <Name>UnityEditor.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Rider.Editor.csproj">
+      <Project>{25ade108-912d-7485-4125-aac4e3673b6a}</Project>
+      <Name>Unity.Rider.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEngine.UI.csproj">
+      <Project>{4e97dac8-471b-8ebc-e6a8-7bf55a8b1a61}</Project>
+      <Name>UnityEngine.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.AddressableImporter.Editor.csproj">
+      <Project>{262447a3-bcd8-1d8d-17b6-76018180c62e}</Project>
+      <Name>Unity.AddressableImporter.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Third.csproj">
+      <Project>{fab2a9e7-4489-4980-c675-4226d2f619bb}</Project>
+      <Name>Third</Name>
+    </ProjectReference>
+    <ProjectReference Include="Skyunion.csproj">
+      <Project>{d0bde294-3af4-cf58-2ad1-eb0465e0c856}</Project>
+      <Name>Skyunion</Name>
+    </ProjectReference>
+    <ProjectReference Include="DOTweenPro.Scripts.csproj">
+      <Project>{07e82dc4-ddce-196c-ee67-2d53783f793b}</Project>
+      <Name>DOTweenPro.Scripts</Name>
+    </ProjectReference>
+    <ProjectReference Include="Client.csproj">
+      <Project>{c52573f3-e233-1fb2-f37e-d72ba7227aee}</Project>
+      <Name>Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Timeline.Editor.csproj">
+      <Project>{833d5cb4-bd07-5d94-ffa3-9eedba5ff57e}</Project>
+      <Name>Unity.Timeline.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Skyunion.Editor.csproj">
+      <Project>{c4773e91-1bc6-e27d-f85f-dba8fa2f0734}</Project>
+      <Name>Skyunion.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.ScriptableBuildPipeline.csproj">
+      <Project>{08454660-2aee-81bd-3a4a-ec280ef6ed74}</Project>
+      <Name>Unity.ScriptableBuildPipeline</Name>
+    </ProjectReference>
+    <ProjectReference Include="DOTween.Modules.csproj">
+      <Project>{d71d0654-12b2-ef18-ceb9-4ef7960cc1ff}</Project>
+      <Name>DOTween.Modules</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Addressables.Editor.csproj">
+      <Project>{fc300297-e64a-0284-8f92-c35b433c7ea3}</Project>
+      <Name>Unity.Addressables.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.ScriptableBuildPipeline.Editor.csproj">
+      <Project>{2ec57df1-b9d7-6a73-9fb0-464ab69ced37}</Project>
+      <Name>Unity.ScriptableBuildPipeline.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Native.csproj">
+      <Project>{0e589e18-71c5-f14b-3691-e24b8f0751c5}</Project>
+      <Name>Native</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

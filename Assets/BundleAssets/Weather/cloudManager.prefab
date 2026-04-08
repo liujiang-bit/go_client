@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1526029803390351
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4831349115461122}
+  - component: {fileID: 1618544846084112355}
+  m_Layer: 0
+  m_Name: cloudManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4831349115461122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526029803390351}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1618544846084112355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526029803390351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588867a4f36e0124e9e4f8174ecf83b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_lod_array: []
+  m_highDistance: 8000
+  m_layerConfigs:
+  - LodDistance: 1500
+  - LodDistance: 3000
+  - LodDistance: 8000
+  - LodDistance: 20000
+  - LodDistance: 42500
+  - LodDistance: 99999
+  m_minSpawnTime: 2
+  m_spawnTimeRange: {x: 0.6, y: 0.8}
+  m_scaleValueRange: {x: 0.3, y: 0.5}
+  m_sizeValue: 0.4
+  m_startFadeTimeRange: {x: 1, y: 2}
+  m_midMaxCount: 50
+  m_midScaleRateBase: 0.5
+  m_midSpeedRangeBase: {x: 0.6, y: 1}
+  m_midStartScaleRange: {x: 0.2, y: 0.3}
+  m_midScaleSpeedRange: {x: 1, y: 1}
+  m_midIdleTimeRange: {x: 3, y: 4}
+  m_midGenDxfRange: {x: 0.5, y: 0.7}
+  m_midPrefabNames:
+  - map_cloud1
+  - map_cloud2
+  - map_cloud3
+  - map_cloud4
+  - map_cloud5
+  m_highMaxCount: 200
+  m_highScaleRateBase: 1
+  m_highSpeedRangeBase: {x: 0.1, y: 0.2}
+  m_highStartScaleRange: {x: 0.8, y: 1.2}
+  m_highScaleSpeedRange: {x: 0.1, y: 0.2}
+  m_highIdleTimeRange: {x: 5, y: 15}
+  m_highGenDxfRange: {x: 0.3, y: 0.8}
+  m_highPrefabNames:
+  - map_cloud6
+  - map_cloud7
+  - map_cloud8
+  - map_cloud9
+  - map_cloud10

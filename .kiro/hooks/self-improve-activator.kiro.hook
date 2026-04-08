@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "自我学习提醒",
+  "description": "每次提交 prompt 后提醒 Kiro 评估是否有可记录的教训，包括错误、纠正、知识缺口和最佳实践。",
+  "version": "1",
+  "when": {
+    "type": "agentStop"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "任务完成后自我评估：本次交互中是否出现了以下情况？(1) 命令或操作失败 (2) 用户纠正了你的错误 (3) 发现知识过时或不正确 (4) 找到了更好的方案 (5) 用户请求了不存在的功能。如果有，按照 .kiro/skills/self-improving-agent/SKILL.md 中的格式记录到 .kiro/.learnings/ 对应文件中。如果没有值得记录的内容，不需要做任何操作。注意：只记录真正有价值的教训，不要为了记录而记录。"
+  }
+}

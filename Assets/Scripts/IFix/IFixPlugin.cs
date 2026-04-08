@@ -1,0 +1,35 @@
+﻿//
+// GameApp.cs
+// Create:
+//      2019-10-29
+// Description:
+//      本地代码插件
+// Author:
+//      吴江海 <421465201@qq.com>
+//
+// Copyright (c) 2019 Johance
+
+using Skyunion;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
+using UnityEngine;
+
+public class IFixPlugin : Plugin
+{
+    public IFixPlugin() : base("IFixPlugin")
+    {
+    }
+    public override void OnAddModule()
+    {
+        HotfixMode mode = HotfixMode.NativeCode;
+#if UNITY_EDITOR
+        mode = (HotfixMode)EditorPrefs.GetInt("HofixService_HofixMode", (int)HotfixMode.NativeCode);
+#endif
+        if (mode == HotfixMode.IFix)
+        {
+            AddModule<IHotFixService>(new HotFixService_IFix());
+        }
+    }
+}

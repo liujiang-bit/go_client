@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "错误检测记录",
+  "description": "在执行 shell 命令后检测错误，如果发现非显而易见的错误，提醒记录到 .kiro/.learnings/ERRORS.md",
+  "version": "1",
+  "when": {
+    "type": "postToolUse",
+    "toolTypes": [
+      "shell"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "检查刚才执行的 shell 命令结果：如果命令失败或出现错误，且该错误是非显而易见的（需要调查才能解决、可能再次出现、解决方案对未来有帮助），则按照 .kiro/skills/self-improving-agent/SKILL.md 中的 ERR 格式记录到 .kiro/.learnings/ERRORS.md。如果是常见的简单错误（如拼写错误），不需要记录。"
+  }
+}

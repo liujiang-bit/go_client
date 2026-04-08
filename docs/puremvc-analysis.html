@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PureMVC 框架深度分析</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<style>
+  :root { --bg: #ffffff; --fg: #1a1a2e; --accent: #3a86ff; --border: #e0e0e0; --code-bg: #f5f5f5; --table-head: #3a86ff; --table-head-fg: #fff; --card-bg: #fafbfc; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", sans-serif; background: var(--bg); color: var(--fg); line-height: 1.7; padding: 0; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 40px 32px 80px; }
+  h1 { font-size: 2rem; margin-bottom: 8px; color: var(--accent); }
+  h1 small { font-size: 0.9rem; color: #888; font-weight: normal; }
+  h2 { font-size: 1.45rem; margin: 48px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); color: var(--fg); }
+  h3 { font-size: 1.15rem; margin: 28px 0 10px; color: var(--accent); }
+  p, li { font-size: 0.95rem; margin-bottom: 8px; }
+  ul, ol { padding-left: 24px; margin-bottom: 16px; }
+  code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.88rem; font-family: "Fira Code", "Cascadia Code", Consolas, monospace; }
+  pre { background: var(--code-bg); padding: 16px 20px; border-radius: 8px; overflow-x: auto; margin: 12px 0 20px; border: 1px solid var(--border); }
+  pre code { background: none; padding: 0; font-size: 0.85rem; line-height: 1.6; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 0.9rem; }
+  th { background: var(--table-head); color: var(--table-head-fg); padding: 10px 14px; text-align: left; }
+  td { padding: 9px 14px; border-bottom: 1px solid var(--border); }
+  tr:hover td { background: #f0f4ff; }
+  .diagram-wrapper { margin: 24px 0; padding: 24px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; overflow-x: auto; }
+  .diagram-wrapper h3 { margin-top: 0; }
+  .flow-box { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin: 16px 0 24px; }
+  .flow-box pre { background: #fff; border-color: #ddd; }
+  .badge { display: inline-block; background: var(--accent); color: #fff; padding: 2px 10px; border-radius: 12px; font-size: 0.78rem; margin-right: 6px; vertical-align: middle; }
+  .pattern-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0 24px; }
+  .pattern-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+  .pattern-card strong { color: var(--accent); }
+  @media print { body { font-size: 12px; } .container { padding: 20px; } h2 { break-before: auto; } .diagram-wrapper { break-inside: avoid; } }
+  @media (max-width: 700px) { .container { padding: 20px 16px; } .pattern-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>PureMVC 框架深度分析 <small>— 项目源码级解读</small></h1>
+<p>基于 <code>Assets/Scripts/Hotfix/Common/PureMVC/</code> 源码及项目扩展层 <code>AppFacade</code> 的完整分析。</p>
+
+<!-- ==================== 类图 1: 接口层 ==================== -->
+<h2>一、接口层类图</h2>
+<div class="diagram-wrapper">
+<pre class="mermaid">
+classDiagram
+    direction TB
+
+    class INotifier {
+        &lt;&lt;interface&gt;&gt;
+        +SendNotification(name, body?, type?) void
+    }
+
+    class INotification {
+        &lt;&lt;interface&gt;&gt;
+        +Name : string
+        +Body : object
+        +Type : string
+        +ToString() string
+    }
+
+    class IObserver {
+        &lt;&lt;interface&gt;&gt;
+        +NotifyMethod : Action~INotification~
+        +NotifyContext : object
+        +NotifyObserver(notification) void
+        +CompareNotifyContext(obj) bool
+    }
+
+    class IFacade {
+        &lt;&lt;interface&gt;&gt;
+        +RegisterProxy(proxy) void
+        +RetrieveProxy(name) IProxy
+        +RemoveProxy(name) IProxy
+        +HasProxy(name) bool
+        +RegisterCommand(name, commandFunc) void
+        +RemoveCommand(name) void
+        +HasCommand(name) bool
+        +RegisterMediator(mediator) void
+        +RetrieveMediator(name) IMediator
+        +RemoveMediator(name) IMediator
+        +HasMediator(name) bool
+        +NotifyObservers(notification) void
+    }
+
+    class IModel {
+        &lt;&lt;interface&gt;&gt;
+        +RegisterProxy(proxy) void
+        +RetrieveProxy(name) IProxy
+        +RemoveProxy(name) IProxy
+        +HasProxy(name) bool
+    }
+
+    class IView {
+        &lt;&lt;interface&gt;&gt;
+        +RegisterObserver(name, observer) void
+        +RemoveObserver(name, context) void
+        +NotifyObservers(notification) void
+        +RegisterMediator(mediator) void
+        +RetrieveMediator(name) IMediator
+        +RemoveMediator(name) IMediator
+        +HasMediator(name) bool
+    }
+
+    class IController {
+        &lt;&lt;interface&gt;&gt;
+        +RegisterCommand(name, commandFunc) void
+        +ExecuteCommand(notification) void
+        +RemoveCommand(name) void
+        +HasCommand(name) bool
+    }
+
+    class ICommand {
+        &lt;&lt;interface&gt;&gt;
+        +Execute(notification) void
+    }
+
+    class IMediator {
+        &lt;&lt;interface&gt;&gt;
+        +MediatorName : string
+        +ViewComponent : object
+        +ListNotificationInterests() string[]
+        +HandleNotification(notification) void
+        +OnRegister() void
+        +OnRemove() void
+    }
+
+    class IProxy {
+        &lt;&lt;interface&gt;&gt;
+        +ProxyName : string
+        +Data : object
+        +OnRegister() void
+        +OnRemove() void
+    }
+
+    IFacade --|> INotifier : 继承
+    ICommand --|> INotifier : 继承
+    IMediator --|> INotifier : 继承
+    IProxy --|> INotifier : 继承
+</pre>
+</div>
+
+<p>所有核心角色接口（<code>ICommand</code>、<code>IMediator</code>、<code>IProxy</code>）以及门面接口 <code>IFacade</code> 都继承自 <code>INotifier</code>，这意味着 MVC 三层的任何角色都具备发送通知的能力，实现了松耦合的跨层通信。</p>
+
+<table>
+<tr><th>接口</th><th>职责</th></tr>
+<tr><td><code>INotifier</code></td><td>公共基接口，提供 <code>SendNotification</code> 便捷方法</td></tr>
+<tr><td><code>INotification</code></td><td>通知消息体，携带 Name（路由键）、Body（数据）、Type（可选分类）</td></tr>
+<tr><td><code>IObserver</code></td><td>观察者，封装回调方法 + 上下文对象，是发布/订阅机制的底层载体</td></tr>
+<tr><td><code>IFacade</code></td><td>门面接口，统一暴露 Model/View/Controller 的全部操作</td></tr>
+<tr><td><code>IModel</code></td><td>数据层接口，管理 IProxy 的注册/检索/移除</td></tr>
+<tr><td><code>IView</code></td><td>视图层接口，管理 IMediator 和 IObserver 的注册/广播</td></tr>
+<tr><td><code>IController</code></td><td>控制层接口，管理 ICommand 的注册/执行</td></tr>
+<tr><td><code>ICommand</code></td><td>命令接口，定义 <code>Execute(INotification)</code></td></tr>
+<tr><td><code>IMediator</code></td><td>中介者接口，声明感兴趣的通知列表和处理方法</td></tr>
+<tr><td><code>IProxy</code></td><td>数据代理接口，持有数据对象并提供生命周期钩子</td></tr>
+</table>
+
+<!-- ==================== 类图 2: 实现层 ==================== -->
+<h2>二、实现层类图</h2>
+<div class="diagram-wrapper">
+<pre class="mermaid">
+classDiagram
+    direction TB
+
+    class Notifier {
+        #Facade : IFacade
+        +SendNotification(name, body?, type?) void
+    }
+
+    class Notification {
+        +Name : string
+        +Body : object
+        +Type : string
+        +ToString() string
+    }
+
+    class Observer {
+        +NotifyMethod : Action~INotification~
+        +NotifyContext : object
+        +NotifyObserver(notification) void
+        +CompareNotifyContext(obj) bool
+    }
+
+    class Model {
+        -proxyMap : ConcurrentDictionary~string，IProxy~
+        -instance$ : IModel
+        +GetInstance$(modelFunc) IModel
+        +Destroy$() void
+        #InitializeModel() void
+        +RegisterProxy(proxy) void
+        +RetrieveProxy(name) IProxy
+        +RemoveProxy(name) IProxy
+        +HasProxy(name) bool
+    }
+
+    class View {
+        -mediatorMap : ConcurrentDictionary~string，IMediator~
+        -observerMap : ConcurrentDictionary~string，IList~
+        -instance$ : IView
+        +GetInstance$(viewFunc) IView
+        +Destroy$() void
+        #InitializeView() void
+        +RegisterObserver(name, observer) void
+        +RemoveObserver(name, context) void
+        +NotifyObservers(notification) void
+        +RegisterMediator(mediator) void
+        +RetrieveMediator(name) IMediator
+        +RemoveMediator(name) IMediator
+        +HasMediator(name) bool
+    }
+
+    class Controller {
+        -commandMap : ConcurrentDictionary~string，Func~
+        -view : IView
+        -instance$ : IController
+        +GetInstance$(controllerFunc) IController
+        +Destroy$() void
+        #InitializeController() void
+        +RegisterCommand(name, commandFunc) void
+        +ExecuteCommand(notification) void
+        +RemoveCommand(name) void
+        +HasCommand(name) bool
+    }
+
+    class SimpleCommand {
+        +Execute(notification) void
+    }
+
+    class MacroCommand {
+        -subcommands : List~Func~ICommand~~
+        #InitializeMacroCommand() void
+        #AddSubCommand(commandFunc) void
+        +Execute(notification) void
+    }
+
+    class Mediator {
+        +NAME$ : string
+        +MediatorName : string
+        +ViewComponent : object
+        +ListNotificationInterests() string[]
+        +HandleNotification(notification) void
+        +OnRegister() void
+        +OnRemove() void
+    }
+
+    class Proxy {
+        +NAME$ : string
+        +ProxyName : string
+        +Data : object
+        +OnRegister() void
+        +OnRemove() void
+    }
+
+    class Facade {
+        #controller : IController
+        #model : IModel
+        #view : IView
+        -instance$ : IFacade
+        +GetInstance$(facadeFunc) IFacade
+        #InitializeFacade() void
+        #InitializeController() void
+        #InitializeModel() void
+        #InitializeView() void
+        +RegisterCommand(name, commandFunc) void
+        +RegisterProxy(proxy) void
+        +RegisterMediator(mediator) void
+        +SendNotification(name, body?, type?) void
+        +NotifyObservers(notification) void
+    }
+
+    Notification ..|> INotification : 实现
+    Observer ..|> IObserver : 实现
+    Notifier ..|> INotifier : 实现
+    Model ..|> IModel : 实现
+    View ..|> IView : 实现
+    Controller ..|> IController : 实现
+
+    Facade --|> Notifier : 继承
+    SimpleCommand --|> Notifier : 继承
+    MacroCommand --|> Notifier : 继承
+    Mediator --|> Notifier : 继承
+    Proxy --|> Notifier : 继承
+
+    SimpleCommand ..|> ICommand : 实现
+    MacroCommand ..|> ICommand : 实现
+    Mediator ..|> IMediator : 实现
+    Proxy ..|> IProxy : 实现
+
+    Facade ..|> IFacade : 实现
+</pre>
+</div>
+
+<!-- ==================== 类图 3: 组合关系 ==================== -->
+<h2>三、组合与依赖关系图</h2>
+<div class="diagram-wrapper">
+<pre class="mermaid">
+classDiagram
+    direction LR
+
+    class Facade {
+        #controller : IController
+        #model : IModel
+        #view : IView
+    }
+
+    class Model {
+        -proxyMap : ConcurrentDictionary
+    }
+
+    class View {
+        -mediatorMap : ConcurrentDictionary
+        -observerMap : ConcurrentDictionary
+    }
+
+    class Controller {
+        -commandMap : ConcurrentDictionary
+        -view : IView
+    }
+
+    class Proxy
+    class Mediator
+    class Observer
+    class SimpleCommand
+    class Notification
+    class Notifier
+
+    Facade *-- Model : 持有 model
+    Facade *-- View : 持有 view
+    Facade *-- Controller : 持有 controller
+
+    Controller --> View : 注册 Observer
+    Controller o-- SimpleCommand : commandMap 存储工厂
+
+    View o-- Observer : observerMap 管理
+    View o-- Mediator : mediatorMap 管理
+
+    Model o-- Proxy : proxyMap 管理
+
+    Observer --> Notification : 传递通知
+
+    Notifier --> Facade : 获取单例引用
+    SimpleCommand --|> Notifier
+    Mediator --|> Notifier
+    Proxy --|> Notifier
+</pre>
+</div>
+
+<!-- ==================== 类图 4: 项目扩展层 ==================== -->
+<h2>四、项目扩展层 — AppFacade</h2>
+<div class="diagram-wrapper">
+<pre class="mermaid">
+classDiagram
+    direction TB
+
+    class Facade {
+        #controller : IController
+        #model : IModel
+        #view : IView
+        +SendNotification(name, body?, type?) void
+    }
+
+    class AppFacade {
+        -m_viewMap : Dictionary~ViewBinder，IMediator~
+        -m_MediatorMap : Dictionary~string，IMediator~
+        -m_globalMap : Dictionary~string，Mediator~
+        +STARTUP$ : string
+        +GetInstance$() AppFacade
+        +Destroy$() void
+        #InitializeController() void
+        +StartUp() void
+        +RegisterMediator(mediator) void
+        +RetrieveMediator(name) IMediator
+        +RemoveMediator(name) IMediator
+        +RemoveView(view) void
+        +RegisterGlobalMediator(mediator) void
+        +RemoveGlobalMediator(name) void
+        +SendNotification(name, body?, type?) void
+        +SendSproto(obj) void
+    }
+
+    class SubViewManager {
+        +NotifyObervers(notification) void
+    }
+
+    class ViewBinder {
+        Unity 视图绑定组件
+    }
+
+    class NetProxy {
+        +SendSproto(obj) void
+    }
+
+    AppFacade --|> Facade : 继承
+    AppFacade --> SubViewManager : 通知转发
+    AppFacade --> ViewBinder : m_viewMap 关联
+    AppFacade --> NetProxy : 网络协议发送
+</pre>
+</div>
+
+<h3>AppFacade 扩展点</h3>
+<ul>
+<li><code>InitializeController()</code>：注册了项目中约 80+ 条 Command 映射，包括启动流程（<code>StartUpCommand</code>、<code>LoginCommand</code>）、网络协议响应（以 Sproto TagName 为通知名）、业务命令等。</li>
+<li><code>RegisterMediator</code> 增强：额外维护 <code>m_viewMap</code>（ViewBinder → Mediator）和 <code>m_MediatorMap</code>（名称 → Mediator），支持通过 Unity 组件快速查找。</li>
+<li><code>GlobalMediator</code>：<code>RegisterGlobalMediator</code> / <code>RemoveGlobalMediator</code> 管理不随 UI 生命周期销毁的全局 Mediator。</li>
+<li><code>SendNotification</code> 增强：除标准 PureMVC 通知链路外，额外通知 <code>SubViewManager</code>，支持子视图系统。</li>
+<li><code>SendSproto</code>：封装网络协议发送，通过 <code>NetProxy</code> 代理。</li>
+</ul>
+
+<!-- ==================== 核心三元组详解 ==================== -->
+<h2>五、核心三元组详解</h2>
+
+<h3>5.1 Model — 数据仓库</h3>
+<pre><code>ConcurrentDictionary&lt;string, IProxy&gt; proxyMap</code></pre>
+<ul>
+<li>单例模式，通过 <code>GetInstance()</code> 获取</li>
+<li>内部用 <code>ConcurrentDictionary</code> 存储所有 <code>IProxy</code>，以 <code>ProxyName</code> 为键</li>
+<li><code>RegisterProxy</code> 时自动调用 <code>proxy.OnRegister()</code></li>
+<li><code>RemoveProxy</code> 时自动调用 <code>proxy.OnRemove()</code></li>
+<li>职责纯粹：只做 Proxy 的 CRUD，不参与通知分发</li>
+</ul>
+
+<h3>5.2 View — 观察者中心 + Mediator 仓库</h3>
+<pre><code>ConcurrentDictionary&lt;string, IMediator&gt; mediatorMap
+ConcurrentDictionary&lt;string, IList&lt;IObserver&gt;&gt; observerMap</code></pre>
+<p>View 是整个通知系统的核心枢纽，承担两个职责：</p>
+<ol>
+<li><strong>Observer 管理</strong>：维护 <code>notificationName → List&lt;IObserver&gt;</code> 的映射表。<code>NotifyObservers</code> 时先复制列表再遍历，避免迭代中修改集合。</li>
+<li><strong>Mediator 管理</strong>：注册 Mediator 时，自动调用 <code>ListNotificationInterests()</code> 获取其感兴趣的通知名，为每个通知名创建一个 <code>Observer</code>（封装 <code>HandleNotification</code> 方法），注册到 <code>observerMap</code>。移除时反向清理。</li>
+</ol>
+<p>这是 PureMVC 最精妙的设计之一：Mediator 不需要手动订阅/退订通知，框架通过 <code>ListNotificationInterests</code> + 自动 Observer 注册实现了<strong>声明式的事件绑定</strong>。</p>
+
+<h3>5.3 Controller — 命令调度器</h3>
+<pre><code>ConcurrentDictionary&lt;string, Func&lt;ICommand&gt;&gt; commandMap
+IView view  // 持有 View 引用</code></pre>
+<ul>
+<li>维护 <code>notificationName → Func&lt;ICommand&gt;</code> 的映射（工厂函数，每次执行创建新实例）</li>
+<li><code>RegisterCommand</code> 时，同时向 View 注册一个 Observer，回调指向 <code>ExecuteCommand</code></li>
+<li>当 View 广播通知时，Observer 触发 <code>ExecuteCommand</code>，从 <code>commandMap</code> 取出工厂函数，创建 Command 实例并执行</li>
+</ul>
+
+<h3>5.4 SimpleCommand vs MacroCommand</h3>
+<table>
+<tr><th></th><th>SimpleCommand</th><th>MacroCommand</th></tr>
+<tr><td>用途</td><td>单一业务逻辑</td><td>组合多个子命令</td></tr>
+<tr><td>重写方法</td><td><code>Execute()</code></td><td><code>InitializeMacroCommand()</code></td></tr>
+<tr><td>执行方式</td><td>直接执行</td><td>FIFO 顺序执行所有子命令</td></tr>
+<tr><td>子命令</td><td>无</td><td>通过 <code>AddSubCommand()</code> 添加</td></tr>
+</table>
+
+<h3>5.5 Notifier — 通知发送基类</h3>
+<p>所有 MVC 角色的公共基类。通过持有 Facade 单例引用，让子类可以直接调用 <code>SendNotification</code> 而无需关心底层的 Observer 机制。</p>
+<pre><code>protected IFacade Facade => Facade.GetInstance(() => new Facade());
+
+public virtual void SendNotification(string name, object body = null, string type = null)
+{
+    Facade.SendNotification(name, body, type);
+}</code></pre>
+
+<!-- ==================== 通知流转 ==================== -->
+<h2>六、通知流转全链路</h2>
+<div class="diagram-wrapper">
+<pre class="mermaid">
+sequenceDiagram
+    participant Caller as 调用方
+    participant F as Facade
+    participant V as View
+    participant Obs1 as Observer (Controller注册)
+    participant Obs2 as Observer (Mediator注册)
+    participant C as Controller
+    participant Cmd as Command实例
+    participant Med as Mediator
+
+    Caller->>F: SendNotification("Hero_HeroInfo", data)
+    F->>V: NotifyObservers(notification)
+    V->>V: 复制 observerMap["Hero_HeroInfo"]
+
+    par 并行通知所有Observer
+        V->>Obs1: NotifyObserver(notification)
+        Obs1->>C: ExecuteCommand(notification)
+        C->>C: commandMap["Hero_HeroInfo"]() 创建实例
+        C->>Cmd: Execute(notification)
+        Note over Cmd: 操作 Proxy / 发送新通知
+    and
+        V->>Obs2: NotifyObserver(notification)
+        Obs2->>Med: HandleNotification(notification)
+        Note over Med: 更新 UI 显示
+    end
+</pre>
+</div>
+
+<!-- ==================== Mediator 注册流程 ==================== -->
+<h2>七、Mediator 注册流程</h2>
+<div class="diagram-wrapper">
+<pre class="mermaid">
+sequenceDiagram
+    participant Caller as 调用方
+    participant F as Facade
+    participant V as View
+
+    Caller->>F: RegisterMediator(mediator)
+    F->>V: RegisterMediator(mediator)
+    V->>V: mediatorMap[name] = mediator
+    V->>V: interests = mediator.ListNotificationInterests()
+
+    loop 每个 interest
+        V->>V: new Observer(mediator.HandleNotification, mediator)
+        V->>V: observerMap[interest].Add(observer)
+    end
+
+    V->>V: mediator.OnRegister()
+</pre>
+</div>
+
+<!-- ==================== Command 注册与执行 ==================== -->
+<h2>八、Command 注册与执行流程</h2>
+<div class="diagram-wrapper">
+<pre class="mermaid">
+sequenceDiagram
+    participant Caller as 调用方
+    participant F as Facade
+    participant C as Controller
+    participant V as View
+
+    Note over Caller,V: 注册阶段
+    Caller->>F: RegisterCommand("CMD_X", () => new XxxCmd())
+    F->>C: RegisterCommand("CMD_X", factory)
+    C->>C: commandMap["CMD_X"] = factory
+    C->>V: RegisterObserver("CMD_X", new Observer(ExecuteCommand, this))
+
+    Note over Caller,V: 执行阶段
+    Caller->>F: SendNotification("CMD_X", data)
+    F->>V: NotifyObservers(notification)
+    V->>C: Observer.NotifyObserver → ExecuteCommand(notification)
+    C->>C: factory = commandMap["CMD_X"]
+    C->>C: cmd = factory()
+    C->>C: cmd.Execute(notification)
+</pre>
+</div>
+
+<!-- ==================== 设计模式总结 ==================== -->
+<h2>九、设计模式总结</h2>
+<div class="pattern-grid">
+  <div class="pattern-card"><strong>门面模式 (Facade)</strong><br><code>Facade</code> 类统一封装 Model/View/Controller，对外提供单一入口</div>
+  <div class="pattern-card"><strong>单例模式 (Singleton)</strong><br>Model、View、Controller、Facade 均为单例，通过 <code>GetInstance</code> 工厂方法获取</div>
+  <div class="pattern-card"><strong>观察者模式 (Observer)</strong><br><code>Observer</code> + <code>View.observerMap</code> 实现发布/订阅通知机制</div>
+  <div class="pattern-card"><strong>命令模式 (Command)</strong><br><code>SimpleCommand</code> / <code>MacroCommand</code> 封装业务逻辑为可执行对象</div>
+  <div class="pattern-card"><strong>中介者模式 (Mediator)</strong><br><code>Mediator</code> 解耦 View 组件与业务逻辑层</div>
+  <div class="pattern-card"><strong>代理模式 (Proxy)</strong><br><code>Proxy</code> 封装数据访问，隔离数据层与其他层</div>
+  <div class="pattern-card"><strong>工厂方法 (Factory)</strong><br><code>Func&lt;ICommand&gt;</code> 工厂函数延迟创建 Command 实例，每次执行都是新对象</div>
+  <div class="pattern-card"><strong>组合模式 (Composite)</strong><br><code>MacroCommand</code> 组合多个子命令，按 FIFO 顺序执行</div>
+</div>
+
+</div>
+
+<script>
+mermaid.initialize({
+  startOnLoad: true,
+  theme: 'default',
+  themeVariables: { fontSize: '13px' },
+  flowchart: { useMaxWidth: true },
+  sequence: { useMaxWidth: true, mirrorActors: false }
+});
+</script>
+</body>
+</html>

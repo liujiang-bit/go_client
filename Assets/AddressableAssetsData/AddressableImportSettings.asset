@@ -1,0 +1,412 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4457b6e6d3304bd46a31be63dad3325c, type: 3}
+  m_Name: AddressableImportSettings
+  m_EditorClassIdentifier: 
+  allowGroupCreation: 1
+  rules:
+  - path: Assets/BundleAssets/.*/shared_(?<group>[^/]*)/(.*/)*(?<asset>.*)\..*
+    matchType: 1
+    groupName: shared_${group}
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: shared_${group}_${asset}
+  - path: Assets/BundleAssets/Barbarian/(?<category>[^/]+)/(?<asset>.*)\.prefab
+    matchType: 1
+    groupName: Barbarian
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Effect/Prefabs/(?<asset>.*)\.prefab
+    matchType: 1
+    groupName: Effect
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Monster_SD/(?<category>[^/]+)/Materials/(?<asset>.*)_SD\.asset
+    matchType: 1
+    groupName: Monster_SD
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}_SD
+  - path: Assets/BundleAssets/Npc/(?<asset>.*)\.prefab
+    matchType: 1
+    groupName: Npc_img
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Scene/City/city_function/(?<asset>.*)\.(prefab|mat)
+    matchType: 1
+    groupName: CityBase
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Scene/City_building/city_building_1/(?<asset>.*)\.prefab
+    matchType: 1
+    groupName: CityLevel1
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Scene/City_building/city_building_2/(?<asset>.*)\.prefab
+    matchType: 1
+    groupName: CityLevel2
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Scene/City_building/city_building_3/(?<asset>.*)\.prefab
+    matchType: 1
+    groupName: CityLevel3
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Scene/City_building/city_building_4/(?<asset>.*)\.prefab
+    matchType: 1
+    groupName: CityLevel4
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Scene/City_building/city_building_5/(?<asset>.*)\.prefab
+    matchType: 1
+    groupName: CityLevel5
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Scene/Map_building/map_building/(?<asset>.*)\.prefab
+    matchType: 1
+    groupName: RssBuild
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Scene/Map_building/map_mountain/(?<asset>.*)\.prefab
+    matchType: 1
+    groupName: RssBuild
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Scene/Map_building/map_building_lod/(?<asset>.*)\.prefab
+    matchType: 1
+    groupName: Lod3Icon
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/land/Tile(_lod[1-5])*/(AutoMake/)*(Mountain/)*(?<asset>.*)\.prefab
+    matchType: 1
+    groupName: MapTile
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/land/MapData/(?<asset>.*)\.bytes
+    matchType: 1
+    groupName: MapData
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/land/Material/(?<asset>I_TYPE_.*)\.mat
+    matchType: 1
+    groupName: MapMaterial
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/land/Texture_lod3_4/(?<asset>.*)\.png
+    matchType: 1
+    groupName: Texture_lod3_4
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Souds/(?<asset>.*)\.(mp3|wav)
+    matchType: 1
+    groupName: Sound
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Timeline/(?<category>[^/]+)/(?<asset>.*)\.prefab
+    matchType: 1
+    groupName: Timeline
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Troop/spine_hero/(?<category>[^/]+)/Materials/(?<asset>.*)_SD\.asset
+    matchType: 1
+    groupName: Hero_SD
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}_SD
+  - path: Assets/BundleAssets/Troop/spine_troop/(?<category>[^/]+)/Materials/(?<asset>.*)_SD\.asset
+    matchType: 1
+    groupName: Troop_SD
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}_SD
+  - path: Assets/BundleAssets/Troop/troop_unit_hero/(?<asset>.*)\.prefab
+    matchType: 1
+    groupName: Hero_img
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Troop/troop_unit_t1/(?<asset>.*)\.prefab
+    matchType: 1
+    groupName: Troop_t1_img
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Troop/troop_unit_t2/(?<asset>.*)\.prefab
+    matchType: 1
+    groupName: Troop_t2_img
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Troop/troop_unit_t3/(?<asset>.*)\.prefab
+    matchType: 1
+    groupName: Troop_t3_img
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Troop/troop_unit_t4/(?<asset>.*)\.prefab
+    matchType: 1
+    groupName: Troop_t4_img
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Troop/troop_unit_t5/(?<asset>.*)\.prefab
+    matchType: 1
+    groupName: Troop_t5_img
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Troop/troop_unit_function/(?<asset>.*)\.prefab
+    matchType: 1
+    groupName: Troop_base
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/UI/UIEffect/(?<asset>.*)\.prefab
+    matchType: 1
+    groupName: UIEffect
+    LabelMode: 1
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/UI/UIPrefabs/(?<category>[^/]+)/(?<sub>[^/]+)/(?<asset>.*)\.prefab
+    matchType: 1
+    groupName: ${category}
+    LabelMode: 0
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/UI/UITextureStatic/(?<category>[^/]+)/(?<asset>.*)\.png
+    matchType: 1
+    groupName: img_${category}
+    LabelMode: 0
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Weather/(?<asset>.*)\.prefab
+    matchType: 1
+    groupName: Weather
+    LabelMode: 0
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Scene/City/city_heroshow/(?<asset>.*)\.(prefab|mat)
+    matchType: 1
+    groupName: Hero_show
+    LabelMode: 0
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Default/(?<asset>.*)\.(prefab|mat)
+    matchType: 1
+    groupName: Default
+    LabelMode: 0
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/Third/.*/(?<asset>.*)\.prefab
+    matchType: 1
+    groupName: debug
+    LabelMode: 0
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Scene/Map_building/territory/(?<asset>.*)\.(prefab|mat)
+    matchType: 1
+    groupName: territory
+    LabelMode: 0
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Map/BuildingMesh/(?<asset>.*)\.prefab
+    matchType: 1
+    groupName: map_mesh
+    LabelMode: 0
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Emoji/(?<category>[^/]+)/(?<asset>.*)_SD\.asset
+    matchType: 1
+    groupName: Emoji
+    LabelMode: 0
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/*/(?<asset>.*)\.shader
+    matchType: 1
+    groupName: shader
+    LabelMode: 0
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/Third/Spine/*/(?<asset>.*)\.shader
+    matchType: 1
+    groupName: shader
+    LabelMode: 0
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/Third/Spine/*/(?<asset>.*)\.mat
+    matchType: 1
+    groupName: third_matrial
+    LabelMode: 0
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/Troop/sprite_troop/.+/.+/(?<asset>.*)\.png
+    matchType: 1
+    groupName: sprite_troop
+    LabelMode: 0
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}
+  - path: Assets/BundleAssets/UI/UIAnimation/(?<category>[^/]+)/(?<asset>.*)_SD\.asset
+    matchType: 1
+    groupName: UIAnimationSD
+    LabelMode: 0
+    labelRefs: []
+    groupTemplate: {fileID: 0}
+    groupTemplateApplicationMode: 1
+    simplified: 0
+    addressReplacement: ${asset}

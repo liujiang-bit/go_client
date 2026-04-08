@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "Proto 变更自动生成 EmmyLua",
+  "description": "当 Assets/Data/ProtoFile 下的 .proto 文件被修改时（如 git pull 后），自动执行 Proto to EmmyLua 转换，更新 ProtobufToLua.lua",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "Assets/Data/ProtoFile/*.proto"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "检测到 proto 文件变更，请按照 proto-to-emmylua steering 中的规则，读取 Assets/Data/ProtoFile/ 下所有 .proto 文件，重新生成 Assets/Main/LuaScripts/Util/ProtobufToLua.lua 的完整 EmmyLua 类型声明。"
+  }
+}

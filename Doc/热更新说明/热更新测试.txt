@@ -1,0 +1,27 @@
+服务器:118.24.152.21
+账号:root
+密码:~qwertyASDFGH
+
+
+运营后台
+热更新地址：http://118.24.152.21:81/IG
+热更新版本(构建号,热更新版本|构建号,热更新版本):5.0.0,1|5.0.1,1
+
+制作补丁
+把原始包和当前包拷贝到Hotfix目录， 然后修改掉 old_file new_file和patch_file  如果是分包就改成obb
+Toolset Hotfix --old_file=./1.0.5.apk --new_file=./1.0.5.5.apk --temp=./Temp --patch_file=./1.zip --assets="assets"
+就可以生成 补丁文件 1.zip
+拷贝到对应的热更目录
+Android/1.0.5/1.zip
+iOS/1.0.5/1.zip
+
+
+CDN 目录 /iggstaticsbucket3/orig-oc/static-oc.igg.com/Android/1.0.6
+static-oc.igg.com
+key: AKIARJSCAIBHWEWTR5SH
+secret: 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
+group: [IggStaticsBucket3]Bucket3（正式环境）
+游戏正式的S3上传地址固定为：iggstaticsbucket3.s3-us-west-2.amazonaws.com
+下载地址则是：static-oc.igg.com
+这个key跟secret是一个项目一个，需要妥善保管。如担心key泄露，可以联系我重置。
+具体的使用则请查阅文档：http://g.skyunion.net/6iOsD3

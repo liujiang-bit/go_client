@@ -1,0 +1,198 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <net.uaznia.lukanus.hudson.plugins.gitparameter.GitParameterDefinition plugin="git-parameter@0.9.12">
+          <name>GIT_BRANCH</name>
+          <description>Git分支</description>
+          <uuid>cacc3b88-9332-4f4a-bf81-58ce49221d35</uuid>
+          <type>PT_BRANCH</type>
+          <branch></branch>
+          <tagFilter>*</tagFilter>
+          <branchFilter>origin/(.*)</branchFilter>
+          <sortMode>NONE</sortMode>
+          <defaultValue>release/1.0</defaultValue>
+          <selectedValue>DEFAULT</selectedValue>
+          <quickFilterEnabled>false</quickFilterEnabled>
+          <listSize>5</listSize>
+        </net.uaznia.lukanus.hudson.plugins.gitparameter.GitParameterDefinition>
+        <com.gem.persistentparameter.PersistentStringParameterDefinition plugin="persistent-parameter@1.1">
+          <name>VersionName</name>
+          <description>大版本号.强更号.VersionCode
+VersionCode必须大于0</description>
+          <defaultValue>1.0.1</defaultValue>
+          <successfulOnly>false</successfulOnly>
+        </com.gem.persistentparameter.PersistentStringParameterDefinition>
+        <com.gem.persistentparameter.PersistentBooleanParameterDefinition plugin="persistent-parameter@1.1">
+          <name>BuildBundle</name>
+          <description>是否重新打包资源，如果只是代码变动可以不打包资源。速度比较快！</description>
+          <defaultValue>true</defaultValue>
+          <successfulOnly>false</successfulOnly>
+        </com.gem.persistentparameter.PersistentBooleanParameterDefinition>
+        <com.gem.persistentparameter.PersistentBooleanParameterDefinition plugin="persistent-parameter@1.1">
+          <name>ResetBundleGroup</name>
+          <description>重置资源分组。</description>
+          <defaultValue>false</defaultValue>
+          <successfulOnly>false</successfulOnly>
+        </com.gem.persistentparameter.PersistentBooleanParameterDefinition>
+        <com.gem.persistentparameter.PersistentChoiceParameterDefinition plugin="persistent-parameter@1.1">
+          <name>HotFixMode</name>
+          <description>运行模式(现在不允许打nativecode，只有商店包运行)
+NativeCode  原生模式
+ILRT 热更新模式
+Reflect 反射模式</description>
+          <choices>
+            <string>ILRT</string>
+            <string>NativeCode</string>
+          </choices>
+          <successfulOnly>false</successfulOnly>
+        </com.gem.persistentparameter.PersistentChoiceParameterDefinition>
+        <com.gem.persistentparameter.PersistentStringParameterDefinition plugin="persistent-parameter@1.1">
+          <name>LogoTime</name>
+          <description>Logo显示时长
+单个参数代表总时长
+多个参数 4|2 代表单独指定每个logo时长，如果logo个数太多取最后一个时间</description>
+          <defaultValue>4</defaultValue>
+          <successfulOnly>true</successfulOnly>
+        </com.gem.persistentparameter.PersistentStringParameterDefinition>
+        <com.gem.persistentparameter.PersistentChoiceParameterDefinition plugin="persistent-parameter@1.1">
+          <name>SIGN</name>
+          <description>1:商店包 2:测试包</description>
+          <choices>
+            <string>1</string>
+            <string>2</string>
+          </choices>
+          <successfulOnly>true</successfulOnly>
+        </com.gem.persistentparameter.PersistentChoiceParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@4.2.2">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://gitlab.skyunion.net/arb-common/ig-client.git</url>
+        <credentialsId>d884b124-347b-4a38-8887-0d5d69eab268</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>origin/${GIT_BRANCH}</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <customWorkspace>/Volumes/ssd/AOS/iOS</customWorkspace>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>echo &quot;BuildTarget:9\n&quot;&quot;VersionName:&quot;${VersionName}&quot;\n&quot;&quot;ResetBundleGroup:&quot;${ResetBundleGroup}&quot;\n&quot;&quot;HotFixMode:&quot;${HotFixMode}&quot;\n&quot;&quot;LogoTime:&quot;${LogoTime} &gt; ${WORKSPACE}&quot;/BuildConfig&quot;</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>/Applications/Unity/Unity.app/Contents/MacOS/Unity -projectPath ${WORKSPACE} -quit -batchmode -executeMethod Skyunion.BuildMenuItem.BuildPackageByConfig -logFile ${WORKSPACE}&quot;/Build.log&quot;</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>cd ${WORKSPACE}/../Packages/iOS
+
+#注意：脚本目录和xxxx.xcodeproj要在同一个目录，如果放到其他目录，请自行修改脚本。
+#工程名字(Target名字)
+Project_Name=&quot;Unity-iPhone&quot;
+#配置环境，Release或者Debug
+Configuration=&quot;Release&quot;
+
+#AdHoc版本的Bundle ID
+AdHocBundleID=&quot;com.igg.ios.originofconquerors&quot;
+#AppStore版本的Bundle ID
+AppStoreBundleID=&quot;com.igg.ios.originofconquerors&quot;
+#enterprise的Bundle ID
+EnterpriseBundleID=&quot;com.igg.ios.originofconquerors&quot;
+
+# ADHOC
+#证书名#描述文件
+ADHOCCODE_SIGN_IDENTITY=&quot;iPhone Distribution: SKYUNION HONG KONG HOLDINGS LIMITED (Q5ZG592WS5)&quot;
+ADHOCPROVISIONING_PROFILE_NAME=&quot;7f932f23-31f1-4f0f-9dcf-be40295e0f16&quot;
+
+#AppStore证书名#描述文件
+APPSTORECODE_SIGN_IDENTITY=&quot;iPhone Distribution: SKYUNION HONG KONG HOLDINGS LIMITED (Q5ZG592WS5)&quot;
+APPSTOREROVISIONING_PROFILE_NAME=&quot;61527252-58bd-4c5b-a76b-6a817e240473&quot;
+
+#企业(enterprise)证书名#描述文件
+ENTERPRISECODE_SIGN_IDENTITY=&quot;iPhone Distribution: SKYUNION HONG KONG HOLDINGS LIMITED (Q5ZG592WS5)&quot;
+ENTERPRISEROVISIONING_PROFILE_NAME=&quot;4d883eee-1223-4dd9-a77a-1d667beb66f5&quot;
+
+#加载各个版本的plist文件
+ADHOCExportOptionsPlist=${WORKSPACE}/Doc/Package/iOS/ADHOCExportOptionsPlist.plist
+AppStoreExportOptionsPlist=${WORKSPACE}/Doc/Package/iOS/AppStoreExportOptionsPlist.plist
+EnterpriseExportOptionsPlist=${WORKSPACE}/Doc/Package/iOS/EnterpriseExportOptionsPlist.plist
+
+ADHOCExportOptionsPlist=${ADHOCExportOptionsPlist}
+AppStoreExportOptionsPlist=${AppStoreExportOptionsPlist}
+EnterpriseExportOptionsPlist=${EnterpriseExportOptionsPlist}
+
+echo &quot;~~~~~~~~~~~~选择打包方式(输入序号)~~~~~~~~~~~~~~~&quot;
+echo &quot;		1 appstore&quot;
+echo &quot;		2 adhoc&quot;
+echo &quot;		3 enterprise&quot;
+
+# 读取用户输入并存到变量里
+#read parameter
+#sleep 0.5
+#method=&quot;$parameter&quot;
+method=${SIGN}
+# 判读用户是否有输入
+if [ -n &quot;$method&quot; ]
+then
+
+#clean下
+#xcodebuild clean -workspace ./$Project_Name/$Project_Name.xcworkspace -configuration $Configuration -alltargets
+
+    if [ &quot;$method&quot; = &quot;1&quot; ]
+    then
+#appstore脚本
+ProfType=&quot;apppstore&quot;
+xcodebuild -workspace $Project_Name.xcworkspace -scheme $Project_Name -configuration $Configuration -archivePath build/$Project_Name-appstore.xcarchive clean archive build  CODE_SIGN_IDENTITY=&quot;${APPSTORECODE_SIGN_IDENTITY}&quot; PROVISIONING_PROFILE=&quot;${APPSTOREROVISIONING_PROFILE_NAME}&quot; PRODUCT_BUNDLE_IDENTIFIER=&quot;${AppStoreBundleID}&quot;
+xcodebuild -exportArchive -archivePath build/$Project_Name-appstore.xcarchive -exportOptionsPlist $AppStoreExportOptionsPlist -exportPath ${WORKSPACE}/../Packages/iOS-Ipa
+    elif [ &quot;$method&quot; = &quot;2&quot; ]
+    then
+#adhoc脚本
+ProfType=&quot;adhoc&quot;
+xcodebuild -workspace $Project_Name.xcworkspace -scheme $Project_Name -configuration $Configuration -archivePath build/$Project_Name-adhoc.xcarchive clean archive build CODE_SIGN_IDENTITY=&quot;${ADHOCCODE_SIGN_IDENTITY}&quot; PROVISIONING_PROFILE=&quot;${ADHOCPROVISIONING_PROFILE_NAME}&quot; PRODUCT_BUNDLE_IDENTIFIER=&quot;${AdHocBundleID}&quot;
+xcodebuild -exportArchive -archivePath build/$Project_Name-adhoc.xcarchive -exportOptionsPlist $ADHOCExportOptionsPlist -exportPath ${WORKSPACE}/../Packages/iOS-Ipa
+    elif [ &quot;$method&quot; = &quot;3&quot; ]
+    then
+#企业打包脚本
+ProfType=&quot;enterprise&quot;
+xcodebuild -workspace $Project_Name.xcworkspace -scheme $Project_Name -configuration $Configuration -archivePath build/$Project_Name-enterprise.xcarchive clean archive build CODE_SIGN_IDENTITY=&quot;${ENTERPRISECODE_SIGN_IDENTITY}&quot; PROVISIONING_PROFILE=&quot;${ENTERPRISEROVISIONING_PROFILE_NAME}&quot; PRODUCT_BUNDLE_IDENTIFIER=&quot;${EnterpriseBundleID}&quot;
+xcodebuild -exportArchive -archivePath build/$Project_Name-enterprise.xcarchive -exportOptionsPlist $EnterpriseExportOptionsPlist -exportPath ${WORKSPACE}/../Packages/iOS-Ipa
+else
+    echo &quot;参数无效....&quot;
+    exit 1
+    fi
+fi
+cd ${WORKSPACE}/../Packages/iOS-Ipa
+PackageName=&quot;iOS-${GIT_BRANCH/\//-}-v${VersionName}-b${BUILD_NUMBER}-il2cpp-${ProfType}-${HotFixMode}-&quot;$(date &quot;+%Y-%m-%d-%H-%M-%S.zip&quot;)
+FileName=&quot;/Volumes/ssd/AOS/Packages/&quot;${PackageName}
+zip -q -r -o ${FileName} &apos;./&apos;
+rm -f -r ${WORKSPACE}/../Packages/iOS-Ipa
+SubDir=develop/iOS/
+PackageDir=/Volumes/ssd/Packages/${SubDir}
+mkdir -p ${PackageDir}
+mv ${FileName} ${PackageDir}${PackageName}
+changeMsg=&quot;${GIT_BRANCH}:http://10.15.122.36:8088/downloadfile/${SubDir}${PackageName}?path=/${SubDir}${PackageName}&quot;
+curl -d &quot;token=d32d3affa842ec468799037636b22dac&amp;target=group&amp;room=10001307&amp;title=iOS打包完成&amp;content_type=1&amp;content=${changeMsg}&amp;at_user=zhongyanghuang&quot; http://im-api.skyunion.net/msg</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

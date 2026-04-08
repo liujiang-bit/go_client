@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "同步代码修改到 Design 文档",
+  "description": "当代码文件被修改后，提醒 agent 检查并同步更新对应 spec 的 design.md 中的数据模型、接口描述、错误处理等内容，确保设计文档与代码实现保持一致。",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "*.lua"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "检测到 Lua 代码文件被修改。请检查本次修改是否涉及 .kiro/specs/ 下任何 spec 的设计范围（数据模型、接口签名、错误处理、组件关系等）。如果涉及，请同步更新对应 spec 的 design.md 文件中的相关描述，确保设计文档与代码实现保持一致。重点关注：1) protobuf 字段类型和访问方式 2) 方法签名和参数说明 3) 数据流和组件关系 4) 错误处理策略。"
+  }
+}

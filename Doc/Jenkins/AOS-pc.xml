@@ -1,0 +1,122 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <net.uaznia.lukanus.hudson.plugins.gitparameter.GitParameterDefinition plugin="git-parameter@0.9.12">
+          <name>GIT_BRANCH</name>
+          <description>Git分支</description>
+          <uuid>3ee657c2-3098-48ec-a7df-5d6a2606c877</uuid>
+          <type>PT_BRANCH</type>
+          <branch></branch>
+          <tagFilter>*</tagFilter>
+          <branchFilter>origin/(.*)</branchFilter>
+          <sortMode>NONE</sortMode>
+          <defaultValue>release/1.0</defaultValue>
+          <selectedValue>DEFAULT</selectedValue>
+          <quickFilterEnabled>false</quickFilterEnabled>
+          <listSize>5</listSize>
+        </net.uaznia.lukanus.hudson.plugins.gitparameter.GitParameterDefinition>
+        <com.gem.persistentparameter.PersistentStringParameterDefinition plugin="persistent-parameter@1.1">
+          <name>VersionName</name>
+          <description>大版本号.强更号.VersionCode
+VersionCode必须大于0</description>
+          <defaultValue>1.0.1</defaultValue>
+          <successfulOnly>false</successfulOnly>
+        </com.gem.persistentparameter.PersistentStringParameterDefinition>
+        <com.gem.persistentparameter.PersistentBooleanParameterDefinition plugin="persistent-parameter@1.1">
+          <name>BuildBundle</name>
+          <description>是否重新打包资源，如果只是代码变动可以不打包资源。速度比较快！</description>
+          <defaultValue>true</defaultValue>
+          <successfulOnly>false</successfulOnly>
+        </com.gem.persistentparameter.PersistentBooleanParameterDefinition>
+        <com.gem.persistentparameter.PersistentBooleanParameterDefinition plugin="persistent-parameter@1.1">
+          <name>Il2CPP</name>
+          <description>编译模式是否使用IL2CPP否则使用Mono，正常对外包都是IL2CPP。内部测试的话可以Mono，这样打包会比较快</description>
+          <defaultValue>false</defaultValue>
+          <successfulOnly>false</successfulOnly>
+        </com.gem.persistentparameter.PersistentBooleanParameterDefinition>
+        <com.gem.persistentparameter.PersistentBooleanParameterDefinition plugin="persistent-parameter@1.1">
+          <name>ResetBundleGroup</name>
+          <description>重置资源分组</description>
+          <defaultValue>false</defaultValue>
+          <successfulOnly>false</successfulOnly>
+        </com.gem.persistentparameter.PersistentBooleanParameterDefinition>
+        <com.gem.persistentparameter.PersistentChoiceParameterDefinition plugin="persistent-parameter@1.1">
+          <name>HotFixMode</name>
+          <description>运行模式(现在不允许打nativecode，只有商店包运行)
+NativeCode  原生模式
+ILRT 热更新模式
+Reflect 反射模式</description>
+          <choices>
+            <string>ILRT</string>
+          </choices>
+          <successfulOnly>false</successfulOnly>
+        </com.gem.persistentparameter.PersistentChoiceParameterDefinition>
+        <com.gem.persistentparameter.PersistentStringParameterDefinition plugin="persistent-parameter@1.1">
+          <name>LogoTime</name>
+          <description>Logo显示时长
+单个参数代表总时长
+多个参数 4|2 代表单独指定每个logo时长，如果logo个数太多取最后一个时间</description>
+          <defaultValue>4</defaultValue>
+          <successfulOnly>true</successfulOnly>
+        </com.gem.persistentparameter.PersistentStringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@4.2.2">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://gitlab.skyunion.net/arb-common/ig-client.git</url>
+        <credentialsId>d884b124-347b-4a38-8887-0d5d69eab268</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>origin/${GIT_BRANCH}</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <customWorkspace>/Volumes/ssd/AOS/pc</customWorkspace>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>echo &quot;BuildTarget:19\n&quot;&quot;VersionName:&quot;${VersionName}&quot;\n&quot;&quot;Il2CPP:&quot;${Il2CPP}&quot;\n&quot;&quot;BuildBundle:&quot;${BuildBundle}&quot;\n&quot;&quot;ResetBundleGroup:&quot;${ResetBundleGroup}&quot;\n&quot;&quot;HotFixMode:&quot;${HotFixMode}&quot;\n&quot;&quot;LogoTime:&quot;${LogoTime} &gt; ${WORKSPACE}/BuildConfig</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>/Applications/Unity/Unity.app/Contents/MacOS/Unity -projectPath ${WORKSPACE} -quit -batchmode -executeMethod Skyunion.BuildMenuItem.BuildPackageByConfig -logFile ${WORKSPACE}/Build.log</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>cd /Volumes/ssd/AOS/Packages/Windows
+if [ &quot;${Il2CPP}&quot; == &quot;true&quot; ];then
+	Code=&quot;IL2CPP&quot;
+else
+	Code=&quot;Mono&quot;
+fi
+PackageName=&quot;pc-${GIT_BRANCH/\//-}-v${VersionName}-b${BUILD_NUMBER}-${Code}-${HotFixMode}-&quot;$(date &quot;+%Y-%m-%d-%H-%M-%S.zip&quot;)
+FileName=${WORKSPACE}&quot;/../Packages/&quot;${PackageName}
+zip -q -r -o ${FileName} &apos;./&apos;	
+rm -f -r ${WORKSPACE}&quot;/../Packages/Windows&quot;
+SubDir=develop/Windows/
+PackageDir=/Volumes/ssd/Packages/${SubDir}
+mkdir -p ${PackageDir}
+mv ${FileName} ${PackageDir}${PackageName}
+changeMsg=&quot;${GIT_BRANCH}:http://10.15.122.36:8088/downloadfile/${SubDir}${PackageName}?path=/${SubDir}${PackageName}&quot;
+curl -d &quot;token=d32d3affa842ec468799037636b22dac&amp;target=group&amp;room=10001307&amp;title=Windows打包完成&amp;content_type=1&amp;content=${changeMsg}&amp;at_user=zhongyanghuang&quot; http://im-api.skyunion.net/msg</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

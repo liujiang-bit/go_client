@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🧠 kiro-mem viewer</title>
+<style>
+:root {
+  --bg: #1a1916; --bg2: #252320; --bg3: #2d2a26;
+  --border: #3a3834; --border-hover: #4a4540;
+  --text: #dcd6cc; --text2: #b8b0a4; --text3: #938a7e; --muted: #7a7266;
+  --accent: #58a6ff; --success: #16c60c; --error: #e74856;
+  --summary-bg: #2a2724; --summary-border: #7a6a50; --summary-text: #d4b888;
+  --badge-bg: rgba(88,166,255,0.125); --badge-text: #58a6ff;
+  --font-mono: 'Monaco','Menlo','Consolas','Courier New',monospace;
+}
+[data-theme="light"] {
+  --bg: #ffffff; --bg2: #f6f8fa; --bg3: #f0f0f0;
+  --border: #d0d7de; --border-hover: #0969da;
+  --text: #2b2520; --text2: #5a5248; --text3: #726b5f; --muted: #8f8a7e;
+  --accent: #0969da; --success: #1a7f37; --error: #d1242f;
+  --summary-bg: #fffbf0; --summary-border: #d4a72c; --summary-text: #8a6116;
+  --badge-bg: rgba(9,105,218,0.12); --badge-text: #0969da;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  background:var(--bg); color:var(--text); font-size:14px; }
+</style>
+</head>
+<body>
+<div id="app">
+  <!-- Header -->
+  <header id="header">
+    <div class="header-left">
+      <span class="logo">🧠</span>
+      <span class="logo-text">kiro-mem</span>
+      <span id="stats-badge" class="stats-badge"></span>
+    </div>
+    <div class="header-right">
+      <input type="text" id="search-input" placeholder="搜索记忆... (FTS5)" autocomplete="off">
+      <select id="type-filter"><option value="">全部类型</option></select>
+      <select id="project-filter"><option value="">全部项目</option></select>
+      <button id="theme-toggle" title="切换主题">🌙</button>
+    </div>
+  </header>
+
+  <!-- Stats Bar -->
+  <div id="stats-bar" class="stats-bar"></div>
+
+  <!-- Feed -->
+  <main id="feed" class="feed">
+    <div id="feed-content" class="feed-content"></div>
+    <div id="load-more" class="load-more" style="display:none">
+      <button onclick="loadMore()">加载更多</button>
+    </div>
+    <div id="empty-state" class="empty-state" style="display:none">
+      <div class="empty-icon">📭</div>
+      <div>暂无记忆记录</div>
+      <div class="empty-hint">使用 kiro-mem store 命令添加观察</div>
+    </div>
+  </main>
+
+  <!-- Detail Modal -->
+  <div id="modal" class="modal" style="display:none" onclick="if(event.target===this)closeModal()">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span id="modal-title"></span>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+</div>
+<style>
+/* Layout */
+#header { padding:12px 24px; border-bottom:1px solid var(--border);
+  display:flex; justify-content:space-between; align-items:center;
+  background:var(--bg2); position:sticky; top:0; z-index:10; }
+.header-left { display:flex; align-items:center; gap:10px; }
+.header-right { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.logo { font-size:24px; }
+.logo-text { font-family:var(--font-mono); font-weight:300; font-size:18px;
+  color:var(--text); letter-spacing:-0.03em; }
+.stats-badge { font-size:11px; color:var(--muted); font-family:var(--font-mono); }
+
+/* Search & Filters */
+#search-input { background:var(--bg); border:1px solid var(--border);
+  border-radius:6px; padding:6px 12px; color:var(--text); font-size:13px;
+  width:220px; transition:all .2s; }
+#search-input:focus { outline:none; border-color:var(--accent);
+  box-shadow:0 0 0 2px rgba(88,166,255,0.2); }
+select { background:var(--bg); border:1px solid var(--border);
+  border-radius:6px; padding:6px 10px; color:var(--text2); font-size:13px;
+  cursor:pointer; }
+select:hover { border-color:var(--accent); }
+#theme-toggle { background:var(--bg); border:1px solid var(--border);
+  border-radius:6px; width:34px; height:34px; cursor:pointer;
+  font-size:16px; display:flex; align-items:center; justify-content:center; }
+#theme-toggle:hover { border-color:var(--accent); }
+
+/* Stats Bar */
+.stats-bar { padding:8px 24px; border-bottom:1px solid var(--border);
+  display:flex; gap:16px; font-size:12px; color:var(--text3);
+  font-family:var(--font-mono); background:var(--bg); flex-wrap:wrap; }
+.stat-item { display:flex; align-items:center; gap:4px; }
+.stat-count { font-weight:600; color:var(--text2); }
+
+/* Feed */
+.feed { padding:20px 24px; max-width:800px; margin:0 auto; }
+.feed-content { display:flex; flex-direction:column; gap:16px; }
+
+/* Cards */
+.card { padding:20px; background:var(--bg2); border:1px solid var(--border);
+  border-radius:8px; transition:all .15s; cursor:pointer; line-height:1.6; }
+.card:hover { border-color:var(--border-hover); transform:translateY(-1px);
+  box-shadow:0 4px 12px rgba(0,0,0,0.15); }
+.card-header { display:flex; align-items:center; justify-content:space-between;
+  margin-bottom:10px; font-size:11px; color:var(--muted);
+  font-family:var(--font-mono); }
+.card-header-left { display:flex; align-items:center; gap:8px; }
+.card-type { padding:2px 8px; background:var(--badge-bg); color:var(--badge-text);
+  border-radius:3px; font-weight:500; text-transform:uppercase;
+  font-size:10px; letter-spacing:0.5px; }
+.card-id { color:var(--muted); }
+.card-title { font-size:16px; font-weight:600; color:var(--text);
+  margin-bottom:8px; line-height:1.4; }
+.card-summary { font-size:13px; color:var(--text2); line-height:1.6; }
+.card-meta { font-size:11px; color:var(--text3); margin-top:12px;
+  font-family:var(--font-mono); display:flex; flex-wrap:wrap; gap:8px; }
+.meta-tag { padding:1px 6px; background:var(--bg3); border-radius:3px; }
+.meta-file { color:var(--accent); }
+</style>
+<style>
+/* Summary Cards */
+.card.summary-card { border-color:var(--summary-border);
+  background:var(--summary-bg); }
+.card.summary-card:hover { border-color:var(--summary-border); }
+.card.summary-card .card-type { background:rgba(212,184,136,0.15);
+  color:var(--summary-text); }
+.card.summary-card .card-title { color:var(--summary-text); }
+.summary-section { margin-top:8px; }
+.summary-label { font-size:11px; font-weight:600; color:var(--text3);
+  text-transform:uppercase; letter-spacing:0.5px; margin-bottom:2px; }
+.summary-text { font-size:13px; color:var(--text2); }
+
+/* Type-specific badge colors */
+.type-bugfix { background:rgba(231,72,86,0.15); color:#e74856; }
+.type-discovery { background:rgba(88,166,255,0.15); color:#58a6ff; }
+.type-feature { background:rgba(142,124,188,0.15); color:#9e8ccc; }
+.type-decision { background:rgba(212,184,136,0.15); color:#d4b888; }
+.type-change { background:rgba(22,198,12,0.15); color:#16c60c; }
+.type-refactor { background:rgba(88,166,255,0.15); color:#79b8ff; }
+
+/* Load More */
+.load-more { text-align:center; padding:20px; }
+.load-more button { background:var(--accent); color:#fff; border:none;
+  border-radius:6px; padding:8px 24px; font-size:13px; cursor:pointer;
+  font-weight:500; }
+.load-more button:hover { opacity:0.9; }
+
+/* Empty State */
+.empty-state { text-align:center; padding:60px 20px; color:var(--text3); }
+.empty-icon { font-size:48px; margin-bottom:16px; }
+.empty-hint { font-size:12px; color:var(--muted); margin-top:8px;
+  font-family:var(--font-mono); }
+
+/* Modal */
+.modal { position:fixed; top:0; left:0; right:0; bottom:0;
+  background:rgba(0,0,0,0.6); z-index:100; display:flex;
+  align-items:center; justify-content:center; padding:20px; }
+.modal-content { background:var(--bg2); border:1px solid var(--border);
+  border-radius:10px; max-width:700px; width:100%; max-height:80vh;
+  overflow-y:auto; }
+.modal-header { padding:16px 20px; border-bottom:1px solid var(--border);
+  display:flex; justify-content:space-between; align-items:center;
+  position:sticky; top:0; background:var(--bg2); z-index:1; }
+.modal-header span { font-size:16px; font-weight:600; }
+.modal-close { background:none; border:none; color:var(--text3);
+  font-size:18px; cursor:pointer; padding:4px 8px; }
+.modal-close:hover { color:var(--text); }
+#modal-body { padding:20px; }
+.detail-row { margin-bottom:16px; }
+.detail-label { font-size:11px; font-weight:600; color:var(--text3);
+  text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px;
+  font-family:var(--font-mono); }
+.detail-value { font-size:14px; color:var(--text); line-height:1.6; }
+.detail-value pre { white-space:pre-wrap; word-wrap:break-word;
+  font-family:var(--font-mono); font-size:13px; background:var(--bg);
+  padding:12px; border-radius:6px; border:1px solid var(--border); }
+
+/* Responsive */
+@media (max-width:768px) {
+  #header { flex-direction:column; gap:10px; }
+  .header-right { width:100%; }
+  #search-input { flex:1; width:auto; }
+  .feed { padding:12px; }
+}
+</style>
+<script>
+// ── State ────────────────────────────────────────────────────
+const TYPE_ICONS = {
+  discovery:'🔵', bugfix:'🔴', feature:'🟣',
+  decision:'⚖️', change:'✅', refactor:'🔄'
+};
+let currentOffset = 0;
+const PAGE_SIZE = 30;
+let searchTimer = null;
+let currentTab = 'observations'; // 'observations' | 'summaries'
+
+// ── Theme ────────────────────────────────────────────────────
+function initTheme() {
+  const saved = localStorage.getItem('kiro-mem-theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+  updateThemeBtn();
+}
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme');
+  const next = current === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('kiro-mem-theme', next);
+  updateThemeBtn();
+}
+function updateThemeBtn() {
+  const btn = document.getElementById('theme-toggle');
+  const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+  btn.textContent = isDark ? '☀️' : '🌙';
+}
+
+// ── API ──────────────────────────────────────────────────────
+async function api(path) {
+  const res = await fetch(path);
+  return res.json();
+}
+
+// ── Render ───────────────────────────────────────────────────
+function fmtTime(created_at) {
+  if (!created_at) return '';
+  return created_at.substring(5, 16).replace('T', ' ');
+}
+
+function renderObservationCard(obs) {
+  const icon = TYPE_ICONS[obs.type] || '?';
+  const typeClass = 'type-' + obs.type;
+  const files = Array.isArray(obs.files) ? obs.files : [];
+  const concepts = Array.isArray(obs.concepts) ? obs.concepts : [];
+  const summary = obs.summary ? obs.summary.substring(0, 200) +
+    (obs.summary.length > 200 ? '...' : '') : '';
+
+  let metaHtml = '';
+  if (concepts.length) {
+    metaHtml += concepts.map(c => `<span class="meta-tag">${esc(c)}</span>`).join('');
+  }
+  if (files.length) {
+    metaHtml += files.slice(0, 3).map(f =>
+      `<span class="meta-file">${esc(f.split('/').pop())}</span>`).join('');
+    if (files.length > 3) metaHtml += `<span class="muted">+${files.length-3}</span>`;
+  }
+
+  return `<div class="card" onclick="showDetail(${obs.id})">
+    <div class="card-header">
+      <div class="card-header-left">
+        <span class="card-type ${typeClass}">${icon} ${esc(obs.type)}</span>
+        <span class="card-id">#${obs.id}</span>
+        ${obs.project ? `<span class="card-id">${esc(obs.project)}</span>` : ''}
+      </div>
+      <span>${fmtTime(obs.created_at)}</span>
+    </div>
+    <div class="card-title">${esc(obs.title)}</div>
+    ${summary ? `<div class="card-summary">${esc(summary)}</div>` : ''}
+    ${metaHtml ? `<div class="card-meta">${metaHtml}</div>` : ''}
+  </div>`;
+}
+</script>
+<script>
+function renderSummaryCard(s) {
+  let sections = '';
+  const fields = [
+    ['user_request', '请求'], ['investigated', '调查'],
+    ['learned', '学到'], ['completed', '完成'], ['next_steps', '后续']
+  ];
+  for (const [key, label] of fields) {
+    if (s[key]) {
+      sections += `<div class="summary-section">
+        <div class="summary-label">${label}</div>
+        <div class="summary-text">${esc(s[key])}</div>
+      </div>`;
+    }
+  }
+  return `<div class="card summary-card">
+    <div class="card-header">
+      <div class="card-header-left">
+        <span class="card-type" style="background:rgba(212,184,136,0.15);color:var(--summary-text)">🎯 会话摘要</span>
+        <span class="card-id">#S${s.id}</span>
+        ${s.project ? `<span class="card-id">${esc(s.project)}</span>` : ''}
+      </div>
+      <span>${fmtTime(s.created_at)}</span>
+    </div>
+    ${sections}
+  </div>`;
+}
+
+function esc(str) {
+  if (!str) return '';
+  const d = document.createElement('div');
+  d.textContent = str;
+  return d.innerHTML;
+}
+
+// ── Data Loading ─────────────────────────────────────────────
+async function loadStats() {
+  const stats = await api('/api/stats');
+  const bar = document.getElementById('stats-bar');
+  const badge = document.getElementById('stats-badge');
+
+  badge.textContent = `${stats.total_observations} 条记忆`;
+
+  let html = `<span class="stat-item">📊 总计: <span class="stat-count">${stats.total_observations}</span></span>`;
+  html += `<span class="stat-item">📝 摘要: <span class="stat-count">${stats.total_summaries}</span></span>`;
+  for (const [type, count] of Object.entries(stats.by_type || {})) {
+    const icon = TYPE_ICONS[type] || '?';
+    html += `<span class="stat-item">${icon} ${type}: <span class="stat-count">${count}</span></span>`;
+  }
+  if (stats.earliest) {
+    html += `<span class="stat-item">📅 ${stats.earliest.substring(0,10)} ~ ${(stats.latest||'').substring(0,10)}</span>`;
+  }
+  bar.innerHTML = html;
+}
+
+async function loadFilters() {
+  const [projects, types] = await Promise.all([
+    api('/api/projects'), api('/api/types')
+  ]);
+
+  const projSel = document.getElementById('project-filter');
+  projects.forEach(p => {
+    const opt = document.createElement('option');
+    opt.value = p; opt.textContent = p;
+    projSel.appendChild(opt);
+  });
+
+  const typeSel = document.getElementById('type-filter');
+  types.forEach(t => {
+    const opt = document.createElement('option');
+    opt.value = t.type;
+    opt.textContent = `${t.icon} ${t.type} (${t.count})`;
+    typeSel.appendChild(opt);
+  });
+}
+
+async function loadData(append = false) {
+  if (!append) {
+    currentOffset = 0;
+    document.getElementById('feed-content').innerHTML = '';
+  }
+
+  const q = document.getElementById('search-input').value.trim();
+  const type = document.getElementById('type-filter').value;
+  const project = document.getElementById('project-filter').value;
+  const isSummaryFilter = type === 'summary';
+
+  const feed = document.getElementById('feed-content');
+  const empty = document.getElementById('empty-state');
+  const loadMoreBtn = document.getElementById('load-more');
+
+  if (isSummaryFilter) {
+    // Summary-only mode: only load summaries
+    let sumParams = `limit=${PAGE_SIZE}&offset=${currentOffset}`;
+    const summaries = await api(`/api/summaries?${sumParams}`);
+
+    if (summaries.length === 0 && currentOffset === 0) {
+      empty.style.display = 'block';
+      loadMoreBtn.style.display = 'none';
+      return;
+    }
+    empty.style.display = 'none';
+
+    summaries.forEach(s => {
+      feed.insertAdjacentHTML('beforeend', renderSummaryCard(s));
+    });
+
+    currentOffset += summaries.length;
+    loadMoreBtn.style.display = summaries.length >= PAGE_SIZE ? 'block' : 'none';
+    return;
+  }
+
+  // Normal mode: observations + optional summaries on first page
+  let params = `limit=${PAGE_SIZE}&offset=${currentOffset}`;
+  if (q) params += `&q=${encodeURIComponent(q)}`;
+  if (type) params += `&type=${encodeURIComponent(type)}`;
+  if (project) params += `&project=${encodeURIComponent(project)}`;
+
+  const [observations, summaries] = await Promise.all([
+    api(`/api/observations?${params}`),
+    currentOffset === 0 && !q && !type ? api(`/api/summaries?limit=5`) : Promise.resolve([])
+  ]);
+
+  // Mix summaries into first page (only when no type filter)
+  if (!append && summaries.length > 0 && !q && !type) {
+    summaries.forEach(s => {
+      feed.insertAdjacentHTML('beforeend', renderSummaryCard(s));
+    });
+  }
+
+  if (observations.length === 0 && currentOffset === 0 && summaries.length === 0) {
+    empty.style.display = 'block';
+    loadMoreBtn.style.display = 'none';
+    return;
+  }
+  empty.style.display = 'none';
+
+  observations.forEach(obs => {
+    feed.insertAdjacentHTML('beforeend', renderObservationCard(obs));
+  });
+
+  currentOffset += observations.length;
+  loadMoreBtn.style.display = observations.length >= PAGE_SIZE ? 'block' : 'none';
+}
+
+function loadMore() { loadData(true); }
+</script>
+<script>
+// ── Detail Modal ─────────────────────────────────────────────
+async function showDetail(id) {
+  const obs = await api(`/api/observation/${id}`);
+  if (!obs || obs.error) return;
+
+  const icon = TYPE_ICONS[obs.type] || '?';
+  document.getElementById('modal-title').textContent = `${icon} #${obs.id} ${obs.title}`;
+
+  const files = Array.isArray(obs.files) ? obs.files : [];
+  const concepts = Array.isArray(obs.concepts) ? obs.concepts : [];
+
+  let html = '';
+  const rows = [
+    ['类型', `${icon} ${obs.type}`],
+    ['时间', obs.created_at],
+    ['项目', obs.project],
+  ];
+  rows.forEach(([label, value]) => {
+    if (value) {
+      html += `<div class="detail-row">
+        <div class="detail-label">${label}</div>
+        <div class="detail-value">${esc(value)}</div>
+      </div>`;
+    }
+  });
+
+  if (obs.summary) {
+    html += `<div class="detail-row">
+      <div class="detail-label">摘要</div>
+      <div class="detail-value">${esc(obs.summary)}</div>
+    </div>`;
+  }
+  if (obs.detail) {
+    html += `<div class="detail-row">
+      <div class="detail-label">详情</div>
+      <div class="detail-value"><pre>${esc(obs.detail)}</pre></div>
+    </div>`;
+  }
+  if (files.length) {
+    html += `<div class="detail-row">
+      <div class="detail-label">文件</div>
+      <div class="detail-value">${files.map(f => `<span class="meta-file" style="display:block">${esc(f)}</span>`).join('')}</div>
+    </div>`;
+  }
+  if (concepts.length) {
+    html += `<div class="detail-row">
+      <div class="detail-label">概念标签</div>
+      <div class="detail-value">${concepts.map(c => `<span class="meta-tag">${esc(c)}</span> `).join('')}</div>
+    </div>`;
+  }
+
+  document.getElementById('modal-body').innerHTML = html;
+  document.getElementById('modal').style.display = 'flex';
+}
+
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+}
+
+// ── Event Listeners ──────────────────────────────────────────
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+
+document.getElementById('search-input').addEventListener('input', () => {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => loadData(), 300);
+});
+
+document.getElementById('type-filter').addEventListener('change', () => loadData());
+document.getElementById('project-filter').addEventListener('change', () => loadData());
+document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+
+// ── Init ─────────────────────────────────────────────────────
+initTheme();
+Promise.all([loadStats(), loadFilters(), loadData()]);
+</script>
+</body>
+</html>

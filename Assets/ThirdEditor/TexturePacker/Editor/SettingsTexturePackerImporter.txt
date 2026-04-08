@@ -1,0 +1,900 @@
+version: 2
+importPivots: 1
+tpsheetFileNames:
+- Assets/BundleAssets/land/Texture/map_tree_atlas.tpsheet
+- Assets/BundleAssets/land/Texture_lod3_4/land_form_river_lod3.tpsheet
+- Assets/BundleAssets/Map/Building/Building_use/shared_building/Farm_ani.tpsheet
+- Assets/BundleAssets/Map/Building/Building_use/shared_building/FarmWindmill_ani.tpsheet
+- Assets/BundleAssets/Map/Building/UE_build_army4/UE_build_army4.tpsheet
+- Assets/BundleAssets/Map/Textures/HeroShow_Evn_map/HeroShow_01/HeroShow_01.tpsheet
+- Assets/BundleAssets/Map/Textures/HeroShow_Evn_map/HeroShow_02/HeroShow_02.tpsheet
+- Assets/BundleAssets/Map/Textures/HeroShow_Evn_map/HeroShow_03/HeroShow_03.tpsheet
+- Assets/BundleAssets/Map/Textures/HeroShow_Evn_map/HeroShow_04/heroshow_04.tpsheet
+- Assets/BundleAssets/Map/Textures/Tree_maps/build_GrassMap_1.tpsheet
+- Assets/BundleAssets/Map/Textures/Tree_maps/build_scene_shamo_1.tpsheet
+- Assets/BundleAssets/Map/Textures/Tree_maps/build_scene_zhuangshi_1.tpsheet
+- Assets/BundleAssets/Map/Textures/Tree_maps/build_SnowMap_1.tpsheet
+- Assets/BundleAssets/Map/Textures/Tree_maps/build_tree_yezi_1.tpsheet
+- Assets/BundleAssets/Monster/Monster_1000/Monster_1000_attack/monster_1000_attack.tpsheet
+- Assets/BundleAssets/Monster/Monster_1000/Monster_1000_idle/monster_1000_idle.tpsheet
+- Assets/BundleAssets/Monster/Monster_1000/Monster_1000_walk/monster_1000_walk.tpsheet
+- Assets/BundleAssets/Monster/Monster_2000/Monster_2000_attack/monster_2000_attack.tpsheet
+- Assets/BundleAssets/Monster/Monster_2000/Monster_2000_idle/monster_2000_idle.tpsheet
+- Assets/BundleAssets/Monster/Monster_2000/Monster_2000_walk/monster_2000_walk.tpsheet
+- Assets/BundleAssets/Monster/Monster_2002/Monster_2002_attack/monster_2002_attack.tpsheet
+- Assets/BundleAssets/Monster/Monster_2002/Monster_2002_idle/monster_2002_idle.tpsheet
+- Assets/BundleAssets/Monster/Monster_2002/Monster_2002_walk/monster_2002_walk.tpsheet
+- Assets/BundleAssets/Monster/Monster_2003/Monster_2003_attack/monster_2003_attack.tpsheet
+- Assets/BundleAssets/Monster/Monster_2003/Monster_2003_idle/monster_2003_idle.tpsheet
+- Assets/BundleAssets/Monster/Monster_2003/Monster_2003_walk/monster_2003_walk.tpsheet
+- Assets/BundleAssets/Monster/Monster_2004/Monster_2004_attack/monster_2004_attack.tpsheet
+- Assets/BundleAssets/Monster/Monster_2004/Monster_2004_idle/monster_2004_idle.tpsheet
+- Assets/BundleAssets/Monster/Monster_2004/Monster_2004_walk/monster_2004_walk.tpsheet
+- Assets/BundleAssets/Monster/Monster_2005/Monster_2005_attack/Monster_2005_attack.tpsheet
+- Assets/BundleAssets/Monster/Monster_2005/Monster_2005_idle/Monster_2005_idle.tpsheet
+- Assets/BundleAssets/Monster/Monster_2005/Monster_2005_walk/Monster_2005_walk.tpsheet
+- Assets/BundleAssets/Monster/NPC_02/NPC_02_walk/NPC_02_walk.tpsheet
+- Assets/BundleAssets/Monster/NPC_03/NPC_03_build/NPC_03_build.tpsheet
+- Assets/BundleAssets/Monster/NPC_03/NPC_03_FireFighting/NPC_03_FireFighting.tpsheet
+- Assets/BundleAssets/Monster/NPC_03/NPC_03_idle/NPC_03_idle.tpsheet
+- Assets/BundleAssets/Monster/NPC_03/NPC_03_life/NPC_03_life.tpsheet
+- Assets/BundleAssets/Monster/NPC_03/NPC_03_run/NPC_03_run.tpsheet
+- Assets/BundleAssets/Monster/NPC_03/NPC_03_walk/NPC_03_walk.tpsheet
+- Assets/BundleAssets/Monster/NPC_04/NPC_04_build/NPC_04_build.tpsheet
+- Assets/BundleAssets/Monster/NPC_04/NPC_04_FireFighting/NPC_04_FireFighting.tpsheet
+- Assets/BundleAssets/Monster/NPC_04/NPC_04_idle/NPC_04_idle.tpsheet
+- Assets/BundleAssets/Monster/NPC_04/NPC_04_life/NPC_04_life.tpsheet
+- Assets/BundleAssets/Monster/NPC_04/NPC_04_run/NPC_04_run.tpsheet
+- Assets/BundleAssets/Monster/NPC_04/NPC_04_walk/NPC_04_walk.tpsheet
+- Assets/BundleAssets/Monster/NPC_06/NPC_06_walk/NPC_06_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1000/Hero_1000_attack/Hero_1000_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1000/Hero_1000_idle/Hero_1000_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1000/Hero_1000_walk/Hero_1000_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1001/Hero_1001_attack/Hero_1001_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1001/Hero_1001_idle/Hero_1001_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1001/Hero_1001_walk/Hero_1001_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1002/Hero_1002_attack/Hero_1002_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1002/Hero_1002_idle/Hero_1002_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1002/Hero_1002_walk/Hero_1002_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1003/Hero_1003_attack/Hero_1003_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1003/Hero_1003_idle/Hero_1003_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1003/Hero_1003_walk/Hero_1003_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1005/Hero_1005_attack/Hero_1005_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1005/Hero_1005_idle/Hero_1005_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1005/Hero_1005_walk/Hero_1005_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1006/Hero_1006_attack/Hero_1006_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1006/Hero_1006_idle/Hero_1006_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1006/Hero_1006_walk/Hero_1006_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1007/Hero_1007_attack/Hero_1007_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1007/Hero_1007_idle/Hero_1007_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1007/Hero_1007_walk/Hero_1007_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1008/Hero_1008_attack/Hero_1008_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1008/Hero_1008_idle/Hero_1008_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1008/Hero_1008_walk/Hero_1008_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1009/Hero_1009_attack/Hero_1009_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1009/Hero_1009_idle/Hero_1009_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1009/Hero_1009_walk/Hero_1009_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1010/Hero_1010_attack/Hero_1010_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1010/Hero_1010_idle/Hero_1010_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1010/Hero_1010_walk/Hero_1010_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1011/Hero_1011_attack/Hero_1011_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1011/Hero_1011_idle/Hero_1011_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1011/Hero_1011_walk/Hero_1011_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1012/Hero_1012_attack/Hero_1012_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1012/Hero_1012_idle/Hero_1012_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1012/Hero_1012_walk/Hero_1012_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1014/Hero_1014_attack/Hero_1014_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1014/Hero_1014_idle/Hero_1014_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1014/Hero_1014_walk/Hero_1014_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1017/Hero_1017_attack/Hero_1017_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1017/Hero_1017_idle/Hero_1017_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1017/Hero_1017_walk/Hero_1017_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2000/Hero_2000_attack/Hero_2000_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2000/Hero_2000_idle/Hero_2000_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2000/Hero_2000_walk/Hero_2000_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2001/Hero_2001_attack/Hero_2001_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2001/Hero_2001_idle/Hero_2001_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2001/Hero_2001_walk/Hero_2001_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2004/Hero_2004_attack/Hero_2004_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2004/Hero_2004_idle/Hero_2004_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2004/Hero_2004_walk/Hero_2004_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2005/Hero_2005_attack/Hero_2005_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2005/Hero_2005_idle/Hero_2005_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2005/Hero_2005_walk/Hero_2005_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2006/Hero_2006_attack/Hero_2006_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2006/Hero_2006_idle/Hero_2006_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2006/Hero_2006_walk/Hero_2006_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2007/Hero_2007_attack/Hero_2007_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2007/Hero_2007_idle/Hero_2007_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2007/Hero_2007_walk/Hero_2007_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2008/Hero_2008_attack/Hero_2008_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2008/Hero_2008_idle/Hero_2008_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2008/Hero_2008_walk/Hero_2008_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2009/Hero_2009_attack/Hero_2009_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2009/Hero_2009_idle/Hero_2009_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2009/Hero_2009_walk/Hero_2009_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2010/Hero_2010_attack/Hero_2010_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2010/Hero_2010_idle/Hero_2010_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2010/Hero_2010_walk/Hero_2010_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2011/Hero_2011_attack/Hero_2011_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2011/Hero_2011_idle/Hero_2011_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2011/Hero_2011_walk/Hero_2011_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3002/Hero_3002_attack/Hero_3002_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3002/Hero_3002_idle/Hero_3002_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3002/Hero_3002_walk/Hero_3002_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3003/Hero_3003_attack/Hero_3003_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3003/Hero_3003_idle/Hero_3003_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3003/Hero_3003_walk/Hero_3003_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3004/Hero_3004_attack/Hero_3004_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3004/Hero_3004_idle/Hero_3004_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3004/Hero_3004_walk/Hero_3004_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_4000/Hero_4000_attack/Hero_4000_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_4000/Hero_4000_idle/Hero_4000_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_4000/Hero_4000_walk/Hero_4000_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_4001/Hero_4001_attack/Hero_4001_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_4001/Hero_4001_idle/Hero_4001_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_hero/Hero_4001/Hero_4001_walk/Hero_4001_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_1/Arms1_1_attack/Arms1_1_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_1/Arms1_1_idle/Arms1_1_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_1/Arms1_1_walk/Arms1_1_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_2/Arms1_2_attack/Arms1_2_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_2/Arms1_2_idle/Arms1_2_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_2/Arms1_2_walk/Arms1_2_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_3/Arms1_3_attack/Arms1_3_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_3/Arms1_3_idle/Arms1_3_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_3/Arms1_3_walk/Arms1_3_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_4/Arms1_4_attack/Arms1_4_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_4/Arms1_4_idle/Arms1_4_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_4/Arms1_4_walk/Arms1_4_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_1/Arms2_1_attack/Arms2_1_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_1/Arms2_1_idle/Arms2_1_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_1/Arms2_1_walk/Arms2_1_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_2/Arms2_2_attack/Arms2_2_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_2/Arms2_2_idle/Arms2_2_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_2/Arms2_2_walk/Arms2_2_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_3/Arms2_3_attack/Arms2_3_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_3/Arms2_3_idle/Arms2_3_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_3/Arms2_3_walk/Arms2_3_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_4/Arms2_4_attack/Arms2_4_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_4/Arms2_4_idle/Arms2_4_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_4/Arms2_4_walk/Arms2_4_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_1/Arms3_1_attack/Arms3_1_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_1/Arms3_1_idle/Arms3_1_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_1/Arms3_1_walk/Arms3_1_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_2/Arms3_2_attack/Arms3_2_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_2/Arms3_3_idle/Arms3_2_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_2/Arms3_3_walk/Arms3_2_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_3/Arms3_3_attack/Arms3_3_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_3/Arms3_3_idle/Arms3_3_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_3/Arms3_3_walk/Arms3_3_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_4/Arms3_4_attack/Arms3_4_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_4/Arms3_4_idle/Arms3_4_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_4/Arms3_4_walk/Arms3_4_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_1/Arms4_1_attack/Arms4_1_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_1/Arms4_1_idle/Arms4_1_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_1/Arms4_1_walk/Arms4_1_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_2/Arms4_2_attack/Arms4_2_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_2/Arms4_2_idle/Arms4_2_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_2/Arms4_2_walk/Arms4_2_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_3/Arms4_3_attack/Arms4_3_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_3/Arms4_3_idle/Arms4_3_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_3/Arms4_3_walk/Arms4_3_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_4/Arms4_4_attack/Arms4_4_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_4/Arms4_4_idle/Arms4_4_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_4/Arms4_4_walk/Arms4_4_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_1/Arms5_1_attack/Arms5_1_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_1/Arms5_1_idle/Arms5_1_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_1/Arms5_1_walk/Arms5_1_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_2/Arms5_2_attack/Arms5_2_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_2/Arms5_2_idle/Arms5_2_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_2/Arms5_2_walk/Arms5_2_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_3/Arms5_3_attack/Arms5_3_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_3/Arms5_3_idle/Arms5_3_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_3/Arms5_3_walk/Arms5_3_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_4/Arms5_4_attack/Arms5_4_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_4/Arms5_4_idle/Arms5_4_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_4/Arms5_4_walk/Arms5_4_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_1/ArmsSpecial1_1_attack/ArmsSpecial1_1_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_1/ArmsSpecial1_1_idle/ArmsSpecial1_1_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_1/ArmsSpecial1_1_walk/ArmsSpecial1_1_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_2/ArmsSpecial1_2_attack/ArmsSpecial1_2_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_2/ArmsSpecial1_2_idle/ArmsSpecial1_2_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_2/ArmsSpecial1_2_walk/ArmsSpecial1_2_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_3/ArmsSpecial1_3_attack/ArmsSpecial1_3_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_3/ArmsSpecial1_3_idle/ArmsSpecial1_3_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_3/ArmsSpecial1_3_walk/ArmsSpecial1_3_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_1/ArmsSpecial2_1_attack/ArmsSpecial2_1_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_1/ArmsSpecial2_1_idle/ArmsSpecial2_1_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_1/ArmsSpecial2_1_walk/ArmsSpecial2_1_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_2/ArmsSpecial2_2_attack/ArmsSpecial2_2_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_2/ArmsSpecial2_2_idle/ArmsSpecial2_2_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_2/ArmsSpecial2_2_walk/ArmsSpecial2_2_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_3/ArmsSpecial2_3_attack/ArmsSpecial2_3_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_3/ArmsSpecial2_3_idle/ArmsSpecial2_3_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_3/ArmsSpecial2_3_walk/ArmsSpecial2_3_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_1/ArmsSpecial3_1_attack/ArmsSpecial3_1_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_1/ArmsSpecial3_1_idle/ArmsSpecial3_1_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_1/ArmsSpecial3_1_walk/ArmsSpecial3_1_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_2/ArmsSpecial3_2_attack/ArmsSpecial3_2_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_2/ArmsSpecial3_2_idle/ArmsSpecial3_2_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_2/ArmsSpecial3_2_walk/ArmsSpecial3_2_walk.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_3/ArmsSpecial3_3_attack/ArmsSpecial3_3_attack.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_3/ArmsSpecial3_3_idle/ArmsSpecial3_3_idle.tpsheet
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_3/ArmsSpecial3_3_walk/ArmsSpecial3_3_walk.tpsheet
+- Assets/BundleAssets/UI/UIAnimation/UE_battlebook/battlepass_book_open.tpsheet
+- Assets/BundleAssets/UI/UIEffect/UE_ResFly_conquerorMedal/UE_ResFly_conquerorMedal.tpsheet
+- Assets/BundleAssets/UI/UIEffect/UE_ResFly_denar/UE_ResFly_denar.tpsheet
+- Assets/BundleAssets/UI/UIEffect/UE_ResFly_food/UE_ResFly_food.tpsheet
+- Assets/BundleAssets/UI/UIEffect/UE_ResFly_gold/UE_ResFly_gold.tpsheet
+- Assets/BundleAssets/UI/UIEffect/UE_ResFly_stone/UE_ResFly_stone.tpsheet
+- Assets/BundleAssets/UI/UIEffect/UE_ResFly_wood/UE_ResFly_wood.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_effect/loading_effect/loading_effect.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_effect/UI_10014/UI_10014.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_effect/UI_10034/UI_10034.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_effect/UI_10083/UI_10083.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_activity/activity_icon.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_activity/activity_img.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_activity/activity_img1.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_activity/ui_activity.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_activity/ui_turntable.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_alliance/alliance_flag.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_alliance/ui_alliance.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_battle/ui_battle.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_build/ui_build.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_build/ui_buildingimg.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_build/ui_equip.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_build/ui_hospital.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_build/ui_res_build.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_chat/ui_chat.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_chat/ui_emoji.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_civilization/civilization_flag.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_civilization/civilization_img.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_common/sidepage_icon.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_common/ui_common.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_common/ui_frame.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_common/ui_mainmenu.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_common/ui_page.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_else/matrix_icon.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_else/monument_img.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_else/ui_agechange.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_else/ui_num.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_else/ui_result.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_hero/hero_background.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_hero/hero_head.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_hero/hero_skill.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_hero/hero_skill2.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_hero/hero_talent.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_hero/talent_skill.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_hero/ui_hero.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_item/item0.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_item/item1.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_item/item2.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_item/item3.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_item/item4.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_item/item5.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_item/itembox.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_loading/Loading_Ani.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_loading/ui_loginLoading.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_mail/ui_mail.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_map/map_icon.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_map/rune_icon.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_map/ui_book.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_map/ui_hud.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_map/ui_map.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_player/buff_icon.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_player/player_head.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_player/ui_player.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_player/vip_icon.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_recharge/gem_icon.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_recharge/iapdeco_icon.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_recharge/monthcard_icon.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_recharge/package_icon.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_recharge/ui_recharge.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_research/research_icon1.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_research/research_icon2.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_research/ui_research.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_setting/ui_setting.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_task/task_icon.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_task/ui_quest.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_troops/troops_head.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_troops/ui_troops.tpsheet
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_warning/ui_warning.tpsheet
+textureFileNames:
+- Assets/BundleAssets/land/Texture/map_tree_atlas.png
+- Assets/BundleAssets/land/Texture_lod3_4/land_form_river_lod3.png
+- Assets/BundleAssets/Map/Building/Building_use/shared_building/Farm_ani.png
+- Assets/BundleAssets/Map/Building/Building_use/shared_building/FarmWindmill_ani.png
+- Assets/BundleAssets/Map/Building/UE_build_army4/UE_build_army4.png
+- Assets/BundleAssets/Map/Textures/HeroShow_Evn_map/HeroShow_01/HeroShow_01.png
+- Assets/BundleAssets/Map/Textures/HeroShow_Evn_map/HeroShow_02/HeroShow_02.png
+- Assets/BundleAssets/Map/Textures/HeroShow_Evn_map/HeroShow_03/HeroShow_03.png
+- Assets/BundleAssets/Map/Textures/HeroShow_Evn_map/HeroShow_04/heroshow_04.png
+- Assets/BundleAssets/Map/Textures/Tree_maps/build_GrassMap_1.png
+- Assets/BundleAssets/Map/Textures/Tree_maps/build_scene_shamo_1.png
+- Assets/BundleAssets/Map/Textures/Tree_maps/build_scene_zhuangshi_1.png
+- Assets/BundleAssets/Map/Textures/Tree_maps/build_SnowMap_1.png
+- Assets/BundleAssets/Map/Textures/Tree_maps/build_tree_yezi_1.png
+- Assets/BundleAssets/Monster/Monster_1000/Monster_1000_attack/monster_1000_attack.png
+- Assets/BundleAssets/Monster/Monster_1000/Monster_1000_idle/monster_1000_idle.png
+- Assets/BundleAssets/Monster/Monster_1000/Monster_1000_walk/monster_1000_walk.png
+- Assets/BundleAssets/Monster/Monster_2000/Monster_2000_attack/monster_2000_attack.png
+- Assets/BundleAssets/Monster/Monster_2000/Monster_2000_idle/monster_2000_idle.png
+- Assets/BundleAssets/Monster/Monster_2000/Monster_2000_walk/monster_2000_walk.png
+- Assets/BundleAssets/Monster/Monster_2002/Monster_2002_attack/monster_2002_attack.png
+- Assets/BundleAssets/Monster/Monster_2002/Monster_2002_idle/monster_2002_idle.png
+- Assets/BundleAssets/Monster/Monster_2002/Monster_2002_walk/monster_2002_walk.png
+- Assets/BundleAssets/Monster/Monster_2003/Monster_2003_attack/monster_2003_attack.png
+- Assets/BundleAssets/Monster/Monster_2003/Monster_2003_idle/monster_2003_idle.png
+- Assets/BundleAssets/Monster/Monster_2003/Monster_2003_walk/monster_2003_walk.png
+- Assets/BundleAssets/Monster/Monster_2004/Monster_2004_attack/monster_2004_attack.png
+- Assets/BundleAssets/Monster/Monster_2004/Monster_2004_idle/monster_2004_idle.png
+- Assets/BundleAssets/Monster/Monster_2004/Monster_2004_walk/monster_2004_walk.png
+- Assets/BundleAssets/Monster/Monster_2005/Monster_2005_attack/Monster_2005_attack.png
+- Assets/BundleAssets/Monster/Monster_2005/Monster_2005_idle/Monster_2005_idle.png
+- Assets/BundleAssets/Monster/Monster_2005/Monster_2005_walk/Monster_2005_walk.png
+- Assets/BundleAssets/Monster/NPC_02/NPC_02_walk/NPC_02_walk.png
+- Assets/BundleAssets/Monster/NPC_03/NPC_03_build/NPC_03_build.png
+- Assets/BundleAssets/Monster/NPC_03/NPC_03_FireFighting/NPC_03_FireFighting.png
+- Assets/BundleAssets/Monster/NPC_03/NPC_03_idle/NPC_03_idle.png
+- Assets/BundleAssets/Monster/NPC_03/NPC_03_life/NPC_03_life.png
+- Assets/BundleAssets/Monster/NPC_03/NPC_03_run/NPC_03_run.png
+- Assets/BundleAssets/Monster/NPC_03/NPC_03_walk/NPC_03_walk.png
+- Assets/BundleAssets/Monster/NPC_04/NPC_04_build/NPC_04_build.png
+- Assets/BundleAssets/Monster/NPC_04/NPC_04_FireFighting/NPC_04_FireFighting.png
+- Assets/BundleAssets/Monster/NPC_04/NPC_04_idle/NPC_04_idle.png
+- Assets/BundleAssets/Monster/NPC_04/NPC_04_life/NPC_04_life.png
+- Assets/BundleAssets/Monster/NPC_04/NPC_04_run/NPC_04_run.png
+- Assets/BundleAssets/Monster/NPC_04/NPC_04_walk/NPC_04_walk.png
+- Assets/BundleAssets/Monster/NPC_06/NPC_06_walk/NPC_06_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1000/Hero_1000_attack/Hero_1000_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1000/Hero_1000_idle/Hero_1000_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1000/Hero_1000_walk/Hero_1000_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1001/Hero_1001_attack/Hero_1001_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1001/Hero_1001_idle/Hero_1001_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1001/Hero_1001_walk/Hero_1001_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1002/Hero_1002_attack/Hero_1002_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1002/Hero_1002_idle/Hero_1002_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1002/Hero_1002_walk/Hero_1002_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1003/Hero_1003_attack/Hero_1003_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1003/Hero_1003_idle/Hero_1003_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1003/Hero_1003_walk/Hero_1003_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1005/Hero_1005_attack/Hero_1005_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1005/Hero_1005_idle/Hero_1005_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1005/Hero_1005_walk/Hero_1005_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1006/Hero_1006_attack/Hero_1006_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1006/Hero_1006_idle/Hero_1006_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1006/Hero_1006_walk/Hero_1006_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1007/Hero_1007_attack/Hero_1007_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1007/Hero_1007_idle/Hero_1007_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1007/Hero_1007_walk/Hero_1007_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1008/Hero_1008_attack/Hero_1008_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1008/Hero_1008_idle/Hero_1008_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1008/Hero_1008_walk/Hero_1008_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1009/Hero_1009_attack/Hero_1009_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1009/Hero_1009_idle/Hero_1009_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1009/Hero_1009_walk/Hero_1009_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1010/Hero_1010_attack/Hero_1010_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1010/Hero_1010_idle/Hero_1010_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1010/Hero_1010_walk/Hero_1010_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1011/Hero_1011_attack/Hero_1011_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1011/Hero_1011_idle/Hero_1011_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1011/Hero_1011_walk/Hero_1011_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1012/Hero_1012_attack/Hero_1012_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1012/Hero_1012_idle/Hero_1012_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1012/Hero_1012_walk/Hero_1012_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1014/Hero_1014_attack/Hero_1014_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1014/Hero_1014_idle/Hero_1014_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1014/Hero_1014_walk/Hero_1014_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1017/Hero_1017_attack/Hero_1017_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1017/Hero_1017_idle/Hero_1017_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1017/Hero_1017_walk/Hero_1017_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2000/Hero_2000_attack/Hero_2000_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2000/Hero_2000_idle/Hero_2000_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2000/Hero_2000_walk/Hero_2000_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2001/Hero_2001_attack/Hero_2001_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2001/Hero_2001_idle/Hero_2001_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2001/Hero_2001_walk/Hero_2001_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2004/Hero_2004_attack/Hero_2004_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2004/Hero_2004_idle/Hero_2004_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2004/Hero_2004_walk/Hero_2004_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2005/Hero_2005_attack/Hero_2005_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2005/Hero_2005_idle/Hero_2005_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2005/Hero_2005_walk/Hero_2005_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2006/Hero_2006_attack/Hero_2006_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2006/Hero_2006_idle/Hero_2006_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2006/Hero_2006_walk/Hero_2006_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2007/Hero_2007_attack/Hero_2007_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2007/Hero_2007_idle/Hero_2007_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2007/Hero_2007_walk/Hero_2007_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2008/Hero_2008_attack/Hero_2008_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2008/Hero_2008_idle/Hero_2008_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2008/Hero_2008_walk/Hero_2008_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2009/Hero_2009_attack/Hero_2009_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2009/Hero_2009_idle/Hero_2009_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2009/Hero_2009_walk/Hero_2009_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2010/Hero_2010_attack/Hero_2010_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2010/Hero_2010_idle/Hero_2010_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2010/Hero_2010_walk/Hero_2010_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2011/Hero_2011_attack/Hero_2011_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2011/Hero_2011_idle/Hero_2011_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2011/Hero_2011_walk/Hero_2011_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3002/Hero_3002_attack/Hero_3002_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3002/Hero_3002_idle/Hero_3002_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3002/Hero_3002_walk/Hero_3002_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3003/Hero_3003_attack/Hero_3003_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3003/Hero_3003_idle/Hero_3003_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3003/Hero_3003_walk/Hero_3003_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3004/Hero_3004_attack/Hero_3004_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3004/Hero_3004_idle/Hero_3004_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3004/Hero_3004_walk/Hero_3004_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_4000/Hero_4000_attack/Hero_4000_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_4000/Hero_4000_idle/Hero_4000_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_4000/Hero_4000_walk/Hero_4000_walk.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_4001/Hero_4001_attack/Hero_4001_attack.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_4001/Hero_4001_idle/Hero_4001_idle.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_4001/Hero_4001_walk/Hero_4001_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_1/Arms1_1_attack/Arms1_1_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_1/Arms1_1_idle/Arms1_1_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_1/Arms1_1_walk/Arms1_1_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_2/Arms1_2_attack/Arms1_2_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_2/Arms1_2_idle/Arms1_2_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_2/Arms1_2_walk/Arms1_2_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_3/Arms1_3_attack/Arms1_3_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_3/Arms1_3_idle/Arms1_3_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_3/Arms1_3_walk/Arms1_3_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_4/Arms1_4_attack/Arms1_4_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_4/Arms1_4_idle/Arms1_4_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_4/Arms1_4_walk/Arms1_4_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_1/Arms2_1_attack/Arms2_1_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_1/Arms2_1_idle/Arms2_1_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_1/Arms2_1_walk/Arms2_1_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_2/Arms2_2_attack/Arms2_2_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_2/Arms2_2_idle/Arms2_2_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_2/Arms2_2_walk/Arms2_2_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_3/Arms2_3_attack/Arms2_3_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_3/Arms2_3_idle/Arms2_3_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_3/Arms2_3_walk/Arms2_3_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_4/Arms2_4_attack/Arms2_4_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_4/Arms2_4_idle/Arms2_4_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_4/Arms2_4_walk/Arms2_4_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_1/Arms3_1_attack/Arms3_1_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_1/Arms3_1_idle/Arms3_1_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_1/Arms3_1_walk/Arms3_1_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_2/Arms3_2_attack/Arms3_2_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_2/Arms3_3_idle/Arms3_2_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_2/Arms3_3_walk/Arms3_2_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_3/Arms3_3_attack/Arms3_3_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_3/Arms3_3_idle/Arms3_3_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_3/Arms3_3_walk/Arms3_3_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_4/Arms3_4_attack/Arms3_4_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_4/Arms3_4_idle/Arms3_4_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_4/Arms3_4_walk/Arms3_4_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_1/Arms4_1_attack/Arms4_1_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_1/Arms4_1_idle/Arms4_1_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_1/Arms4_1_walk/Arms4_1_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_2/Arms4_2_attack/Arms4_2_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_2/Arms4_2_idle/Arms4_2_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_2/Arms4_2_walk/Arms4_2_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_3/Arms4_3_attack/Arms4_3_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_3/Arms4_3_idle/Arms4_3_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_3/Arms4_3_walk/Arms4_3_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_4/Arms4_4_attack/Arms4_4_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_4/Arms4_4_idle/Arms4_4_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_4/Arms4_4_walk/Arms4_4_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_1/Arms5_1_attack/Arms5_1_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_1/Arms5_1_idle/Arms5_1_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_1/Arms5_1_walk/Arms5_1_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_2/Arms5_2_attack/Arms5_2_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_2/Arms5_2_idle/Arms5_2_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_2/Arms5_2_walk/Arms5_2_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_3/Arms5_3_attack/Arms5_3_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_3/Arms5_3_idle/Arms5_3_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_3/Arms5_3_walk/Arms5_3_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_4/Arms5_4_attack/Arms5_4_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_4/Arms5_4_idle/Arms5_4_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_4/Arms5_4_walk/Arms5_4_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_1/ArmsSpecial1_1_attack/ArmsSpecial1_1_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_1/ArmsSpecial1_1_idle/ArmsSpecial1_1_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_1/ArmsSpecial1_1_walk/ArmsSpecial1_1_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_2/ArmsSpecial1_2_attack/ArmsSpecial1_2_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_2/ArmsSpecial1_2_idle/ArmsSpecial1_2_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_2/ArmsSpecial1_2_walk/ArmsSpecial1_2_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_3/ArmsSpecial1_3_attack/ArmsSpecial1_3_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_3/ArmsSpecial1_3_idle/ArmsSpecial1_3_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_3/ArmsSpecial1_3_walk/ArmsSpecial1_3_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_1/ArmsSpecial2_1_attack/ArmsSpecial2_1_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_1/ArmsSpecial2_1_idle/ArmsSpecial2_1_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_1/ArmsSpecial2_1_walk/ArmsSpecial2_1_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_2/ArmsSpecial2_2_attack/ArmsSpecial2_2_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_2/ArmsSpecial2_2_idle/ArmsSpecial2_2_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_2/ArmsSpecial2_2_walk/ArmsSpecial2_2_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_3/ArmsSpecial2_3_attack/ArmsSpecial2_3_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_3/ArmsSpecial2_3_idle/ArmsSpecial2_3_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_3/ArmsSpecial2_3_walk/ArmsSpecial2_3_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_1/ArmsSpecial3_1_attack/ArmsSpecial3_1_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_1/ArmsSpecial3_1_idle/ArmsSpecial3_1_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_1/ArmsSpecial3_1_walk/ArmsSpecial3_1_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_2/ArmsSpecial3_2_attack/ArmsSpecial3_2_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_2/ArmsSpecial3_2_idle/ArmsSpecial3_2_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_2/ArmsSpecial3_2_walk/ArmsSpecial3_2_walk.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_3/ArmsSpecial3_3_attack/ArmsSpecial3_3_attack.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_3/ArmsSpecial3_3_idle/ArmsSpecial3_3_idle.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_3/ArmsSpecial3_3_walk/ArmsSpecial3_3_walk.png
+- Assets/BundleAssets/UI/UIAnimation/UE_battlebook/battlepass_book_open.png
+- Assets/BundleAssets/UI/UIEffect/UE_ResFly_conquerorMedal/UE_ResFly_conquerorMedal.png
+- Assets/BundleAssets/UI/UIEffect/UE_ResFly_denar/UE_ResFly_denar.png
+- Assets/BundleAssets/UI/UIEffect/UE_ResFly_food/UE_ResFly_food.png
+- Assets/BundleAssets/UI/UIEffect/UE_ResFly_gold/UE_ResFly_gold.png
+- Assets/BundleAssets/UI/UIEffect/UE_ResFly_stone/UE_ResFly_stone.png
+- Assets/BundleAssets/UI/UIEffect/UE_ResFly_wood/UE_ResFly_wood.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_effect/loading_effect/loading_effect.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_effect/UI_10014/UI_10014.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_effect/UI_10034/UI_10034.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_effect/UI_10083/UI_10083.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_activity/activity_icon.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_activity/activity_img.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_activity/activity_img1.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_activity/ui_activity.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_activity/ui_turntable.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_alliance/alliance_flag.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_alliance/ui_alliance.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_battle/ui_battle.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_build/ui_build.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_build/ui_buildingimg.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_build/ui_equip.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_build/ui_hospital.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_build/ui_res_build.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_chat/ui_chat.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_chat/ui_emoji.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_civilization/civilization_flag.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_civilization/civilization_img.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_common/sidepage_icon.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_common/ui_common.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_common/ui_frame.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_common/ui_mainmenu.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_common/ui_page.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_else/matrix_icon.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_else/monument_img.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_else/ui_agechange.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_else/ui_num.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_else/ui_result.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_hero/hero_background.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_hero/hero_head.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_hero/hero_skill.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_hero/hero_skill2.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_hero/hero_talent.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_hero/talent_skill.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_hero/ui_hero.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_item/item0.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_item/item1.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_item/item2.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_item/item3.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_item/item4.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_item/item5.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_item/itembox.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_loading/Loading_Ani.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_loading/ui_loginLoading.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_mail/ui_mail.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_map/map_icon.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_map/rune_icon.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_map/ui_book.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_map/ui_hud.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_map/ui_map.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_player/buff_icon.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_player/player_head.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_player/ui_player.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_player/vip_icon.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_recharge/gem_icon.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_recharge/iapdeco_icon.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_recharge/monthcard_icon.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_recharge/package_icon.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_recharge/ui_recharge.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_research/research_icon1.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_research/research_icon2.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_research/ui_research.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_setting/ui_setting.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_task/task_icon.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_task/ui_quest.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_troops/troops_head.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_troops/ui_troops.png
+- Assets/BundleAssets/UI/UITextureStatic/ui_res_warning/ui_warning.png
+normalmapFileNames:
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- Assets/BundleAssets/Monster/Monster_1000/Monster_1000_attack/monster_1000_attack_n.png
+- Assets/BundleAssets/Monster/Monster_1000/Monster_1000_idle/monster_1000_idle_n.png
+- Assets/BundleAssets/Monster/Monster_1000/Monster_1000_walk/monster_1000_walk_n.png
+- Assets/BundleAssets/Monster/Monster_2000/Monster_2000_attack/monster_2000_attack_n.png
+- Assets/BundleAssets/Monster/Monster_2000/Monster_2000_idle/monster_2000_idle_n.png
+- Assets/BundleAssets/Monster/Monster_2000/Monster_2000_walk/monster_2000_walk_n.png
+- Assets/BundleAssets/Monster/Monster_2002/Monster_2002_attack/monster_2002_attack_n.png
+- Assets/BundleAssets/Monster/Monster_2002/Monster_2002_idle/monster_2002_idle_n.png
+- Assets/BundleAssets/Monster/Monster_2002/Monster_2002_walk/monster_2002_walk_n.png
+- 
+- 
+- 
+- Assets/BundleAssets/Monster/Monster_2004/Monster_2004_attack/monster_2004_attack_n.png
+- Assets/BundleAssets/Monster/Monster_2004/Monster_2004_idle/monster_2004_idle_n.png
+- Assets/BundleAssets/Monster/Monster_2004/Monster_2004_walk/monster_2004_walk_n.png
+- Assets/BundleAssets/Monster/Monster_2005/Monster_2005_attack/Monster_2005_attack_n.png
+- Assets/BundleAssets/Monster/Monster_2005/Monster_2005_idle/Monster_2005_idle_n.png
+- Assets/BundleAssets/Monster/Monster_2005/Monster_2005_walk/Monster_2005_walk_n.png
+- Assets/BundleAssets/Monster/NPC_02/NPC_02_walk/NPC_02_walk_n.png
+- Assets/BundleAssets/Monster/NPC_03/NPC_03_build/NPC_03_build_n.png
+- Assets/BundleAssets/Monster/NPC_03/NPC_03_FireFighting/NPC_03_FireFighting_n.png
+- Assets/BundleAssets/Monster/NPC_03/NPC_03_idle/NPC_03_idle_n.png
+- Assets/BundleAssets/Monster/NPC_03/NPC_03_life/NPC_03_life_n.png
+- Assets/BundleAssets/Monster/NPC_03/NPC_03_run/NPC_03_run_n.png
+- Assets/BundleAssets/Monster/NPC_03/NPC_03_walk/NPC_03_walk_n.png
+- Assets/BundleAssets/Monster/NPC_04/NPC_04_build/NPC_04_build_n.png
+- Assets/BundleAssets/Monster/NPC_04/NPC_04_FireFighting/NPC_04_FireFighting_n.png
+- Assets/BundleAssets/Monster/NPC_04/NPC_04_idle/NPC_04_idle_n.png
+- Assets/BundleAssets/Monster/NPC_04/NPC_04_life/NPC_04_life_n.png
+- Assets/BundleAssets/Monster/NPC_04/NPC_04_run/NPC_04_run_n.png
+- Assets/BundleAssets/Monster/NPC_04/NPC_04_walk/NPC_04_walk_n.png
+- Assets/BundleAssets/Monster/NPC_06/NPC_06_walk/NPC_06_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1000/Hero_1000_attack/Hero_1000_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1000/Hero_1000_idle/Hero_1000_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1000/Hero_1000_walk/Hero_1000_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1001/Hero_1001_attack/Hero_1001_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1001/Hero_1001_idle/Hero_1001_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1001/Hero_1001_walk/Hero_1001_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1002/Hero_1002_attack/Hero_1002_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1002/Hero_1002_idle/Hero_1002_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1002/Hero_1002_walk/Hero_1002_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1003/Hero_1003_attack/Hero_1003_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1003/Hero_1003_idle/Hero_1003_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1003/Hero_1003_walk/Hero_1003_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1005/Hero_1005_attack/Hero_1005_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1005/Hero_1005_idle/Hero_1005_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1005/Hero_1005_walk/Hero_1005_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1006/Hero_1006_attack/Hero_1006_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1006/Hero_1006_idle/Hero_1006_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1006/Hero_1006_walk/Hero_1006_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1007/Hero_1007_attack/Hero_1007_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1007/Hero_1007_idle/Hero_1007_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1007/Hero_1007_walk/Hero_1007_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1008/Hero_1008_attack/Hero_1008_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1008/Hero_1008_idle/Hero_1008_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1008/Hero_1008_walk/Hero_1008_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1009/Hero_1009_attack/Hero_1009_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1009/Hero_1009_idle/Hero_1009_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1009/Hero_1009_walk/Hero_1009_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1010/Hero_1010_attack/Hero_1010_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1010/Hero_1010_idle/Hero_1010_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1010/Hero_1010_walk/Hero_1010_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1011/Hero_1011_attack/Hero_1011_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1011/Hero_1011_idle/Hero_1011_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1011/Hero_1011_walk/Hero_1011_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1012/Hero_1012_attack/Hero_1012_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1012/Hero_1012_idle/Hero_1012_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1012/Hero_1012_walk/Hero_1012_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1014/Hero_1014_attack/Hero_1014_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1014/Hero_1014_idle/Hero_1014_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1014/Hero_1014_walk/Hero_1014_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1017/Hero_1017_attack/Hero_1017_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1017/Hero_1017_idle/Hero_1017_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_1017/Hero_1017_walk/Hero_1017_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2000/Hero_2000_attack/Hero_2000_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2000/Hero_2000_idle/Hero_2000_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2000/Hero_2000_walk/Hero_2000_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2001/Hero_2001_attack/Hero_2001_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2001/Hero_2001_idle/Hero_2001_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2001/Hero_2001_walk/Hero_2001_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2004/Hero_2004_attack/Hero_2004_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2004/Hero_2004_idle/Hero_2004_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2004/Hero_2004_walk/Hero_2004_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2005/Hero_2005_attack/Hero_2005_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2005/Hero_2005_idle/Hero_2005_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2005/Hero_2005_walk/Hero_2005_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2006/Hero_2006_attack/Hero_2006_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2006/Hero_2006_idle/Hero_2006_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2006/Hero_2006_walk/Hero_2006_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2007/Hero_2007_attack/Hero_2007_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2007/Hero_2007_idle/Hero_2007_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2007/Hero_2007_walk/Hero_2007_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2008/Hero_2008_attack/Hero_2008_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2008/Hero_2008_idle/Hero_2008_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2008/Hero_2008_walk/Hero_2008_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2009/Hero_2009_attack/Hero_2009_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2009/Hero_2009_idle/Hero_2009_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2009/Hero_2009_walk/Hero_2009_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2010/Hero_2010_attack/Hero_2010_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2010/Hero_2010_idle/Hero_2010_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2010/Hero_2010_walk/Hero_2010_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2011/Hero_2011_attack/Hero_2011_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2011/Hero_2011_idle/Hero_2011_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_2011/Hero_2011_walk/Hero_2011_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3002/Hero_3002_attack/Hero_3002_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3002/Hero_3002_idle/Hero_3002_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3002/Hero_3002_walk/Hero_3002_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3003/Hero_3003_attack/Hero_3003_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3003/Hero_3003_idle/Hero_3003_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3003/Hero_3003_walk/Hero_3003_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3004/Hero_3004_attack/Hero_3004_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3004/Hero_3004_idle/Hero_3004_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_3004/Hero_3004_walk/Hero_3004_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_4000/Hero_4000_attack/Hero_4000_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_4000/Hero_4000_idle/Hero_4000_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_4000/Hero_4000_walk/Hero_4000_walk_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_4001/Hero_4001_attack/Hero_4001_attack_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_4001/Hero_4001_idle/Hero_4001_idle_n.png
+- Assets/BundleAssets/Troop/sprite_hero/Hero_4001/Hero_4001_walk/Hero_4001_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_1/Arms1_1_attack/Arms1_1_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_1/Arms1_1_idle/Arms1_1_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_1/Arms1_1_walk/Arms1_1_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_2/Arms1_2_attack/Arms1_2_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_2/Arms1_2_idle/Arms1_2_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_2/Arms1_2_walk/Arms1_2_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_3/Arms1_3_attack/Arms1_3_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_3/Arms1_3_idle/Arms1_3_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_3/Arms1_3_walk/Arms1_3_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_4/Arms1_4_attack/Arms1_4_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_4/Arms1_4_idle/Arms1_4_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms1_4/Arms1_4_walk/Arms1_4_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_1/Arms2_1_attack/Arms2_1_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_1/Arms2_1_idle/Arms2_1_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_1/Arms2_1_walk/Arms2_1_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_2/Arms2_2_attack/Arms2_2_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_2/Arms2_2_idle/Arms2_2_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_2/Arms2_2_walk/Arms2_2_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_3/Arms2_3_attack/Arms2_3_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_3/Arms2_3_idle/Arms2_3_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_3/Arms2_3_walk/Arms2_3_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_4/Arms2_4_attack/Arms2_4_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_4/Arms2_4_idle/Arms2_4_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms2_4/Arms2_4_walk/Arms2_4_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_1/Arms3_1_attack/Arms3_1_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_1/Arms3_1_idle/Arms3_1_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_1/Arms3_1_walk/Arms3_1_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_2/Arms3_2_attack/Arms3_2_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_2/Arms3_3_idle/Arms3_2_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_2/Arms3_3_walk/Arms3_2_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_3/Arms3_3_attack/Arms3_3_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_3/Arms3_3_idle/Arms3_3_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_3/Arms3_3_walk/Arms3_3_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_4/Arms3_4_attack/Arms3_4_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_4/Arms3_4_idle/Arms3_4_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms3_4/Arms3_4_walk/Arms3_4_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_1/Arms4_1_attack/Arms4_1_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_1/Arms4_1_idle/Arms4_1_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_1/Arms4_1_walk/Arms4_1_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_2/Arms4_2_attack/Arms4_2_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_2/Arms4_2_idle/Arms4_2_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_2/Arms4_2_walk/Arms4_2_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_3/Arms4_3_attack/Arms4_3_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_3/Arms4_3_idle/Arms4_3_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_3/Arms4_3_walk/Arms4_3_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_4/Arms4_4_attack/Arms4_4_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_4/Arms4_4_idle/Arms4_4_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms4_4/Arms4_4_walk/Arms4_4_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_1/Arms5_1_attack/Arms5_1_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_1/Arms5_1_idle/Arms5_1_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_1/Arms5_1_walk/Arms5_1_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_2/Arms5_2_attack/Arms5_2_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_2/Arms5_2_idle/Arms5_2_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_2/Arms5_2_walk/Arms5_2_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_3/Arms5_3_attack/Arms5_3_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_3/Arms5_3_idle/Arms5_3_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_3/Arms5_3_walk/Arms5_3_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_4/Arms5_4_attack/Arms5_4_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_4/Arms5_4_idle/Arms5_4_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/Arms5_4/Arms5_4_walk/Arms5_4_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_1/ArmsSpecial1_1_attack/ArmsSpecial1_1_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_1/ArmsSpecial1_1_idle/ArmsSpecial1_1_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_1/ArmsSpecial1_1_walk/ArmsSpecial1_1_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_2/ArmsSpecial1_2_attack/ArmsSpecial1_2_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_2/ArmsSpecial1_2_idle/ArmsSpecial1_2_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_2/ArmsSpecial1_2_walk/ArmsSpecial1_2_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_3/ArmsSpecial1_3_attack/ArmsSpecial1_3_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_3/ArmsSpecial1_3_idle/ArmsSpecial1_3_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial1_3/ArmsSpecial1_3_walk/ArmsSpecial1_3_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_1/ArmsSpecial2_1_attack/ArmsSpecial2_1_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_1/ArmsSpecial2_1_idle/ArmsSpecial2_1_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_1/ArmsSpecial2_1_walk/ArmsSpecial2_1_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_2/ArmsSpecial2_2_attack/ArmsSpecial2_2_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_2/ArmsSpecial2_2_idle/ArmsSpecial2_2_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_2/ArmsSpecial2_2_walk/ArmsSpecial2_2_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_3/ArmsSpecial2_3_attack/ArmsSpecial2_3_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_3/ArmsSpecial2_3_idle/ArmsSpecial2_3_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial2_3/ArmsSpecial2_3_walk/ArmsSpecial2_3_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_1/ArmsSpecial3_1_attack/ArmsSpecial3_1_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_1/ArmsSpecial3_1_idle/ArmsSpecial3_1_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_1/ArmsSpecial3_1_walk/ArmsSpecial3_1_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_2/ArmsSpecial3_2_attack/ArmsSpecial3_2_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_2/ArmsSpecial3_2_idle/ArmsSpecial3_2_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_2/ArmsSpecial3_2_walk/ArmsSpecial3_2_walk_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_3/ArmsSpecial3_3_attack/ArmsSpecial3_3_attack_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_3/ArmsSpecial3_3_idle/ArmsSpecial3_3_idle_n.png
+- Assets/BundleAssets/Troop/sprite_troop/ArmsSpecial3_3/ArmsSpecial3_3_walk/ArmsSpecial3_3_walk_n.png
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+enableDebugOutput: 0
