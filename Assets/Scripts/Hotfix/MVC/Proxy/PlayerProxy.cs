@@ -220,21 +220,21 @@ namespace Game {
             sp.language = (int)LanguageUtils.GetLanguage();
             sp.phone = SystemInfo.deviceName;
             sp.version = Application.version;
-            sp.area = IGGSDKUtils.shareInstance().getCountryCode();
-            if(IGGSDK.appConfig == null)
+            sp.area = SDKUtils.shareInstance().getCountryCode();
+            if(SDKBridge.appConfig == null)
             {
                 sp.ip = "127.0.0.1";
             }
             else
             {
-                sp.ip = IGGSDK.appConfig.getClientIp();
+                sp.ip = SDKBridge.appConfig.getClientIp();
                 if(string.IsNullOrEmpty(sp.ip))
                 {
                     sp.ip = "127.0.0.1";
                 }
             }
             
-            var gameid = IGGSDK.shareInstance().getGameId();
+            var gameid = SDKBridge.shareInstance().getGameId();
 
             if (!string.IsNullOrEmpty(gameid))
             {
@@ -318,7 +318,7 @@ namespace Game {
                 m_roleInfo.Add(serverData.rid,et);
                 long country = serverData.HasCountry ? (int)serverData.country : 101; 
                 m_country = CoreUtils.dataService.QueryRecord<CivilizationDefine>((int)country);
-                var sdk = IGGSDK.shareInstance();
+                var sdk = SDKBridge.shareInstance();
                 sdk.setCharID(serverData.rid.ToString());
                 sdk.setServerID(serverData.rid / 10000000);
                 SetGameNode(serverData.rid / 10000000);

@@ -43,7 +43,7 @@ namespace Game {
         {
             if (m_translateState == MapMarkerTranslateState.NoTranslation)
             {
-                GameHelper.GetTranslator().translateText(new IGGTranslationSource(m_description), (value1) => {
+                GameHelper.GetTranslator().translateText(new SDKTranslationSource(m_description), (value1) => {
                     m_lbl_text_LanguageText.text = value1.getByIndex(0).getText();
                     LayoutRebuilder.ForceRebuildLayoutImmediate(m_img_bg_PolygonImage.rectTransform);
 

@@ -1,5 +1,5 @@
 ﻿using Skyunion;
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -840,8 +840,8 @@ namespace Game
                 SetLeftButton(cancelCallback).
                 SetRightButton(() =>
                 {
-                    IGGInGameReporting.shareInstance().ReportComplain(iggID.ToString(),nickName,reportingContent,
-                        (bool bSussessed, IGGInGameReporting.WebRequestReturn requestReturn) =>
+                    SDKInGameReporting.shareInstance().ReportComplain(iggID.ToString(),nickName,reportingContent,
+                        (bool bSussessed, SDKInGameReporting.WebRequestReturn requestReturn) =>
                         {
                             if (bSussessed &&requestReturn.error.code == 0)
                             {

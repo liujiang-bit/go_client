@@ -1,5 +1,4 @@
-﻿using IGGSDKConstant;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using PureMVC.Interfaces;
 using PureMVC.Patterns.Command;
 using Skyunion;
@@ -24,9 +23,9 @@ namespace Game
                         else
                         {
                             //TODO 设置 Session 过期情况, 该步骤在登录之前必接，否则调用自动登录接口出现异常
-                            IGGLogin.shareInstance().setLoginDelegate(onSessionExpired);
+                            SDKLogin.shareInstance().setLoginDelegate(onSessionExpired);
                             // 自动登陆
-                            IGGLogin.shareInstance().AutoLogin(OnAutoLoginFinished);
+                            SDKLogin.shareInstance().AutoLogin(OnAutoLoginFinished);
                         }
                         break;
                     }
@@ -34,32 +33,32 @@ namespace Game
                 case CmdConstant.LoginAccount:
                     {
                         //TODO 设置 Session 过期情况, 该步骤在登录之前必接，否则调用自动登录接口出现异常
-                        IGGLogin.shareInstance().setCheckStateBox(CheckStateBox);
-                        IGGLogin.shareInstance().setLoginDelegate(onSessionExpired);
-                        IGGLoginType loginType = (IGGLoginType)notification.Body;
-                        if (loginType == IGGLoginType.GUEST)
+                        SDKLogin.shareInstance().setCheckStateBox(CheckStateBox);
+                        SDKLogin.shareInstance().setLoginDelegate(onSessionExpired);
+                        LoginType loginType = (LoginType)notification.Body;
+                        if (loginType == LoginType.GUEST)
                         {
-                            IGGLogin.shareInstance().GuestLogin(OnLoginAccountFinished);
+                            SDKLogin.shareInstance().GuestLogin(OnLoginAccountFinished);
                             return;
                         }
-                        else if (loginType == IGGLoginType.IGG_PASSPORT)
+                        else if (loginType == LoginType.GOOGLE_PLAY)
                         {
-                            IGGLogin.shareInstance().SwitchToIGGPassport(OnLoginAccountFinished);
+                            SDKLogin.shareInstance().SwitchToIGGPassport(OnLoginAccountFinished);
                             return;
                         }
-                        //if (loginType == IGGLoginType.FACEBOOK)
+                        //if (loginType == LoginType.FACEBOOK)
                         //{
-                        //    IGGLogin.shareInstance().SwitchToFacebook(OnLoginFinished);
+                        //    SDKLogin.shareInstance().SwitchToFacebook(OnLoginFinished);
                         //    return;
                         //}
-                        //else if (loginType == IGGLoginType.GOOGLE_PLAY)
+                        //else if (loginType == LoginType.GOOGLE_PLAY)
                         //{
-                        //    IGGLogin.shareInstance().SwitchToGooglePlay(OnLoginFinished);
+                        //    SDKLogin.shareInstance().SwitchToGooglePlay(OnLoginFinished);
                         //    return;
                         //}
-                        //else if (loginType == IGGLoginType.GAMECENTER)
+                        //else if (loginType == LoginType.GAMECENTER)
                         //{
-                        //    IGGLogin.shareInstance().SwitchToGameCenter(OnLoginFinished);
+                        //    SDKLogin.shareInstance().SwitchToGameCenter(OnLoginFinished);
                         //    return;
                         //}
                         break;
@@ -69,17 +68,17 @@ namespace Game
                     {
                         //TODO 设置 Session 过期情况, 该步骤在登录之前必接，否则调用自动登录接口出现异常
 
-                        IGGLogin.shareInstance().setCheckStateBox(CheckStateBox);
-                        IGGLogin.shareInstance().setLoginDelegate(onSessionExpiredInGame);
-                        IGGLoginType loginType = (IGGLoginType)notification.Body;
-                        if (loginType == IGGLoginType.GUEST)
+                        SDKLogin.shareInstance().setCheckStateBox(CheckStateBox);
+                        SDKLogin.shareInstance().setLoginDelegate(onSessionExpiredInGame);
+                        LoginType loginType = (LoginType)notification.Body;
+                        if (loginType == LoginType.GUEST)
                         {
-                            IGGLogin.shareInstance().GuestLogin(OnSwitchLoginFinished);
+                            SDKLogin.shareInstance().GuestLogin(OnSwitchLoginFinished);
                             return;
                         }
-                        else if (loginType == IGGLoginType.IGG_PASSPORT)
+                        else if (loginType == LoginType.GOOGLE_PLAY)
                         {
-                            IGGLogin.shareInstance().SwitchToIGGPassport(OnSwitchLoginFinished);
+                            SDKLogin.shareInstance().SwitchToIGGPassport(OnSwitchLoginFinished);
                             return;
                         }
                         break;
@@ -88,7 +87,7 @@ namespace Game
                 case CmdConstant.SwitchAccountFinished:
                     {
                         // 切换成功需要重新走登陆流程
-                        IGGSDK.shareInstance().RunInMainThread(() =>
+                        SDKBridge.shareInstance().RunInMainThread(() =>
                         {
                             SendNotification(CmdConstant.ReloadGame);
                         });
@@ -97,8 +96,8 @@ namespace Game
                 // 账号信息
                 case CmdConstant.LoadAccountProfile:
                     {
-                        IGGLogin.shareInstance().setLoginDelegate(onSessionExpiredInGame);
-                        IGGAccountManagementGuideline.shareInstance().loadUserFromServerOrCache((IGGException exception, IGGUserProfile userProfile) =>
+                        SDKLogin.shareInstance().setLoginDelegate(onSessionExpiredInGame);
+                        SDKAccountManagement.shareInstance().loadUserFromServerOrCache((SDKException exception, SDKUserProfile userProfile) =>
                         {
                             if (exception.isNone())
                             {
@@ -111,11 +110,11 @@ namespace Game
                 case CmdConstant.BindindAccount:
                     {
                         //TODO 设置 Session 过期情况, 该步骤在登录之前必接，否则调用自动登录接口出现异常
-                        IGGLogin.shareInstance().setLoginDelegate(onSessionExpiredInGame);
-                        IGGLoginType loginType = (IGGLoginType)notification.Body;
-                        if (loginType == IGGLoginType.IGG_PASSPORT)
+                        SDKLogin.shareInstance().setLoginDelegate(onSessionExpiredInGame);
+                        LoginType loginType = (LoginType)notification.Body;
+                        if (loginType == LoginType.GOOGLE_PLAY)
                         {
-                            IGGLogin.shareInstance().BindToIGGPassport(OnBindFinished);
+                            SDKLogin.shareInstance().BindToIGGPassport(OnBindFinished);
                             return;
                         }
                         break;
@@ -124,16 +123,16 @@ namespace Game
                 case CmdConstant.AccountBan:
                     {
                         CoreUtils.uiManager.SetGuideStatus(true);
-                        IGGSDKUtils.shareInstance().ShowMsgBox(LanguageUtils.getText(100049), LanguageUtils.getText(100035), LanguageUtils.getText(100036), LanguageUtils.getText(100047), (bool bSure) =>
+                        SDKUtils.shareInstance().ShowMsgBox(LanguageUtils.getText(100049), LanguageUtils.getText(100035), LanguageUtils.getText(100036), LanguageUtils.getText(100047), (bool bSure) =>
                         {
                             CoreUtils.uiManager.SetGuideStatus(false);
                             if (bSure)
                             {
-                                IGGURLBundle.shareInstance().serviceURL((IGGException ex, string url) =>
+                                SDKURLBundle.shareInstance().serviceURL((SDKException ex, string url) =>
                                 {
                                     if (ex.isNone())
                                     {
-                                        IGGSDKUtils.shareInstance().OpenBrowser(url);
+                                        SDKUtils.shareInstance().OpenBrowser(url);
                                     }
                                     SendNotification(CmdConstant.AccountBan);
                                 });
@@ -150,29 +149,29 @@ namespace Game
         }
 
          // session 失效需要重新登陆
-        private void onSessionExpired(IGGSession expiredSession)
+        private void onSessionExpired(SDKSession expiredSession)
         {
-            IGGSDKUtils.shareInstance().ShowMsgBox(LanguageUtils.getText(100072), LanguageUtils.getText(100035), LanguageUtils.getText(100036), (bool bSure) =>
+            SDKUtils.shareInstance().ShowMsgBox(LanguageUtils.getText(100072), LanguageUtils.getText(100035), LanguageUtils.getText(100036), (bool bSure) =>
             {
                 CoreUtils.uiManager.ShowUI(UI.s_AccountLoginMain, null, expiredSession.getLoginType());
             });
         }
         // session 失效需要重新登陆
-        private void onSessionExpiredInGame(IGGSession expiredSession)
+        private void onSessionExpiredInGame(SDKSession expiredSession)
         {
-            IGGSDKUtils.shareInstance().ShowMsgBox(LanguageUtils.getText(100072), LanguageUtils.getText(100035), LanguageUtils.getText(100036), (bool bSure) =>
+            SDKUtils.shareInstance().ShowMsgBox(LanguageUtils.getText(100072), LanguageUtils.getText(100035), LanguageUtils.getText(100036), (bool bSure) =>
             {
                 SendNotification(CmdConstant.ReloadGame);
             });
         }
-        private void OnAutoLoginFinished(IGGException exception, IGGSession session)
+        private void OnAutoLoginFinished(SDKException exception, SDKSession session)
         {
             var err = OnLoginFinished(exception, session);
             if (exception !=null && exception.isNone())
             {
                 Debug.Log("IGGID:" + session.getIGGId());
-                IGGPayment.shareInstance().initialize(OnGameItemLoad);
-                var gameid = IGGSDK.shareInstance().getGameId();
+                SDKPayment.shareInstance().initialize(OnGameItemLoad);
+                var gameid = SDKBridge.shareInstance().getGameId();
                 //CoreUtils.adService.SetupGameID (gameid);
                 //CoreUtils.adService.OnFetchIGGID(session.getIGGId());
                 SendNotification(CmdConstant.AutoLoginFinished);
@@ -181,21 +180,21 @@ namespace Game
             if(!string.IsNullOrEmpty(err))
             {
                 CoreUtils.uiManager.SetGuideStatus(true);
-                IGGSDKUtils.shareInstance().ShowMsgBox(err, LanguageUtils.getText(100035), LanguageUtils.getText(100036), (bool bSure) =>
+                SDKUtils.shareInstance().ShowMsgBox(err, LanguageUtils.getText(100035), LanguageUtils.getText(100036), (bool bSure) =>
                 {
                     CoreUtils.uiManager.SetGuideStatus(false);
                     SendNotification(CmdConstant.AutoLogin);
                 });
             }
         }
-        private void OnLoginAccountFinished(IGGException exception, IGGSession session)
+        private void OnLoginAccountFinished(SDKException exception, SDKSession session)
         {
             var err = OnLoginFinished(exception, session);
             if (exception.isNone())
             {
                 Debug.Log("IGGID:" + session.getIGGId());
-                IGGPayment.shareInstance().initialize(OnGameItemLoad);
-                var gameid = IGGSDK.shareInstance().getGameId();
+                SDKPayment.shareInstance().initialize(OnGameItemLoad);
+                var gameid = SDKBridge.shareInstance().getGameId();
                 //CoreUtils.adService.SetupGameID(gameid);
                 //CoreUtils.adService.OnFetchIGGID(session.getIGGId());
                 SendNotification(CmdConstant.LoginAccountFinished);
@@ -203,10 +202,10 @@ namespace Game
             }
             if (!string.IsNullOrEmpty(err))
             {
-                IGGSDKUtils.shareInstance().ShowToast(err);
+                SDKUtils.ShowToast(err);
             }
         }
-        private void OnSwitchLoginFinished(IGGException exception, IGGSession session)
+        private void OnSwitchLoginFinished(SDKException exception, SDKSession session)
         {
             var err = OnLoginFinished(exception, session);
             if (exception.isNone())
@@ -215,27 +214,27 @@ namespace Game
             }
             if (!string.IsNullOrEmpty(err))
             {
-                IGGSDKUtils.shareInstance().ShowToast(err);
+                SDKUtils.ShowToast(err);
             }
         }
-        private string OnLoginFinished(IGGException exception, IGGSession session)
+        private string OnLoginFinished(SDKException exception, SDKSession session)
         {
             string errorStr = "";
             if (exception == null || session == null)
             {
                 errorStr = LanguageUtils.getTextFormat(100132, "0");
                 // 这边需要显示切换账号框
-                //IGGSDKUtils.shareInstance().ShowToast("获取Token失败，请重新登陆！");
+                //SDKUtils.ShowToast("获取Token失败，请重新登陆！");
             }
             else if (exception.isNone())
             {
-                IGGPushNotification.shareInstance().uninitialize();
-                IGGPushNotification.shareInstance().initialize();
+                SDKPushNotification.shareInstance().uninitialize();
+                SDKPushNotification.shareInstance().initialize();
 
-                IGGServerConfig serverConfig;
-                if(IGGSDK.appConfig != null)
+                SDKServerConfig serverConfig;
+                if(SDKBridge.appConfig != null)
                 {
-                    serverConfig = IGGSDK.appConfig.getServerConfig();
+                    serverConfig = SDKBridge.appConfig.getServerConfig();
 
                     var loginserver = serverConfig.LoginServer[0];
                     var nexProxy = AppFacade.GetInstance().RetrieveProxy(NetProxy.ProxyNAME) as NetProxy;
@@ -253,7 +252,7 @@ namespace Game
                 CoreUtils.logService.Info(exception.ToString(), Color.red);
                 //if (exception.getCode().Equals("111303"))
                 //{
-                //    IGGSDKUtils.shareInstance().ShowToast("多次取消登陆，需要到账号中心去登陆GameCenter！");
+                //    SDKUtils.ShowToast("多次取消登陆，需要到账号中心去登陆GameCenter！");
                 //}
                 if (exception.getCode().Equals("114103"))
                 {
@@ -273,14 +272,14 @@ namespace Game
                 {
                     Debug.LogWarning(exception.getUnderlyingException().getCode());
                     errorStr = LanguageUtils.getTextFormat(100132, exception.getCode());
-                    //IGGSDKUtils.shareInstance().ShowToast(errorStr);
+                    //SDKUtils.ShowToast(errorStr);
                 }
             }
 
             return errorStr;
         }
 
-        private void OnBindFinished(IGGException exception, string iggid)
+        private void OnBindFinished(SDKException exception, string iggid)
         {
             if (exception != null)
             {
@@ -288,7 +287,7 @@ namespace Game
                 {
                     // 这边对话框可以改掉
                     // 绑定失败。改账号在游戏内已经绑定了IGG ID：{0}
-                    IGGSDKUtils.shareInstance().ShowMsgBox(LanguageUtils.getTextFormat(100117, iggid), LanguageUtils.getText(100134), LanguageUtils.getText(100036));
+                    SDKUtils.shareInstance().ShowMsgBox(LanguageUtils.getTextFormat(100117, iggid), LanguageUtils.getText(100134), LanguageUtils.getText(100036), (bool bSure) => { });
                     return;
                 }
                 if (exception.isOccurred())
@@ -296,7 +295,7 @@ namespace Game
                     CoreUtils.logService.Info(exception.ToString(), Color.red);
                     if (exception.getCode().Equals("111405"))
                     {
-                        IGGSDKUtils.shareInstance().ShowToast("多次取消登陆，需要到账号中心去登陆GameCenter！");
+                        SDKUtils.ShowToast("多次取消登陆，需要到账号中心去登陆GameCenter！");
                     }
                     if (exception.getCode().Equals("114103"))
                     {
@@ -304,41 +303,41 @@ namespace Game
                     }
                     else
                     {
-                        IGGSDKUtils.shareInstance().ShowToast(LanguageUtils.getTextFormat(100125, exception.getCode()));
+                        SDKUtils.ShowToast(LanguageUtils.getTextFormat(100125, exception.getCode()));
                     }
                     return;
                 }
                 if (exception.isNone())
                 {
                     // 绑定成功
-                    IGGSDKUtils.shareInstance().ShowToast(LanguageUtils.getTextFormat(100110));
+                    SDKUtils.ShowToast(LanguageUtils.getTextFormat(100110));
                     SendNotification(CmdConstant.BindindAccountFinished);
                 }
             }
             else if (exception == null && iggid == null)
             {
-                IGGSDKUtils.shareInstance().ShowToast(LanguageUtils.getText(100126));
+                SDKUtils.ShowToast(LanguageUtils.getText(100126));
             }
         }
-        private void CheckStateBox(string iggid, AccountState accountState, IGGLoginType loginType, IGGLogin.CheckStateReturn callback)
+        private void CheckStateBox(string iggid, AccountState accountState, LoginType loginType, SDKLogin.CheckStateReturn callback)
         {
             string strMessage = "";
             if (accountState == AccountState.CreateAccount)
             {
                 //strMessage = "没有绑定过IGGID 要以全新IGG ID进入游戏吗？";
-                if (loginType == IGGLoginType.GUEST)
+                if (loginType == LoginType.GUEST)
                 {
-                    IGGSDKUtils.shareInstance().ShowMsgBox(LanguageUtils.getText(100074), LanguageUtils.getText(100035), LanguageUtils.getText(100036), LanguageUtils.getText(192010), new IGGSDKUtils.MsgBoxReturnListener.Listener(callback));
+                    SDKUtils.shareInstance().ShowMsgBox(LanguageUtils.getText(100074), LanguageUtils.getText(100035), LanguageUtils.getText(100036), LanguageUtils.getText(192010), new SDKUtils.MsgBoxReturnListener.Listener(callback));
                 }
                 else
                 {
-                    IGGSDKUtils.shareInstance().ShowMsgBox(LanguageUtils.getText(100075), LanguageUtils.getText(100035), LanguageUtils.getText(100036), LanguageUtils.getText(192010), new IGGSDKUtils.MsgBoxReturnListener.Listener(callback));
+                    SDKUtils.shareInstance().ShowMsgBox(LanguageUtils.getText(100075), LanguageUtils.getText(100035), LanguageUtils.getText(100036), LanguageUtils.getText(192010), new SDKUtils.MsgBoxReturnListener.Listener(callback));
                 }
             }
             else if (accountState == AccountState.ChangeAccount)
             {
                 // 以后账号无需提示直接确认登陆  以前技术部流程是需要提示的，现在去掉提示
-                if (IGGSession.currentSession.isValid() == false)
+                if (SDKSession.currentSession.isValid() == false)
                 {
                     callback(true);
                 }
@@ -346,19 +345,19 @@ namespace Game
                 {
                     // 这边可以改成你们自己的弹窗
                     // 账号不一样或者登陆方式不一样才可以登陆
-                    if (loginType == IGGSession.currentSession.getLoginType() && iggid == IGGSession.currentSession.getIGGId())
+                    if (loginType == SDKSession.currentSession.getLoginType() && iggid == SDKSession.currentSession.getIGGId())
                     {
-                        //IGGSDKUtils.shareInstance().ShowToast("已经是当前账号，无需切换");
-                        IGGSDKUtils.shareInstance().ShowToast(LanguageUtils.getText(100120));
+                        //SDKUtils.ShowToast("已经是当前账号，无需切换");
+                        SDKUtils.ShowToast(LanguageUtils.getText(100120));
                         return;
                     }
                     //strMessage = string.Format("是否以IGGID {0} 进入游戏吗？", iggid);
-                    IGGSDKUtils.shareInstance().ShowMsgBox(LanguageUtils.getTextFormat(100078, iggid), LanguageUtils.getText(100035), LanguageUtils.getText(100036), LanguageUtils.getText(192010), new IGGSDKUtils.MsgBoxReturnListener.Listener(callback));
+                    SDKUtils.shareInstance().ShowMsgBox(LanguageUtils.getTextFormat(100078, iggid), LanguageUtils.getText(100035), LanguageUtils.getText(100036), LanguageUtils.getText(192010), new SDKUtils.MsgBoxReturnListener.Listener(callback));
                 }
             }
         }
 
-        private void OnGameItemLoad(List<IGGGameItem> gameItems)
+        private void OnGameItemLoad(List<SDKGameItem> gameItems)
         {
             // 这边把商品存起来
             //mLoadItem = true;
@@ -380,4 +379,3 @@ namespace Game
         }
     }
 }
-

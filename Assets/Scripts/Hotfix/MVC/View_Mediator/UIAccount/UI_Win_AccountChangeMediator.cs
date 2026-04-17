@@ -78,11 +78,11 @@ namespace Game {
         {
             view.m_UI_Igg.AddClickEvent(() =>
             {
-                SendNotification(CmdConstant.SwitchAccount, IGGSDKConstant.IGGLoginType.IGG_PASSPORT);
+                SendNotification(CmdConstant.SwitchAccount, LoginType.GOOGLE_PLAY);
             });
             view.m_UI_Machine.AddClickEvent(() =>
             {
-                SendNotification(CmdConstant.SwitchAccount, IGGSDKConstant.IGGLoginType.GUEST);
+                SendNotification(CmdConstant.SwitchAccount, LoginType.GUEST);
             });
 
             view.m_UI_Model_Window_Type2.AddCloseEvent(()=>
@@ -94,19 +94,19 @@ namespace Game {
                 CoreUtils.uiManager.CloseUI(UI.s_AccountSwitch);
             });
 
-            var loginType = IGGSession.currentSession.getLoginType();
-            view.m_UI_Machine.SetEnabled(loginType != IGGSDKConstant.IGGLoginType.GUEST);
+            var loginType = SDKSession.currentSession.getLoginType();
+            view.m_UI_Machine.SetEnabled(loginType != LoginType.GUEST);
         }
 
         protected override void BindUIData()
         {
-            view.m_lbl_accountID_LanguageText.text = LanguageUtils.getTextFormat(100102, IGGSession.currentSession.getIGGId());
-            var loginType = IGGSession.currentSession.getLoginType();
-            if (loginType == IGGSDKConstant.IGGLoginType.IGG_PASSPORT)
+            view.m_lbl_accountID_LanguageText.text = LanguageUtils.getTextFormat(100102, SDKSession.currentSession.getIGGId());
+            var loginType = SDKSession.currentSession.getLoginType();
+            if (loginType == LoginType.GOOGLE_PLAY)
             {
                 view.m_lbl_logName_LanguageText.text = LanguageUtils.getTextFormat(100103, LanguageUtils.getText(100131));
             }
-            else if (loginType == IGGSDKConstant.IGGLoginType.GUEST)
+            else if (loginType == LoginType.GUEST)
             {
                 view.m_lbl_logName_LanguageText.text = LanguageUtils.getTextFormat(100103, LanguageUtils.getText(100127));
             }

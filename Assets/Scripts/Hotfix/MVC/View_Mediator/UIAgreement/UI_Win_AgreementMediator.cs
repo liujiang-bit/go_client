@@ -20,8 +20,8 @@ namespace Game {
         #region Member
         public static string NameMediator = "UI_Win_AgreementMediator";
 
-        IGGAgreementSigningFile m_signingFile;
-        IGGAssignedAgreements m_assignedAgreements;
+        SDKAgreementSigningFile m_signingFile;
+        SDKAssignedAgreements m_assignedAgreements;
 
         #endregion
 
@@ -91,8 +91,8 @@ namespace Game {
 
         protected override void InitData()
         {
-            m_signingFile = view.data as IGGAgreementSigningFile;
-            m_assignedAgreements = view.data as IGGAssignedAgreements;
+            m_signingFile = view.data as SDKAgreementSigningFile;
+            m_assignedAgreements = view.data as SDKAssignedAgreements;
         }
 
         protected override void BindUIEvent()
@@ -102,7 +102,7 @@ namespace Game {
 
         protected override void BindUIData()
         {
-            List<IGGAgreement> agrees = null;
+            List<SDKAgreement> agrees = null;
             if (m_signingFile != null)
             {
                 view.m_lbl_Content_LanguageText.text = m_signingFile.getLocalizedCaption();
@@ -111,8 +111,8 @@ namespace Game {
 
                 view.m_UI_btnOK.AddClickEvent(() =>
                 {
-                    var signing = IGGSDK.shareInstance().getAgreementSigning();
-                    signing.sign(m_signingFile, (IGGException ex) =>
+                    var signing = SDKBridge.shareInstance().getAgreementSigning();
+                    signing.sign(m_signingFile, (SDKException ex) =>
                     {
                         if (ex.isNone())
                         {

@@ -1,5 +1,4 @@
 ﻿using Client;
-using IGGSDKConstant;
 using Skyunion;
 using SprotoType;
 using UnityEngine;
@@ -20,27 +19,27 @@ namespace Game
             }
         }
 
-        public static IGGTranslator GetTranslator()
+        public static SDKTranslator GetTranslator()
         {
-            IGGTranslator translator;
+            SDKTranslator translator;
             switch (LanguageUtils.GetLanguage())
             {
                 case SystemLanguage.Arabic:
-                    translator = new IGGTranslator(IGGLanguage.auto, IGGLanguage.Ar);
+                    translator = new SDKTranslator(SDKLanguage.auto, SDKLanguage.Ar);
                     break;
                 case SystemLanguage.English:
-                    translator = new IGGTranslator(IGGLanguage.auto, IGGLanguage.En);
+                    translator = new SDKTranslator(SDKLanguage.auto, SDKLanguage.En);
                     break;
                 case SystemLanguage.Turkish:
-                    translator = new IGGTranslator(IGGLanguage.auto, IGGLanguage.Tr);
+                    translator = new SDKTranslator(SDKLanguage.auto, SDKLanguage.Tr);
                     break;
                 case SystemLanguage.Chinese:
                 case SystemLanguage.ChineseSimplified:
                 case SystemLanguage.ChineseTraditional:
-                    translator = new IGGTranslator(IGGLanguage.auto, IGGLanguage.Zh_CN);
+                    translator = new SDKTranslator(SDKLanguage.auto, SDKLanguage.Zh_CN);
                     break;
                 default:
-                    translator = new IGGTranslator(IGGLanguage.auto, IGGLanguage.Ar);
+                    translator = new SDKTranslator(SDKLanguage.auto, SDKLanguage.Ar);
                     break;
             }
             return translator;

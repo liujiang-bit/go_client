@@ -1312,18 +1312,18 @@ namespace Game
             Debug.LogFormat("链接网络 user:[{0}]   pwd:[{1}] serverIP:「{2}」 serverPort:[{3}] serverNode :{4}", this.MUserName, this.MPassword,this.MServerIp,this.MServerPort,this.MServerNode);
             netClient = SprotoSocketAp.CreateInstance(this.MServerIp, MServerPort, OnNetEvent, OnAuthEvent);
 
-            string ip = IGGSDKConstant.IGGDefault.AppConfigIP;
-            if (IGGSDK.appConfig != null)
+            string ip = SDKDefault.AppConfigIP;
+            if (SDKBridge.appConfig != null)
             {
-                Debug.LogFormat("IGGSDK ip0:[{0}]", ip);
-                ip = IGGSDK.appConfig.getClientIp();
+                Debug.LogFormat("SDKBridge ip0:[{0}]", ip);
+                ip = SDKBridge.appConfig.getClientIp();
                 if (string.IsNullOrEmpty(ip))
                 {
                     ip = "127.0.0.1";
                 }
-                 Debug.LogFormat("IGGSDK ip1:[{0}]", ip);
+                 Debug.LogFormat("SDKBridge ip1:[{0}]", ip);
             }
-            Debug.LogFormat("IGGSDK config is null [{0}]",ip);
+            Debug.LogFormat("SDKBridge config is null [{0}]",ip);
             string platform = "3";
 #if UNITY_IOS
             platform = "1";

@@ -126,7 +126,7 @@ namespace Game {
             subView.m_lbl_Text_LanguageText.text = LanguageUtils.getText(cfg.nameID);
             subView.m_btn_btn_GameButton.onClick.AddListener(()=>
             {
-                IGGSDKUtils.shareInstance().OpenBrowser(HotfixUtil.getLanguageLink(cfg.hyperlink));
+                SDKUtils.shareInstance().OpenBrowser(HotfixUtil.getLanguageLink(cfg.hyperlink));
             });
         }
 

@@ -22,7 +22,6 @@ using UnityEngine.Events;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using IGGSDKConstant;
 using UnityEngine.EventSystems;
 
 namespace Game {
@@ -63,7 +62,7 @@ namespace Game {
         private Dictionary<string, GameObject> m_assetDic;
         private bool assetReady = false;
 
-        private IGGTranslator m_translator;
+        private SDKTranslator m_translator;
 
         //联系人列表
         private List<ChatContact> m_contacts;
@@ -1067,7 +1066,7 @@ namespace Game {
                             switch (msg.msgType)
                             {
                                 case EnumMsgType.ATUser:
-                                    m_translator.translateText(new IGGTranslationSource(msg.mapMarkerTypemsg), (value1) => {
+                                    m_translator.translateText(new SDKTranslationSource(msg.mapMarkerTypemsg), (value1) => {
                                         msg.Translate = value1.getByIndex(0).getText();
                                         view.m_sv_chat_ListView.ForceRefresh();
                                     }, (value2, value3) => {
@@ -1080,7 +1079,7 @@ namespace Game {
                                     });
                                     break;
                                 case EnumMsgType.Text:
-                                    m_translator.translateText(new IGGTranslationSource(msg.msg), (value1) => {
+                                    m_translator.translateText(new SDKTranslationSource(msg.msg), (value1) => {
                                         msg.Translate = value1.getByIndex(0).getText();
                                         view.m_sv_chat_ListView.ForceRefresh();
                                     }, (value2, value3) => {

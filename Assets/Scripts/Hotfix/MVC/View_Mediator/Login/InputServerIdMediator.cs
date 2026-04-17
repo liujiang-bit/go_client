@@ -97,11 +97,11 @@ namespace Game {
                 if (!string.IsNullOrEmpty(serverId) && int.TryParse(serverId, out nServerId))
                 {
                     PlayerPrefs.SetString("ServerID", serverId);
-                    IGGServerConfig serverConfig;
-                    var session = IGGSession.currentSession;
-                    if (IGGSDK.appConfig != null)
+                    SDKServerConfig serverConfig;
+                    var session = SDKSession.currentSession;
+                    if (SDKBridge.appConfig != null)
                     {
-                        serverConfig = IGGSDK.appConfig.getServerConfig();
+                        serverConfig = SDKBridge.appConfig.getServerConfig();
 
                         var loginserver = serverConfig.LoginServer[0];
                         var nexProxy = AppFacade.GetInstance().RetrieveProxy(NetProxy.ProxyNAME) as NetProxy;

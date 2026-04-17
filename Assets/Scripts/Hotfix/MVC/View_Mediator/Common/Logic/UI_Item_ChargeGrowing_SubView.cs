@@ -37,7 +37,7 @@ namespace Game {
             });
         }
 
-        private void OnItemBuy(IGGException ex, bool bUserCancel)
+        private void OnItemBuy(SDKException ex, bool bUserCancel)
         {
             
         }
@@ -65,10 +65,10 @@ namespace Game {
             Data.PriceDefine priceCfg = CoreUtils.dataService.QueryRecord<Data.PriceDefine>(m_confgiCfg.rechargeFundPrice);
             if (priceCfg == null) return;
             string strPrice = string.Empty;
-            var gameItems = IGGPayment.shareInstance().GetIGGGameItems();
+            var gameItems = SDKPayment.shareInstance().GetIGGGameItems();
             if (gameItems != null)
             {
-                IGGGameItem funGameItem = null;
+                SDKGameItem funGameItem = null;
                 foreach (var gameItem in gameItems)
                 {
                     if(gameItem.getId() == priceCfg.rechargeID.ToString())

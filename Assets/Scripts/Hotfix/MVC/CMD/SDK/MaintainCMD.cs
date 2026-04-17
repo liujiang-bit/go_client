@@ -17,11 +17,11 @@ namespace Game
             {
                 case CmdConstant.PackageUpdateCheck:
                     {
-                        if (IGGSDK.appConfig != null)
+                        if (SDKBridge.appConfig != null)
                         {
                             long appversion = VersionUtil.GetVersionNumber();
 
-                            var loginBox = IGGSDK.appConfig.getServerConfig().loginBox;
+                            var loginBox = SDKBridge.appConfig.getServerConfig().loginBox;
 
                             var forceVersion = VersionUtil.GetVersionNumber(loginBox.forceVersion);
                             if (appversion < forceVersion)
@@ -45,14 +45,14 @@ namespace Game
                 case CmdConstant.HotfixUpteCheck:
                     {
                         // 如果读取不到配置，也需要可以登陆游戏。
-                        if (IGGSDK.appConfig == null)
+                        if (SDKBridge.appConfig == null)
                         {
                             SendNotification(CmdConstant.LoginToServer);
                             return;
                         }
 
                         // 
-                        var serverConfig = IGGSDK.appConfig.getServerConfig();
+                        var serverConfig = SDKBridge.appConfig.getServerConfig();
 
                         int nHotFixNumber = 0;
                         string md5 = "";
@@ -277,10 +277,10 @@ namespace Game
                     break;
                 case CmdConstant.MaintainCheck:
                     {
-                        if (IGGSDK.appConfig != null)
+                        if (SDKBridge.appConfig != null)
                         {
-                            var serverConfig = IGGSDK.appConfig.getServerConfig();
-                            var iggid = IGGSession.currentSession.getIGGId();
+                            var serverConfig = SDKBridge.appConfig.getServerConfig();
+                            var iggid = SDKSession.currentSession.getIGGId();
                             for (int i = 0; i < serverConfig.loginBox.whiteList.Count; i++)
                             {
                                 var user = serverConfig.loginBox.whiteList[i].userList;
@@ -292,7 +292,7 @@ namespace Game
                                     return;
                                 }
                             }
-                            var serverTime = IGGSDK.appConfig.serverTime;
+                            var serverTime = SDKBridge.appConfig.serverTime;
                             DateTime serverDateTime = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(serverTime).AddHours(-5);
                             // 维护期间弹出维护公告
                             if (serverConfig.update.isMaintain.state == 1 && string.IsNullOrEmpty(serverConfig.update.serverId) && serverConfig.update.isMaintain.startAt < serverDateTime && serverConfig.update.isMaintain.endAt > serverDateTime)
@@ -309,10 +309,10 @@ namespace Game
                 case CmdConstant.MaintainCheckSingleServer:
                     {
                         var netProxy = AppFacade.GetInstance().RetrieveProxy(NetProxy.ProxyNAME) as NetProxy;
-                        if (IGGSDK.appConfig != null)
+                        if (SDKBridge.appConfig != null)
                         {
-                            var serverConfig = IGGSDK.appConfig.getServerConfig();
-                            var iggid = IGGSession.currentSession.getIGGId();
+                            var serverConfig = SDKBridge.appConfig.getServerConfig();
+                            var iggid = SDKSession.currentSession.getIGGId();
                             for (int i = 0; i < serverConfig.loginBox.whiteList.Count; i++)
                             {
                                 var user = serverConfig.loginBox.whiteList[i].userList;
@@ -326,7 +326,7 @@ namespace Game
                                     return;
                                 }
                             }
-                            var serverTime = IGGSDK.appConfig.serverTime;
+                            var serverTime = SDKBridge.appConfig.serverTime;
                             DateTime serverDateTime = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(serverTime).AddHours(-5);
                             // 维护期间弹出维护公告
                             if (serverConfig.update.isMaintain.state == 1 && serverConfig.update.isMaintain.startAt < serverDateTime && serverConfig.update.isMaintain.endAt > serverDateTime)

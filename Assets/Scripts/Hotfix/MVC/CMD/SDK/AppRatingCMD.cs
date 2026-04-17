@@ -1,5 +1,4 @@
-﻿using IGGSDKConstant;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using PureMVC.Interfaces;
 using PureMVC.Patterns.Command;
 using Skyunion;
@@ -17,32 +16,31 @@ namespace Game
             {
                 case CmdConstant.OpenAppRating:
                     {
-                        IGGSDK.shareInstance().getAppRating().requestReview(OnDisabled, OnError, onMinimizedModeEnabled, onStarndardModeEnabled);
+                        SDKBridge.shareInstance().getAppRating().requestReview(OnDisabled, OnError, onMinimizedModeEnabled, onStarndardModeEnabled);
                     }
                     break;
             }
         }
 
-        private void OnDisabled(IGGAppRatingStatus status)
+        private void OnDisabled(SDKAppRatingStatus status)
         {
             Debug.Log("AppRatingStatus:" + status.getMode().ToString());
         }
-        private void OnError(IGGException exception)
+        private void OnError(SDKException exception)
         {
             Debug.LogError(exception.ToString());
         }
 
-        private void onMinimizedModeEnabled(IGGMinimizedAppRating rating)
+        private void onMinimizedModeEnabled(SDKMinimizedAppRating rating)
         {
-            rating.goRating((IGGException ex) =>
+            rating.goRating((SDKException ex) =>
             {
             });
         }
 
-        private void onStarndardModeEnabled(IGGStarndardAppRating rating)
+        private void onStarndardModeEnabled(SDKStandardAppRating rating)
         {
             CoreUtils.uiManager.ShowUI(UI.s_EvaluateStar, null, rating);
         }
     }
 }
-

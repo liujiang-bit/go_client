@@ -12,7 +12,6 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 using Data;
-using IGGSDKConstant;
 using Skyunion;
 using SprotoType;
 using UnityEngine;
@@ -489,7 +488,7 @@ namespace Game {
         public bool TryGetGemShopSDKPrice(ref string Price)
         {
             //SDK是否返回价格
-            var items = IGGPayment.shareInstance().GetIGGGameItems();
+            var items = SDKPayment.shareInstance().GetIGGGameItems();
             foreach (var v in items)
             {
                 if (v.getId().CompareTo(Price) == 0)
@@ -507,10 +506,10 @@ namespace Game {
             Data.PriceDefine priceCfg = CoreUtils.dataService.QueryRecord<Data.PriceDefine>(priceId);
             if (priceCfg != null)
             {
-                var gameItems = IGGPayment.shareInstance().GetIGGGameItems();
+                var gameItems = SDKPayment.shareInstance().GetIGGGameItems();
                 if (gameItems != null)
                 {
-                    IGGGameItem funGameItem = null;
+                    SDKGameItem funGameItem = null;
                     foreach (var gameItem in gameItems)
                     {
                         if (gameItem.getId() == priceCfg.rechargeID.ToString())
@@ -546,7 +545,7 @@ namespace Game {
         }
 
         long lastBuyTime = 0;
-        public void CallSdkBuyByPcid(PriceDefine priceDefine, string pcid, string price, IGGPaymentPayload payload = null)
+        public void CallSdkBuyByPcid(PriceDefine priceDefine, string pcid, string price, SDKPaymentPayload payload = null)
         {
 
             string key = PlayerProxy.signKey;
@@ -566,7 +565,7 @@ namespace Game {
 
             BuyInfo buyInfo = new BuyInfo();
             WWWForm form = new WWWForm();
-            buyInfo.account = IGGSDKConstant.IGGDefault.IGGID;
+            buyInfo.account = SDKDefault.IGGID;
             form.AddField("account", buyInfo.account);
 
             buyInfo.time = DateTimeOffset.Now.ToUnixTimeSeconds().ToString();
@@ -604,7 +603,7 @@ namespace Game {
                     switch (request.downloadHandler.text)
                     {
                         case "OK":
-                            var isBuyItemWork = IGGPayment.shareInstance().buyItem(pcid, (IGGException ex, bool bIsUserCancle) =>
+                            var isBuyItemWork = SDKPayment.shareInstance().buyItem(pcid, (SDKException ex, bool bIsUserCancle) =>
                             {
                                 if (ex.isNone())
                                 {
@@ -616,7 +615,7 @@ namespace Game {
                                     int tempPcid = 0;
 
                                     string curency = "USD";
-                                    var gameitem = IGGPayment.shareInstance().GetGameItem(pcid);
+                                    var gameitem = SDKPayment.shareInstance().GetGameItem(pcid);
                                     if (gameitem != null)
                                     {
                                         price = gameitem.getShopPrice();
@@ -675,8 +674,8 @@ namespace Game {
                             }, payload);
                             if (!isBuyItemWork)
                             {
-                                int limitType = (int)IGGPayment.shareInstance().getPurchaseLimit();
-                                if (limitType != (int)IGGPaymentPurchaseLimitation.IGGPaymentPurchaseLimitationNone)
+                                int limitType = (int)SDKPayment.shareInstance().getPurchaseLimit();
+                                if (limitType != (int)PaymentPurchaseLimitation.None)
                                 {
                                     Tip.CreateTip(300246).Show();
                                 }

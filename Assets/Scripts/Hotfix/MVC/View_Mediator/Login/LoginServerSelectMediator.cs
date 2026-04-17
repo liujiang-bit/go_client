@@ -145,9 +145,9 @@ namespace Game {
                     ip = pwds[0];
                     pwd = pwds[1];
                 }
-                IGGSDKConstant.IGGDefault.AppConfigIP = ip;
-                IGGSDKConstant.IGGDefault.IGGID = _lastLoginName;
-                IGGSDKConstant.IGGDefault.Token = pwd;
+                SDKDefault.AppConfigIP = ip;
+                SDKDefault.IGGID = _lastLoginName;
+                SDKDefault.Token = pwd;
                 m_netProxy.SaveLoginInfo(m_serverIP, 10000, _lastLoginName, pwd, view.m_ipt_serverGameNode_GameInput.text);
                 CoreUtils.uiManager.CloseUI(UI.s_LoginView);
                 // m_netProxy.Connection();

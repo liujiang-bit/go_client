@@ -1,5 +1,4 @@
 ﻿using Client;
-using IGGSDKConstant;
 using Newtonsoft.Json;
 using PureMVC.Interfaces;
 using PureMVC.Patterns.Command;
@@ -12,7 +11,7 @@ namespace Game
 {
     public class ExitGameCMD : GameCmd
     {
-        private static IGGServerConfig m_serverConfig;
+        private static SDKServerConfig m_serverConfig;
         public override void Execute(INotification notification)
         {
             Alert.CreateAlert(100046, LanguageUtils.getText(300099)).SetRightButton(null, LanguageUtils.getText(100048)).SetLeftButton(ExitGame, LanguageUtils.getText(100047)).Show();

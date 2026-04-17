@@ -14,7 +14,6 @@ using Skyunion;
 using Client;
 using PureMVC.Interfaces;
 using SprotoType;
-using IGGSDKConstant;
 
 namespace Game {
     public class UI_Win_AccountMgrMediator : GameMediator {
@@ -104,7 +103,7 @@ namespace Game {
         {
             view.m_UI_BindingIGG.AddBindClickEvent(()=>
             {
-                SendNotification(CmdConstant.BindindAccount, IGGLoginType.IGG_PASSPORT);
+                SendNotification(CmdConstant.BindindAccount, LoginType.GOOGLE_PLAY);
             });
 
             view.m_UI_Change.AddClickEvent(()=>
@@ -129,13 +128,13 @@ namespace Game {
         {
             if (!m_bHasLoadUserProfile)
             {
-                view.m_lbl_accountID_LanguageText.text = LanguageUtils.getTextFormat(100102, IGGSession.currentSession.getIGGId());
-                var loginType = IGGSession.currentSession.getLoginType();
-                if (loginType == IGGSDKConstant.IGGLoginType.IGG_PASSPORT)
+                view.m_lbl_accountID_LanguageText.text = LanguageUtils.getTextFormat(100102, SDKSession.currentSession.getIGGId());
+                var loginType = SDKSession.currentSession.getLoginType();
+                if (loginType == LoginType.GOOGLE_PLAY)
                 {
                     view.m_lbl_logName_LanguageText.text = LanguageUtils.getTextFormat(100103, LanguageUtils.getText(100131));
                 }
-                else if (loginType == IGGSDKConstant.IGGLoginType.GUEST)
+                else if (loginType == LoginType.GUEST)
                 {
                     view.m_lbl_logName_LanguageText.text = LanguageUtils.getTextFormat(100103, LanguageUtils.getText(100127));
                 }
@@ -150,15 +149,15 @@ namespace Game {
             }
             else
             {
-                IGGUserProfile userProfile = IGGAccountManagementGuideline.shareInstance().getUserProfile();
+                SDKUserProfile userProfile = SDKAccountManagement.shareInstance().getUserProfile();
                 view.m_lbl_accountID_LanguageText.text = LanguageUtils.getTextFormat(100102, userProfile.getIGGID());
-                var loginType = IGGSession.currentSession.getLoginType();
+                var loginType = SDKSession.currentSession.getLoginType();
                 //view.m_lbl_logName_LanguageText.text = userProfile.getLoginType();
-                if (loginType == IGGSDKConstant.IGGLoginType.IGG_PASSPORT)
+                if (loginType == LoginType.GOOGLE_PLAY)
                 {
                     view.m_lbl_logName_LanguageText.text = LanguageUtils.getTextFormat(100103, LanguageUtils.getText(100131));
                 }
-                else if (loginType == IGGSDKConstant.IGGLoginType.GUEST)
+                else if (loginType == LoginType.GUEST)
                 {
                     view.m_lbl_logName_LanguageText.text = LanguageUtils.getTextFormat(100103, LanguageUtils.getText(100127));
                 }
@@ -170,7 +169,7 @@ namespace Game {
                 view.m_UI_BindingIGG.gameObject.SetActive(true);
 
                 bool bShowSafe = true;
-                var profile = userProfile.getBindingProfile(IGGLoginType.GUEST);
+                var profile = userProfile.getBindingProfile(LoginType.GUEST);
 
                 if (userProfile.getDeviceBindState() == GuestBindState.BIND_CURRENT_DEVICE)
                 {
@@ -184,7 +183,7 @@ namespace Game {
                 {
                     view.m_UI_BindingMachine.SetBindInfo(true, LanguageUtils.getText(570029));
                 }
-                profile = userProfile.getBindingProfile(IGGLoginType.IGG_PASSPORT);
+                profile = userProfile.getBindingProfile(LoginType.GOOGLE_PLAY);
                 if (profile != null && profile.isHasBound())
                 {
                     view.m_UI_BindingIGG.SetBindInfo(true, profile.getDisplayName());

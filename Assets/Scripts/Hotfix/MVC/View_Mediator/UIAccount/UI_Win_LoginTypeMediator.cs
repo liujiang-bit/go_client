@@ -84,11 +84,11 @@ namespace Game {
         {
             view.m_UI_Igg.AddClickEvent(() =>
             {
-                SendNotification(CmdConstant.LoginAccount, IGGSDKConstant.IGGLoginType.IGG_PASSPORT);
+                SendNotification(CmdConstant.LoginAccount, LoginType.GOOGLE_PLAY);
             });
             view.m_UI_Machine.AddClickEvent(() =>
             {
-                SendNotification(CmdConstant.LoginAccount, IGGSDKConstant.IGGLoginType.GUEST);
+                SendNotification(CmdConstant.LoginAccount, LoginType.GUEST);
             });
             view.m_UI_Model_Window_TypeMid.setCloseHandle(() =>
             {

@@ -14,7 +14,6 @@ using Skyunion;
 using Client;
 using PureMVC.Interfaces;
 using SprotoType;
-using IGGSDKConstant;
 
 namespace Game {
     public class UI_Win_LoginMainMediator : GameMediator {
@@ -100,12 +99,12 @@ namespace Game {
 
         protected override void BindUIData()
         {
-            var loginType = (IGGLoginType)view.data;
-            if (loginType == IGGSDKConstant.IGGLoginType.IGG_PASSPORT)
+            var loginType = (LoginType)view.data;
+            if (loginType == LoginType.GOOGLE_PLAY)
             {
                 view.m_UI_MainLogin.SetText(LanguageUtils.getText(100131));
             }
-            else if (loginType == IGGSDKConstant.IGGLoginType.GUEST)
+            else if (loginType == LoginType.GUEST)
             {
                 view.m_UI_MainLogin.SetText(LanguageUtils.getText(100127));
             }

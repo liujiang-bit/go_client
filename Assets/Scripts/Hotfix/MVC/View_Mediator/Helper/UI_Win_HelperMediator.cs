@@ -90,11 +90,11 @@ namespace Game {
 
         private void OnQuestion()
         {
-            IGGURLBundle.shareInstance().serviceURL((exception, url) =>
+            SDKURLBundle.shareInstance().serviceURL((exception, url) =>
             {
                 if (exception.isNone())
                 {
-                    IGGSDKUtils.shareInstance().OpenBrowser(url);
+                    SDKUtils.shareInstance().OpenBrowser(url);
                 }
             });
         }

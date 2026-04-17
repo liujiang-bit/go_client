@@ -18,7 +18,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.Networking;
 using LitJson;
 using System.Text;
-using static IGGServerConfig;
+using static SDKServerConfig;
 using System.Security.Cryptography;
 using System;
 using System.Net;
@@ -241,9 +241,9 @@ namespace Game
             //    ip = pwds[0];
             //    pwd = pwds[1];
             //}
-            IGGSDKConstant.IGGDefault.AppConfigIP = ip;
-            IGGSDKConstant.IGGDefault.IGGID = _lastLoginName;
-            IGGSDKConstant.IGGDefault.Token = _lastLoginPassword;
+            SDKDefault.AppConfigIP = ip;
+            SDKDefault.IGGID = _lastLoginName;
+            SDKDefault.Token = _lastLoginPassword;
 
             string key = PlayerProxy.signKey;
             LoginInfo loginInfo= new LoginInfo();

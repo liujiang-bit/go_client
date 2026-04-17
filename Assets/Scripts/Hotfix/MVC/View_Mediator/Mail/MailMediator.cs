@@ -996,10 +996,10 @@ namespace Game
                 return;
             }
             m_translatorEmailIndex = info.emailIndex;
-            List<IGGTranslationSource> textList = new List<IGGTranslationSource>();
+            List<SDKTranslationSource> textList = new List<SDKTranslationSource>();
             for (int i = 0; i < textNodeList.Count; i++)
             {
-                textList.Add(new IGGTranslationSource(textNodeList[i].BaseText));
+                textList.Add(new SDKTranslationSource(textNodeList[i].BaseText));
             }
             GameHelper.GetTranslator().translateTexts(textList, (value1) => {
                 if (m_currentSelectEmail != null && m_currentSelectEmail.emailIndex == m_translatorEmailIndex)
@@ -1007,7 +1007,7 @@ namespace Game
                     List<LanguageText> textNodeList2 = GetNeedTranslationTextList(m_currentMailDefine);
                     for (int i = 0; i < textNodeList2.Count; i++)
                     {
-                        IGGTranslation valTrans = value1.getByIndex(i);
+                        SDKTranslation valTrans = value1.getByIndex(i);
                         if (valTrans != null)
                         {
                             textNodeList2[i].text = valTrans.getText();

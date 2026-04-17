@@ -279,7 +279,7 @@ namespace Game {
                     break;
                 case 5:
                     //sdk accesstoken失效
-                    IGGSession.invalidateCurrentSession();
+                    SDKSession.invalidateCurrentSession();
                     ShowErrorAlert(100072,GoLogin);
                     break;
                 case 6: // 移民踢出

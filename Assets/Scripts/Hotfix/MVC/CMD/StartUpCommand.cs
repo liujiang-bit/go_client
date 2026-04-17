@@ -32,7 +32,7 @@ namespace Game
             LanguageUtils.LoadCache();
 
             // 替换接口
-            IGGSDKUtils.shareInstance().ReplaceShowMsgBox1((string message, string title, string ok, string cancle, IGGSDKUtils.MsgBoxReturnListener.Listener listener)=>
+            SDKUtils.shareInstance().ReplaceShowMsgBox1((string message, string title, string ok, string cancle, SDKUtils.MsgBoxReturnListener.Listener listener)=>
             {
                 var alert = Alert.CreateAlert(message, title);
                 alert.SetRightButton(() => 
@@ -45,7 +45,7 @@ namespace Game
                 }, cancle);
                 alert.Show();
             });
-            IGGSDKUtils.shareInstance().ReplaceShowMsgBox2((string message, string title, string ok, IGGSDKUtils.MsgBoxReturnListener.Listener listener) =>
+            SDKUtils.shareInstance().ReplaceShowMsgBox2((string message, string title, string ok, SDKUtils.MsgBoxReturnListener.Listener listener) =>
             {
                 var alert = Alert.CreateAlert(message, title);
                 alert.SetRightButton(() =>
@@ -54,7 +54,7 @@ namespace Game
                 }, ok);
                 alert.Show();
             });
-            IGGSDKUtils.ReplaceShowToast((string message) =>
+            SDKUtils.ReplaceShowToast((string message) =>
             {
                 Tip.CreateTip(message).Show();
             });

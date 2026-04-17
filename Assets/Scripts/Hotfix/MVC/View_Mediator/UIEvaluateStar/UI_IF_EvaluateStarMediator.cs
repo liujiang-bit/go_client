@@ -20,7 +20,7 @@ namespace Game {
         #region Member
         public static string NameMediator = "UI_IF_EvaluateStarMediator";
 
-        private IGGStarndardAppRating m_starndardAppRating;
+        private SDKStandardAppRating m_starndardAppRating;
 
         #endregion
 
@@ -73,7 +73,7 @@ namespace Game {
 
         protected override void InitData()
         {
-            m_starndardAppRating = view.data as IGGStarndardAppRating;
+            m_starndardAppRating = view.data as SDKStandardAppRating;
         }
 
         protected override void BindUIEvent()
@@ -84,7 +84,7 @@ namespace Game {
             });
             view.m_UI_Great.AddClickEvent(() =>
             {
-                m_starndardAppRating.like((IGGException ex)=>
+                m_starndardAppRating.like((SDKException ex)=>
                 {
                 });
                 CoreUtils.uiManager.CloseUI(UI.s_EvaluateStar);

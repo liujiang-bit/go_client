@@ -14,14 +14,10 @@ using Client;
 namespace Game {
     public partial class UI_Item_AgreementLink_SubView : UI_SubView
     {
-        public void SetAgreement(IGGAgreement agreement)
+        public void SetAgreement(SDKAgreement agreement)
         {
-            m_UI_Model_Link.SetLinkText(agreement.localizedName());
-            var url = agreement.url();
-            m_UI_Model_Link.AddClickEvent(()=>
-            {
-                HotfixUtil.OpenBrowser(url, agreement.localizedName());
-            });
+            // SDK 协议展示功能已移除（Stub）
+            // 后续可接入自定义协议管理
         }
     }
 }

@@ -20,7 +20,6 @@ using System;
 using Data;
 using UnityEngine.Profiling;
 using System.Text;
-using IGGSDKConstant;
 using Sproto;
 using U3D.Threading.Tasks;
 
@@ -190,7 +189,7 @@ namespace Game
             });
             AddMenu("SDK账号失效", () =>
             {
-                IGGSession.invalidateCurrentSession();
+                SDKSession.invalidateCurrentSession();
             });
 #if UNITY_ANDROID && !UNITY_EDITOR
             AddMenu("测试获取权限", () =>
@@ -216,11 +215,11 @@ namespace Game
 #endif
             AddMenu("当前IGGID", () =>
             {
-                view.m_lbl_rid_LanguageText.text = IGGSession.currentSession.getAccesskey();
-                Debug.Log(IGGSession.currentSession.ToString());
-                string copyBuffer = $"{IGGSession.currentSession.ToString()}\nPwd:{IGGSDK.appConfig.getClientIp()}|{IGGSession.currentSession.getAccesskey()}";
+                view.m_lbl_rid_LanguageText.text = SDKSession.currentSession.getAccesskey();
+                Debug.Log(SDKSession.currentSession.ToString());
+                string copyBuffer = $"{SDKSession.currentSession.ToString()}\nPwd:{SDKBridge.appConfig.getClientIp()}|{SDKSession.currentSession.getAccesskey()}";
                 GUIUtility.systemCopyBuffer = copyBuffer;
-                IGGSDKUtils.shareInstance().ShowToast(IGGSession.currentSession.ToString());
+                SDKUtils.ShowToast(SDKSession.currentSession.ToString());
             });
             AddMenu("打印所有属性", () =>
             {
@@ -808,28 +807,28 @@ namespace Game
 
             AddMenu("账户中心", () =>
             {
-                IGGAccountManagementGuideline.shareInstance().loadUserFromServerOrCache((IGGException exception, IGGUserProfile userProfile) =>
+                SDKAccountManagement.shareInstance().loadUserFromServerOrCache((SDKException exception, SDKUserProfile userProfile) =>
                 {
                     if (exception.isNone())
                     {
-                        //IGGSDKAccountInfoUI.ShowUI();
+                        //SDKAccountInfoUI.ShowUI();
                     }
                 });
             });
 
             AddMenu("游戏商店", () =>
             {
-                //IGGSDKShopUI.ShowUI();
+                //SDKShopUI.ShowUI();
             });
             AddMenu("账号失效", () =>
             {
-                IGGSession.invalidateCurrentSession();
+                SDKSession.invalidateCurrentSession();
             });
             AddMenu("协议列表", () =>
             {
-                IGGSDK.shareInstance().getAgreementSigning();
-                var mIGGAgreementSigning = IGGSDK.shareInstance().getAgreementSigning();
-                mIGGAgreementSigning.requestAssignedAgreements((IGGException exception, IGGAssignedAgreements assignedAgreements) =>
+                SDKBridge.shareInstance().getAgreementSigning();
+                var mAgreementSigning = SDKBridge.shareInstance().getAgreementSigning();
+                mAgreementSigning.getAssignedAgreements((SDKException exception, SDKAssignedAgreements assignedAgreements) =>
                 {
                     if (exception.isNone())
                     {
@@ -841,7 +840,7 @@ namespace Game
                             sb.Append(ag.ToString());
                             Debug.Log(ag.ToString());
                         }
-                        IGGSDKUtils.shareInstance().ShowToast(sb.ToString());
+                        SDKUtils.ShowToast(sb.ToString());
                     }
                     else
                     {
@@ -851,111 +850,77 @@ namespace Game
             });
             AddMenu("终止协议(CN)", () =>
             {
-                var mIGGAgreementSigning = IGGSDK.shareInstance().getAgreementSigning();
-                mIGGAgreementSigning.termination().requestAssignedAgreements((IGGException exception, IGGAgreementSignedFile signingFile, IGGAgreementTerminationAlert alert) =>
-                {
-                    if (exception.isNone())
-                    {
-                        var list = signingFile.getAgreements();
-                        for (int i = 0; i < list.Count; i++)
-                        {
-                            var ag = list[i];
-                            Debug.Log(ag.ToString());
-                        }
-
-                        IGGSDKUtils.shareInstance().ShowMsgBox(alert.getLocalizedCaption(),
-                            alert.getLocalizedTitle(),
-                            alert.getLocalizedActionDismiss(),
-                            (bool bSure) =>
-                            {
-                                if (bSure)
-                                {
-                                    mIGGAgreementSigning = IGGSDK.shareInstance().getAgreementSigning();
-                                    mIGGAgreementSigning.termination().terminate((IGGException ex) =>
-                                    {
-                                        if (ex.isNone())
-                                        {
-                                            IGGSDKUtils.shareInstance().ShowToast("agreement terrminate success");
-                                        }
-                                        else
-                                        {
-                                            IGGSDKUtils.shareInstance().ShowToast("agreement terrminate error:" + ex.ToString());
-                                        }
-                                    }
-                                    );
-                                }
-                            });
-
-                    }
-                    else
-                    {
-                        Debug.Log(exception.ToString());
-                    }
-                });
+                // TODO: 终止协议功能需要在 SDKBridge 中实现
+                // var mAgreementSigning = SDKBridge.shareInstance().getAgreementSigning();
+                // mAgreementSigning.termination().requestAssignedAgreements(...)
+                Debug.Log("[SDKBridge] 终止协议功能暂未实现");
             });
-            mWegamer = AddMenu("Wegamer", () =>
-            {
-                WegamersSDK.shareInstance().startBrowser();
-            });
+            // WegamersSDK 已移除
+            // mWegamer = AddMenu("Wegamer", () =>
+            // {
+            //     WegamersSDK.shareInstance().startBrowser();
+            // });
             AddMenu("游戏论坛", () =>
             {
-                IGGURLBundle.shareInstance().forumURL((exception, url) =>
+                SDKURLBundle.shareInstance().serviceURL((exception, url) =>
                 {
                     if (exception.isNone())
                     {
-                        IGGSDKUtils.shareInstance().OpenBrowser(url);
+                        SDKUtils.shareInstance().OpenBrowser(url);
                     }
                 });
             });
             AddMenu("普通客服", () =>
             {
-                IGGURLBundle.shareInstance().livechatURL((exception, url) =>
+                SDKURLBundle.shareInstance().serviceURL((exception, url) =>
                 {
                     if (exception.isNone())
                     {
-                        IGGSDKUtils.shareInstance().OpenBrowser(url);
+                        SDKUtils.shareInstance().OpenBrowser(url);
                     }
                 });
             });
             AddMenu("支付客服", () =>
             {
-                IGGURLBundle.shareInstance().paymentLivechatURL((exception, url) =>
+                SDKURLBundle.shareInstance().serviceURL((exception, url) =>
                 {
                     if (exception.isNone())
                     {
-                        IGGSDKUtils.shareInstance().OpenBrowser(url);
+                        SDKUtils.shareInstance().OpenBrowser(url);
                     }
                 });
             });
             AddMenu("提交问题", () =>
             {
-                IGGURLBundle.shareInstance().serviceURL((exception, url) =>
+                SDKURLBundle.shareInstance().serviceURL((exception, url) =>
                 {
                     if (exception.isNone())
                     {
-                        IGGSDKUtils.shareInstance().OpenBrowser(url);
+                        SDKUtils.shareInstance().OpenBrowser(url);
                     }
                 });
             });
             AddMenu("测试推送", () =>
             {
-                var pushUrl = string.Format("http://push.igg.com/api/send_msg.php?g_id={0}&m_push_type=2&m_iggid_file={1}&m_time_to_send=0&m_display=0&m_by_timezone=0&m_msg=test5&m_data={{%22test%22:%201,%20%22id%22:%201236}}", IGGSDK.shareInstance().getGameId(), IGGSession.currentSession.getIGGId());
-                IGGSDKUtils.shareInstance().OpenBrowser(pushUrl);
+                var pushUrl = string.Format("http://push.igg.com/api/send_msg.php?g_id={0}&m_push_type=2&m_iggid_file={1}&m_time_to_send=0&m_display=0&m_by_timezone=0&m_msg=test5&m_data={{%22test%22:%201,%20%22id%22:%201236}}", SDKBridge.shareInstance().getGameId(), SDKSession.currentSession.getIGGId());
+                SDKUtils.shareInstance().OpenBrowser(pushUrl);
             });
             AddMenu("语言翻译", () =>
             {
                 Debug.Log("onTranslate");
 
-                IGGTranslator translator = new IGGTranslator(IGGLanguage.auto, IGGLanguage.Zh_CN);
+                SDKTranslator translator = new SDKTranslator(SDKLanguage.auto, SDKLanguage.Zh_CN);
 
-                translator.translateText(new IGGTranslationSource("we are the king"), (IGGTranslationSet set) =>
-                {
-                    IGGTranslation trans = set.getByIndex(0);
-                    IGGSDKUtils.shareInstance().ShowToast(trans.ToString());
-                }, (IGGException var1, List<IGGTranslationSource> sources)=>
-                {
-                    Debug.LogError(var1.ToString());
-                });
+                // TODO: 翻译功能需要在 SDKBridge 中实现
+                // translator.translateText(new SDKTranslationSource("we are the king"), (SDKTranslationSet set) =>
+                // {
+                //     SDKTranslation trans = set.getByIndex(0);
+                //     SDKUtils.shareInstance().ShowToast(trans.ToString());
+                // }, (SDKException var1, List<SDKTranslationSource> sources)=>
+                // {
+                //     Debug.LogError(var1.ToString());
+                // });
+                Debug.Log("[SDKBridge] 翻译功能暂未实现");
 
                 //var sources = new List<IGGTranslationSource>();
                 //sources.Add(new IGGTranslationSource("我是谁"));
@@ -990,52 +955,37 @@ namespace Game
             });
             AddMenu("举报玩家", () =>
             {
-                IGGInGameReporting.shareInstance().ReportComplain("119737175", "test", ".-_~我test report", (bool bSussessed, IGGInGameReporting.WebRequestReturn requestReturn) =>
-                {
-                    if (bSussessed)
-                    {
-                        if (requestReturn.error.code == 0)
-                        {
-                            IGGSDKUtils.shareInstance().ShowToast("举报成功");
-                        }
-                        else
-                        {
-                            IGGSDKUtils.shareInstance().ShowToast("举报失败:" + requestReturn.error.message);
-                        }
-                    }
-                    else
-                    {
-                        IGGSDKUtils.shareInstance().ShowToast("举报失败:连接错误");
-                    }
-                });
+                // TODO: 举报功能需要在 SDKBridge 中实现
+                // IGGInGameReporting 已移除
+                Debug.Log("[SDKBridge] 举报功能暂未实现");
             });
             AddMenu("评分(运营设置)", () =>
             {
-                var appRating = IGGSDK.shareInstance().getAppRating();
+                var appRating = SDKBridge.shareInstance().getAppRating();
                 appRating.requestReview(
-                (IGGAppRatingStatus status) =>
+                (SDKAppRatingStatus status) =>
                 {
-                    IGGSDKUtils.shareInstance().ShowToast("评星关闭状态（通知运营打开）");
+                    SDKUtils.ShowToast("评星关闭状态（通知运营打开）");
                 },
-                (IGGException exception) =>
+                (SDKException exception) =>
                 {
                     Debug.Log($"OnError:{exception.ToString()}");
                 },
-                (IGGMinimizedAppRating rating) =>
+                (SDKMinimizedAppRating rating) =>
                 {
                     Debug.Log($"OnMinimizedAppRating");
-                    rating.goRating((IGGException exception) =>
+                    rating.goRating((SDKException exception) =>
                     {
                         Debug.Log(exception.ToString());
                     });
                 },
-                (IGGStarndardAppRating rating) =>
+                (SDKStandardAppRating rating) =>
                 {
-                    IGGSDKUtils.shareInstance().ShowMsgBox("喜歡我們遊戲嗎？我們為所有玩家提供最好的體驗！", "标准评星", "喜歡", "不喜歡", (bool bSure) =>
+                    SDKUtils.shareInstance().ShowMsgBox("喜歡我們遊戲嗎？我們為所有玩家提供最好的體驗！", "标准评星", "喜歡", "不喜歡", (bool bSure) =>
                     {
                         if (bSure)
                         {
-                            IGGSDKUtils.shareInstance().ShowMsgBox("因為你，我們不斷成長！請為我們評分！", "标准评星", "前往評分", (bool bSure2) =>
+                            SDKUtils.shareInstance().ShowMsgBox("因為你，我們不斷成長！請為我們評分！", "标准评星", "前往評分", (bool bSure2) =>
                             {
                                 if (bSure2)
                                 {
@@ -1047,22 +997,22 @@ namespace Game
                         }
                         else
                         {
-                            IGGSDKUtils.shareInstance().ShowMsgBox("非常抱歉，沒有提供最好的體驗給您，有什麼意見可以提供給我們嗎？", "标准评星", "网页建议", "内置建议", (bool bSure2) =>
+                            SDKUtils.shareInstance().ShowMsgBox("非常抱歉，沒有提供最好的體驗給您，有什麼意見可以提供給我們嗎？", "标准评星", "网页建议", "内置建议", (bool bSure2) =>
                             {
                                 if (bSure2)
                                 {
                                     rating.getFeedbackWebPageURL((url) =>
                                     {
-                                        IGGSDKUtils.shareInstance().OpenBrowser(url);
+                                        SDKUtils.shareInstance().OpenBrowser(url);
                                     });
                                 }
                                 else
                                 {
-                                    rating.feedback(new IGGAppRatingFeedback(5, "test"), (IGGException ex) =>
+                                    rating.feedback(new SDKAppRatingFeedback(5, "test"), (SDKException ex) =>
                                     {
                                         if (ex.isNone())
                                         {
-                                            IGGSDKUtils.shareInstance().ShowToast("内置建议完成");
+                                            SDKUtils.ShowToast("内置建议完成");
                                         }
                                     });
                                 }
@@ -1073,30 +1023,11 @@ namespace Game
                 });
             });
 
-            AddMenu("检测weGamer红点", () =>
-            {
-                // 社区界面打开就需要调用
-                WegamersSDK.shareInstance().CheckState(IGGSession.currentSession.getIGGId(), IGGSession.currentSession.getIGGId(), "1001000330", "c5fTfIp8ig2qO6Nu", WeGamersSDKParams.SkinType.SKIN_DARK, (bool bShowBtn) =>
-                {
-                    // 显示隐藏Wegamer入口
-                    mWegamer.gameObject.SetActive(bShowBtn);
-                },
-                (bool bHasRed) =>
-                {
-                    var text = mWegamer.GetComponentInChildren<Text>();
-                    // 显示红点
-                    if (bHasRed)
-                    {
-                        text.text = "Wegamer(消息)";
-                        text.color = Color.red;
-                    }
-                    else
-                    {
-                        text.text = "Wegamer";
-                        text.color = Color.black;
-                    }
-                });
-            });
+            // WegamersSDK 已移除
+            // AddMenu("检测weGamer红点", () =>
+            // {
+            //     WegamersSDK.shareInstance().CheckState(...)
+            // });
             AddMenu("帐号红点时间清理", () =>
             {
                 Debug.LogError("帐号红点时间清理");

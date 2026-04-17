@@ -488,11 +488,11 @@ namespace Game {
 
             view.m_btn_service_GameButton.onClick.AddListener(() =>
             {
-                IGGURLBundle.shareInstance().serviceURL((exception, url) =>
+                SDKURLBundle.shareInstance().serviceURL((exception, url) =>
                 {
                     if (exception.isNone())
                     {
-                        IGGSDKUtils.shareInstance().OpenBrowser(url);
+                        SDKUtils.shareInstance().OpenBrowser(url);
                     }
                 });
             });

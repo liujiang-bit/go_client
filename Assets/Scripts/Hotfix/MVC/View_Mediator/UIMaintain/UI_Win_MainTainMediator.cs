@@ -83,7 +83,7 @@ namespace Game {
 
             view.m_UI_Model_Window_TypeMid.SetCloseVisible(false);
 
-            var serverConfig = IGGSDK.appConfig.getServerConfig();
+            var serverConfig = SDKBridge.appConfig.getServerConfig();
             if (type == MaintainType.ForceUpdate)
             {
                 view.m_UI_Model_Window_TypeMid.setWindowTitle(LanguageUtils.getText(100056));
@@ -104,9 +104,9 @@ namespace Game {
                 view.m_UI_facebook.AddClickEvent(() =>
                 {
 #if UNITY_ANDROID
-                    IGGSDKUtils.shareInstance().OpenBrowser(serverConfig.update.googleUrl);
+                    SDKUtils.shareInstance().OpenBrowser(serverConfig.update.googleUrl);
 #else
-                    IGGSDKUtils.shareInstance().OpenBrowser(serverConfig.update.appleUrl);
+                    SDKUtils.shareInstance().OpenBrowser(serverConfig.update.appleUrl);
 #endif
                 });
             }
@@ -131,9 +131,9 @@ namespace Game {
                 view.m_UI_facebook.AddClickEvent(() =>
                 {
 #if UNITY_ANDROID
-                    IGGSDKUtils.shareInstance().OpenBrowser(serverConfig.update.googleUrl);
+                    SDKUtils.shareInstance().OpenBrowser(serverConfig.update.googleUrl);
 #else
-                    IGGSDKUtils.shareInstance().OpenBrowser(serverConfig.update.appleUrl);
+                    SDKUtils.shareInstance().OpenBrowser(serverConfig.update.appleUrl);
 #endif
                 });
             }
@@ -145,7 +145,7 @@ namespace Game {
                     view.m_lbl_languageText_LanguageText.text = serverConfig.messages.content.maintain;
                 }
                 bool bEnter = false;
-                var serverTime = IGGSDK.appConfig.serverTime;
+                var serverTime = SDKBridge.appConfig.serverTime;
                 DateTime serverDateTime = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(serverTime).AddHours(-5);
                 
                 if (serverConfig.update.isMaintain.endAt <= serverDateTime)
@@ -175,7 +175,7 @@ namespace Game {
 
                 m_Timer1 = Timer.Register(1.0f, null, (float time) =>
                 {
-                    serverTime = IGGSDK.appConfig.serverTime;
+                    serverTime = SDKBridge.appConfig.serverTime;
                     serverDateTime = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(serverTime).AddHours(-5);
                     if (serverConfig.update.isMaintain.endAt <= serverDateTime)
                     {
@@ -228,7 +228,7 @@ namespace Game {
                 view.m_UI_facebook.SetText(LanguageUtils.getText(100055));
                 view.m_UI_facebook.AddClickEvent(() =>
                 {
-                    IGGSDKUtils.shareInstance().OpenBrowser(HotfixUtil.getLanguageLink(1));
+                    SDKUtils.shareInstance().OpenBrowser(HotfixUtil.getLanguageLink(1));
                 });
             }
         }
@@ -248,11 +248,11 @@ namespace Game {
         private void OnServiceEvent()
         {
             //暂时只有问题提交
-            IGGURLBundle.shareInstance().serviceURL((exception, url) =>
+            SDKURLBundle.shareInstance().serviceURL((exception, url) =>
             {
                 if (exception.isNone())
                 {
-                    IGGSDKUtils.shareInstance().OpenBrowser(url);
+                    SDKUtils.shareInstance().OpenBrowser(url);
                 }
             });
         }

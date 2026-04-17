@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using IGGSDKConstant;
 using Skyunion;
 using Spine;
 using Spine.Unity;
@@ -1258,44 +1257,8 @@ namespace Client
 
         public static void TranslatorSDK(LanguageText text)
         {
-            IGGTranslator m_translator;
-            switch(LanguageUtils.GetLanguage())
-            {
-                case SystemLanguage.Arabic:
-                    m_translator = new IGGTranslator(IGGLanguage.auto, IGGLanguage.Ar);
-                    break;
-                case SystemLanguage.English:
-                    m_translator = new IGGTranslator(IGGLanguage.auto, IGGLanguage.En);
-                    break;
-                case SystemLanguage.Turkish:
-                    m_translator = new IGGTranslator(IGGLanguage.auto, IGGLanguage.Tr);
-                    break;
-                case SystemLanguage.Chinese:
-                case SystemLanguage.ChineseSimplified:
-                case SystemLanguage.ChineseTraditional:
-                    m_translator = new IGGTranslator(IGGLanguage.auto, IGGLanguage.Zh_CN);
-                    break;
-                default:
-                    m_translator = new IGGTranslator(IGGLanguage.auto, IGGLanguage.Ar);
-                    break;
-            }
-            
-            m_translator.translateText(new IGGTranslationSource(text.BaseText), (IGGTranslationSet set) => 
-            { 
-                IGGTranslation trans = set.getByIndex(0);
-
-                if (text!=null)
-                {
-                    if (trans.getSourceText() == text.BaseText)
-                    {
-                        text.text = trans.getText();
-                    }
-                    
-                }
-            }, (args,list) =>
-            {
-                Debug.Log(args.ToString());
-            });
+            // SDK 翻译功能已移除，直接保留原文
+            // 后续可接入 Google Translate API 或其他翻译服务
         }
 
         //文本超出省略号格式化

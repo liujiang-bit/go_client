@@ -144,10 +144,10 @@ namespace Game {
             Data.PriceDefine priceCfg = CoreUtils.dataService.QueryRecord<Data.PriceDefine>(packageDefine.price);
             if (priceCfg != null)
             {
-                var gameItems = IGGPayment.shareInstance().GetIGGGameItems();
+                var gameItems = SDKPayment.shareInstance().GetIGGGameItems();
                 if (gameItems != null)
                 {
-                    IGGGameItem funGameItem = null;
+                    SDKGameItem funGameItem = null;
                     foreach (var gameItem in gameItems)
                     {
                         if (gameItem.getId() == priceCfg.rechargeID.ToString())
@@ -218,12 +218,12 @@ namespace Game {
             Data.PriceDefine priceCfg = CoreUtils.dataService.QueryRecord<Data.PriceDefine>(packageDefine.price);
             if (priceCfg == null) return;
             RechargeProxy rechargeProxy = AppFacade.GetInstance().RetrieveProxy(RechargeProxy.ProxyNAME) as RechargeProxy;
-            IGGPaymentPayload payload = new IGGPaymentPayload(IGGSDK.shareInstance().getCharID().ToString(), (int)IGGSDK.shareInstance().getServerID());
+            SDKPaymentPayload payload = new SDKPaymentPayload(SDKBridge.shareInstance().getCharID().ToString(), int.Parse(SDKBridge.shareInstance().getServerID()));
             payload.AddParam("index",m_packageInfo.index.ToString());
             rechargeProxy.CallSdkBuyByPcid(priceCfg,priceCfg.rechargeID.ToString(),priceCfg.price.ToString("N2"),payload);
         }
         
-        private void OnItemBuy(IGGException ex, bool bUserCancel)
+        private void OnItemBuy(SDKException ex, bool bUserCancel)
         {
             
         }

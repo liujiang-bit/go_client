@@ -20,14 +20,10 @@ namespace Game {
             m_btn_btn_GameButton.onClick.AddListener(call);
         }
 
-        public void SetAgreement(IGGAgreement agreement)
+        public void SetAgreement(SDKAgreement agreement)
         {
-            m_lbl_Text_LanguageText.text = agreement.localizedName();
-            var url = agreement.url();
-            AddClickEvent(() =>
-            {
-                HotfixUtil.OpenBrowser(url, agreement.localizedName());
-            });
+            // SDK 协议展示功能已移除（Stub）
+            // 后续可接入自定义协议管理
         }
     }
 }

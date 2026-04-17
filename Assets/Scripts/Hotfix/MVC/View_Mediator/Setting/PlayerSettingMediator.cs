@@ -21,8 +21,8 @@ namespace Game {
         #region Member
         public static string NameMediator = "PlayerSettingMediator";
 
-        private IGGAgreementSigningFile m_signingFile;
-        private IGGAssignedAgreements m_assignedAgreements;
+        private SDKAgreementSigningFile m_signingFile;
+        private SDKAssignedAgreements m_assignedAgreements;
         private List<UI_Item_PlayerDataBtn_SubView> m_agreementBtnList = new List<UI_Item_PlayerDataBtn_SubView>();
         private RoleInfoProxy m_RoleInfoProxy;
 
@@ -97,7 +97,7 @@ namespace Game {
             }
             if (!HotfixUtil.IsShowLoginView())
             {
-                IGGSDK.shareInstance().getAgreementSigning().requestAssignedAgreements(OnIGGAssignedAgreementsLoad);
+                SDKBridge.shareInstance().getAgreementSigning().getAssignedAgreements(OnSDKAssignedAgreementsLoad);
             }
             m_RoleInfoProxy?.SendRoleInfo();
         }
@@ -162,9 +162,9 @@ namespace Game {
         }
         //private void OnViewAgreement()
         //{
-        //    IGGSDK.shareInstance().getAgreementSigning().requestAssignedAgreements(OnIGGAssignedAgreementsLoad);
+        //    IGGSDK.shareInstance().getAgreementSigning().requestAssignedAgreements(OnSDKAssignedAgreementsLoad);
         //}
-        void OnIGGAssignedAgreementsLoad(IGGException exception, IGGAssignedAgreements agreements)
+        void OnSDKAssignedAgreementsLoad(SDKException exception, SDKAssignedAgreements agreements)
         {
             if (view.gameObject == null)
             {
@@ -178,13 +178,13 @@ namespace Game {
             {
                 //CoreUtils.uiManager.ShowUI(UI.s_Agreement, null, agreements);
 
-                List<IGGAgreement> agrees = agreements.getAgreements();
+                List<SDKAgreement> agrees = agreements.getAgreements();
                 if (agrees == null)
                 {
-                    Debug.Log("OnIGGAssignedAgreementsLoad return null");
+                    Debug.Log("OnSDKAssignedAgreementsLoad return null");
                     return;
                 }
-                Debug.LogFormat("OnIGGAssignedAgreementsLoad count:{0}", agrees.Count);
+                Debug.LogFormat("OnSDKAssignedAgreementsLoad count:{0}", agrees.Count);
                 if (agrees.Count > 0)
                 {
                     int count = m_agreementBtnList.Count;
@@ -200,7 +200,7 @@ namespace Game {
             }
             else
             {
-                IGGSDKUtils.shareInstance().ShowToast(LanguageUtils.getTextFormat(100125, exception.getCode()));
+                SDKUtils.ShowToast(LanguageUtils.getTextFormat(100125, exception.getCode()));
             }
         }
 

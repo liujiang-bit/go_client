@@ -10,7 +10,6 @@ using System;
 using System.Collections.Generic;
 using Client;
 using Data;
-using IGGSDKConstant;
 using PureMVC.Interfaces;
 using Skyunion;
 using UnityEngine;
@@ -170,13 +169,13 @@ namespace Game
             }
             m_isSendRequestProfile = false;
 
-            IGGUserProfile userProfile = IGGAccountManagementGuideline.shareInstance().getUserProfile();
+            SDKUserProfile userProfile = SDKAccountManagement.shareInstance().getUserProfile();
             if (userProfile == null)
             {
                 Debug.LogError("userProfile is null");
                 return;
             }
-            var profile = userProfile.getBindingProfile(IGGLoginType.IGG_PASSPORT);
+            var profile = userProfile.getBindingProfile(LoginType.GOOGLE_PLAY);
             if (profile == null)
             {
                 Debug.Log("profile is null");

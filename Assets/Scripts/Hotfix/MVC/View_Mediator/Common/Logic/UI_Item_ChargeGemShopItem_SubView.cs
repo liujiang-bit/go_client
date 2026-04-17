@@ -34,10 +34,10 @@ namespace Game {
             string strPrice = string.Empty;
             if (cfgPrice != null)
             {
-                var gameItems = IGGPayment.shareInstance().GetIGGGameItems();
+                var gameItems = SDKPayment.shareInstance().GetIGGGameItems();
                 if (gameItems != null)
                 {
-                    IGGGameItem funGameItem = null;
+                    SDKGameItem funGameItem = null;
                     foreach (var gameItem in gameItems)
                     {
                         if (gameItem.getId() == cfgPrice.rechargeID.ToString())

@@ -99,11 +99,11 @@ namespace Game {
         private void OnServiceEvent()
         {
             //暂时只有问题提交
-            IGGURLBundle.shareInstance().serviceURL((exception, url) =>
+            SDKURLBundle.shareInstance().serviceURL((exception, url) =>
             {
                 if (exception.isNone())
                 {
-                    IGGSDKUtils.shareInstance().OpenBrowser(url);
+                    SDKUtils.shareInstance().OpenBrowser(url);
                 }
             });
         }

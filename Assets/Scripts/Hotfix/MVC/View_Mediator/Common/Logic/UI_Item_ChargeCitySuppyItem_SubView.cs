@@ -82,10 +82,10 @@ namespace Game {
                 Data.PriceDefine priceCfg = CoreUtils.dataService.QueryRecord<Data.PriceDefine>(m_SupplyInfo.price);
                 if (priceCfg != null)
                 {
-                    var gameItems = IGGPayment.shareInstance().GetIGGGameItems();
+                    var gameItems = SDKPayment.shareInstance().GetIGGGameItems();
                     if (gameItems != null)
                     {
-                        IGGGameItem funGameItem = null;
+                        SDKGameItem funGameItem = null;
                         foreach (var gameItem in gameItems)
                         {
                             if (gameItem.getId() == priceCfg.rechargeID.ToString())
@@ -173,7 +173,7 @@ namespace Game {
             rechargeProxy.CallSdkBuyByPcid( priceCfg, priceCfg.rechargeID.ToString(),priceCfg.price.ToString("N2"));
         }
         
-        private void OnItemBuy(IGGException ex, bool bUserCancel)
+        private void OnItemBuy(SDKException ex, bool bUserCancel)
         {
             
         }
